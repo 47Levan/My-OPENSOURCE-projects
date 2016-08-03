@@ -215,7 +215,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +227,7 @@
     <Compile Include="Models\CategoryInfo.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DatabaseModel.cs" />
     <Compile Include="Models\Goods.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -257,16 +258,24 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\MainPage\Index.cshtml">
+      <BrowseToURL>~/MainPage/Index</BrowseToURL>
+    </Content>
     <Content Include="Views\PartialViews\showCatButton.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
     <Content Include="Views\PartialViews\Header.cshtml" />
     <Content Include="Views\Menu\Contacts.cshtml" />
     <Content Include="Views\Menu\AboutShop.cshtml" />
     <Content Include="Views\Menu\MethodsOfDelivery.cshtml" />
-    <Content Include="Views\Home\showProductsByFilter.cshtml" />
-    <Content Include="Views\Home\AddProducts.cshtml" />
-    <Content Include="Views\Home\AddedProduct.cshtml" />
+    <Content Include="Views\MainPage\showProductsByFilter.cshtml">
+      <BrowseToURL>~/MainPage/showProductsByFilter</BrowseToURL>
+    </Content>
+    <Content Include="Views\MainPage\AddProducts.cshtml">
+      <BrowseToURL>~/MainPage/AddProducts</BrowseToURL>
+    </Content>
+    <Content Include="Views\MainPage\AddedProduct.cshtml">
+      <BrowseToURL>~/MainPageAddedProduct</BrowseToURL>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

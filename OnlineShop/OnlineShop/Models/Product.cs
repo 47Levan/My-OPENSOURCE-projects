@@ -12,8 +12,11 @@ namespace OnlineShop.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     public partial class Product
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Enter name of product")]
         public string Name { get; set; }

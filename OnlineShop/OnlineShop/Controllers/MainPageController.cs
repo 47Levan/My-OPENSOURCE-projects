@@ -9,25 +9,31 @@ using System.Data.Entity;
 using System.Web.Helpers;
 namespace OnlineShop.Controllers
 {
-    public class HomeController : Controller
+    public class MainPageController : Controller
     {
-        static GoodsContainer1 goods = new GoodsContainer1();
-        public HomeController()
+        List<Category> categoryListForButtonList = new List<Category>();
+        List<SubCategory> subCategoryListForButtonList = new List<SubCategory>();
+        public MainPageController()
         {
             
         }
         // GET: Home
         public ActionResult Index()
         {
-            ViewData["SubCategories"] = goods.SubCategorySet;
-            ViewData["Categories"] = goods.CategorySet;
-            return View();
+         
+                return View();
+         
         }
         public ActionResult showCatButton()
         {
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
-            return PartialView();
+            DatabaseModel model = new DatabaseModel();
+            using (GoodsContainer1 goods = new GoodsContainer1())
+            {    
+                model.Categories = goods.CategorySet.ToList();
+                model.SubCategories = goods.SubCategorySet.ToList();
+            }
+            return PartialView(model);
+           
         }
         [HttpGet]
         public ActionResult showProductsByFilter(string category)
@@ -35,25 +41,31 @@ namespace OnlineShop.Controllers
             
             category = category.Trim();
             ViewData["category"]= category;
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
+            using (GoodsContainer1 goods = new GoodsContainer1())
+            {
+                ViewData["SubCategories"] = goods.SubCategorySet;
+                ViewData["Categories"] = goods.CategorySet;
+           
             return PartialView();
+            }
         }
         [HttpGet]
         public ActionResult AddProducts()
         {
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
-            ViewData["Products"] = goods.ProductSet;
-            
+          
+            using (GoodsContainer1 goods = new GoodsContainer1())
+            {
+                ViewData["Categories"] = goods.CategorySet;
+                ViewData["SubCategories"] = goods.SubCategorySet;
+                ViewData["Categories"] = goods.CategorySet;
+        
+
             return PartialView();
+            }
         }
         [HttpPost]
         public ActionResult AddProducts(Product product,HttpPostedFileBase uploadedImage)
         {
-         
-            
-           
             product.DateAdded =DateTime.Now;
             if (uploadedImage !=null && uploadedImage.ContentLength>0)
             {
@@ -64,18 +76,9 @@ namespace OnlineShop.Controllers
             }
             using (GoodsContainer1 container = new GoodsContainer1())
             {
-                ViewData["Categories"] = goods.CategorySet;
-                ViewData["SubCategories"] = goods.SubCategorySet;
-                ViewData["Products"] = goods.ProductSet;
-                int? maxId = container.ProductSet.Max(x => (int?)x.Id) + 1;
-                if (maxId != null)
-                {
-                    product.Id = (int)maxId + 1;
-                }
-                else
-                {
-                    product.Id = 1;
-                }
+                ViewData["Categories"] = container.CategorySet;
+                ViewData["SubCategories"] = container.SubCategorySet;
+                ViewData["Products"] = container.ProductSet;             
                 product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.selectedSub);
                 if (product.Article != null
                     && product.Name != null
@@ -97,7 +100,11 @@ namespace OnlineShop.Controllers
         [HttpPost]
         public JsonResult GetSubs(int category)
         {
-            List<SubCategory> subs = goods.SubCategorySet.Where(x=>x.Category.Id==category).ToList();
+            List<SubCategory> subs = new List<SubCategory>();
+            using (GoodsContainer1 goods=new GoodsContainer1())
+            {
+                subs = goods.SubCategorySet.Where(x => x.Category.Id == category).ToList();
+            }
             return Json(new SelectList(subs, "Id", "Subcategory"));
         }
     }

@@ -12,21 +12,19 @@ namespace OnlineShop.Controllers
         // GET: Menu
         public ActionResult Contacts()
         {
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
+           
             return View();
         }
         public ActionResult AboutShop()
         {
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
+          
             return View();
         }
         public ActionResult MethodsOfDelivery()
         {
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet;
+
             return View();
         }
+
     }
 }
