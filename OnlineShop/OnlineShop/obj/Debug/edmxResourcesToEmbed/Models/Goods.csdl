@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Goods" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="GoodsContainer1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategorySet" EntityType="Goods.Category" />
+    <EntitySet Name="ProductSet" EntityType="Goods.Product" />
+    <EntitySet Name="SubCategorySet" EntityType="Goods.SubCategory" />
+    <AssociationSet Name="SubCategoryCategory" Association="Goods.SubCategoryCategory">
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+      <End Role="Category" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSubCategory" Association="Goods.ProductSubCategory">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="SubCategory" Relationship="Goods.SubCategoryCategory" FromRole="Category" ToRole="SubCategory" />
+    <Property Name="category" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Article" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" />
+    <Property Name="Picture" Type="Binary" Nullable="false" />
+    <NavigationProperty Name="SubCategory" Relationship="Goods.ProductSubCategory" FromRole="Product" ToRole="SubCategory" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="CategoryInfo">
+    <Property Type="String" Name="CategoryName" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subcategory" Type="String" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Goods.SubCategoryCategory" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="Product" Relationship="Goods.ProductSubCategory" FromRole="SubCategory" ToRole="Product" />
+  </EntityType>
+  <Association Name="SubCategoryCategory">
+    <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <End Type="Goods.Category" Role="Category" Multiplicity="1" />
+  </Association>
+  <Association Name="ProductSubCategory">
+    <End Type="Goods.Product" Role="Product" Multiplicity="*" />
+    <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="1" />
+  </Association>
+</Schema>

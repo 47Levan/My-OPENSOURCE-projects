@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Goods.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GoodsStoreContainer">
+    <EntitySet Name="CategorySet" EntityType="Goods.Store.CategorySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductSet" EntityType="Goods.Store.ProductSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubCategorySet" EntityType="Goods.Store.SubCategorySet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SubCategoryCategory" Association="Goods.Store.SubCategoryCategory">
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+      <End Role="Category" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSubCategory" Association="Goods.Store.ProductSubCategory">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SubCategoryCategory">
+    <End Role="SubCategory" Type="Goods.Store.SubCategorySet" Multiplicity="*" />
+    <End Role="Category" Type="Goods.Store.CategorySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSubCategory">
+    <End Role="Product" Type="Goods.Store.ProductSet" Multiplicity="*" />
+    <End Role="SubCategory" Type="Goods.Store.SubCategorySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Goods" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="GoodsContainer1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategorySet" EntityType="Goods.Category" />
+          <EntitySet Name="ProductSet" EntityType="Goods.Product" />
+          <EntitySet Name="SubCategorySet" EntityType="Goods.SubCategory" />
+          <AssociationSet Name="SubCategoryCategory" Association="Goods.SubCategoryCategory">
+            <End Role="SubCategory" EntitySet="SubCategorySet" />
+            <End Role="Category" EntitySet="CategorySet" />
+          </AssociationSet>
+          <AssociationSet Name="ProductSubCategory" Association="Goods.ProductSubCategory">
+            <End Role="Product" EntitySet="ProductSet" />
+            <End Role="SubCategory" EntitySet="SubCategorySet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="SubCategory" Relationship="Goods.SubCategoryCategory" FromRole="Category" ToRole="SubCategory" />
+          <Property Name="category" Type="String" Nullable="false" />
+          </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Article" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="Picture" Type="Binary" Nullable="false" />
+          <NavigationProperty Name="SubCategory" Relationship="Goods.ProductSubCategory" FromRole="Product" ToRole="SubCategory" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="CategoryInfo">
+          <Property Type="String" Name="CategoryName" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subcategory" Type="String" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Goods.SubCategoryCategory" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="Product" Relationship="Goods.ProductSubCategory" FromRole="SubCategory" ToRole="Product" />
+        </EntityType>
+        <Association Name="SubCategoryCategory">
+          <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
+          <End Type="Goods.Category" Role="Category" Multiplicity="1" />
+        </Association>
+        <Association Name="ProductSubCategory">
+          <End Type="Goods.Product" Role="Product" Multiplicity="*" />
+          <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GoodsStoreContainer" CdmEntityContainer="GoodsContainer1">
+    <EntitySetMapping Name="CategorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Goods.Category)">
+        <MappingFragment StoreEntitySet="CategorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="category" ColumnName="category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Goods.Product)">
+        <MappingFragment StoreEntitySet="ProductSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Article" ColumnName="Article" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Goods.SubCategory)">
+        <MappingFragment StoreEntitySet="SubCategorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subcategory" ColumnName="Subcategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SubCategoryCategory" TypeName="Goods.SubCategoryCategory" StoreEntitySet="SubCategorySet">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Id" ColumnName="Category_Id" />
+      </EndProperty>
+      <EndProperty Name="SubCategory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductSubCategory" TypeName="Goods.ProductSubCategory" StoreEntitySet="ProductSet">
+      <EndProperty Name="SubCategory">
+        <ScalarProperty Name="Id" ColumnName="SubCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

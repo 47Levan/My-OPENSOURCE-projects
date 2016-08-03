@@ -1,0 +1,33 @@
+﻿
+
+<link type="text/css" rel="stylesheet" href="~/Content/Header.css?Wednesday 20th of July 2016 07:45:21 AM" />
+    <script src='@Url.Content("~/Scripts/jquery-3.1.0.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")' type="text/javascript"></script>
+    <div id="Header">
+        <ul id="HeaderList">
+            <li class="listForHead">  
+                <a class="menuItems" href="http://localhost:18157/Home/Index">
+                    <h3>Main</h3>
+                </a>       
+            </li>
+            <li class="listForHead">
+                <h3>
+                    @Html.ActionLink("Methods of delivery", "MethodsOfDelivery", "Menu")
+                </h3>
+            </li>
+            <li class="listForHead">
+                <h3>
+                    @Html.ActionLink("About Shop","AboutShop","Menu")
+                </h3>
+            </li>
+            <li class="listForHead">
+              
+                    <h3>
+                         @Html.RouteLink("Contacts", "MenuRoute")
+                    </h3>
+               
+              
+            </li>
+        </ul>
+    </div>
+

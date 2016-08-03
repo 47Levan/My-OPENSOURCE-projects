@@ -1,0 +1,52 @@
+﻿body {
+}
+#Header{
+    position:fixed;
+    min-width:1000px;
+    margin-left:15%;
+    height:50px;
+    width:65%;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:0px;
+    border-radius:10px;
+    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    color:white;
+    text-align:center;
+    vertical-align:middle;
+}
+.menuItems{
+    color:white;
+    text-decoration:none;
+}
+.menuItems:hover{
+    
+    color:gray;
+}
+h3 a{
+    color:white;
+    text-decoration:none;
+}
+h3 a:hover{
+    
+     color:gray;
+}
+h3{
+    display:inline;
+}
+h3:hover{
+   
+   
+}
+#HeaderList {
+      list-style-type:none;
+      margin-left:0px;
+      margin-right:100px;
+}
+.listForHead{
+    display:inline;
+    margin-top:20px;
+    margin-left:100px;
+  
+}
+

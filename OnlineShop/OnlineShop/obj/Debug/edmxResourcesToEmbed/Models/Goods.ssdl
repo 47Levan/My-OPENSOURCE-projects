@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Goods.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GoodsStoreContainer">
+    <EntitySet Name="CategorySet" EntityType="Goods.Store.CategorySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductSet" EntityType="Goods.Store.ProductSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubCategorySet" EntityType="Goods.Store.SubCategorySet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SubCategoryCategory" Association="Goods.Store.SubCategoryCategory">
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+      <End Role="Category" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSubCategory" Association="Goods.Store.ProductSubCategory">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SubCategoryCategory">
+    <End Role="SubCategory" Type="Goods.Store.SubCategorySet" Multiplicity="*" />
+    <End Role="Category" Type="Goods.Store.CategorySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSubCategory">
+    <End Role="Product" Type="Goods.Store.ProductSet" Multiplicity="*" />
+    <End Role="SubCategory" Type="Goods.Store.SubCategorySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,49 @@
+﻿body {
+   
+    background-color:#1a1a1a;
+}
+#temp {
+  
+    height:1000px;
+    width:500px;
+    background-color:red; 
+}
+#CategoryList {
+    vertical-align:middle;   
+}
+#showProduct{
+    text-align:left;
+    padding-left:20px;
+    overflow-y:scroll;
+    width:60%;
+    height:70%;
+    margin-top:100px;
+    margin-left:400px;
+    background-color:white;
+}
+#DataOperationsAdd{
+    width:100px;
+    height:50px;
+    margin-top:2%;
+    margin-left:75%;
+    border-radius:10px;
+    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    color:white;
+   
+    text-align:center;
+    display:inline;
+    position:absolute;
+}
+
+#DataOperationsRemove{
+    width:100px;
+    height:50px;
+    position:absolute;
+    margin-top:2%;
+    margin-left:35%;
+    border-radius:10px;
+    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    color:white;
+  
+    text-align:center;
+}

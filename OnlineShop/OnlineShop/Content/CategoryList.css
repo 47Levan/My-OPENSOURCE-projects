@@ -1,0 +1,50 @@
+﻿body {
+
+}
+
+#mainMenu{
+    left:0px;
+    position:fixed;
+    top:50%;
+    transform: translateY(-50%);
+    list-style-type:none;
+}
+.subMenu {
+     list-style-type:none;
+}
+.MenuItem
+{
+    width:300px;
+    height:50px;
+    border-radius:5px;
+    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    color:white;
+    border:1px solid black;
+    text-align:center;
+}
+.subMenuItem
+{
+   
+    width:300px;
+    height:50px;
+    border-radius:5px;
+    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    color:white;
+    border:1px solid black;
+    text-align:center;
+}
+MenuItem:hover
+{
+    color:black;
+    background:linear-gradient(to bottom, #e6e6e6 30%,#e6e6e6 40%,#e6e6e6 50%
+    , #f2f2f2 60%, #f2f2f2 70%, #f2f2f2 80%, #f2f2f2 90%, #f2f2f2 100%);
+}
+#mainMenu li ul {
+    display:none;
+}
+#mainMenu li:hover ul {
+    display:block;
+    position:absolute;
+    top:0px;
+    left:300px;
+}

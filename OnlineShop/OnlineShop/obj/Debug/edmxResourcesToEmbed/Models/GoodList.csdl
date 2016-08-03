@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GoodList" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="GoodListContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ProductsTypesSet" EntityType="GoodList.ProductsTypes" />
+    <EntitySet Name="ProductDescriptionSet" EntityType="GoodList.ProductDescription" />
+    <AssociationSet Name="ProductDescriptionProductsTypes" Association="GoodList.ProductDescriptionProductsTypes">
+      <End Role="ProductDescription" EntitySet="ProductDescriptionSet" />
+      <End Role="ProductsTypes" EntitySet="ProductsTypesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ProductsTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CellPhones" Type="String" Nullable="false" />
+    <Property Name="Laptops" Type="String" Nullable="false" />
+    <Property Name="PC" Type="String" Nullable="false" />
+    <Property Name="HeadPhones" Type="String" Nullable="false" />
+    <NavigationProperty Name="ProductDescription" Relationship="GoodList.ProductDescriptionProductsTypes" FromRole="ProductsTypes" ToRole="ProductDescription" />
+  </EntityType>
+  <EntityType Name="ProductDescription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ProductsTypes" Relationship="GoodList.ProductDescriptionProductsTypes" FromRole="ProductDescription" ToRole="ProductsTypes" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Article" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductDescriptionProductsTypes">
+    <End Type="GoodList.ProductDescription" Role="ProductDescription" Multiplicity="*" />
+    <End Type="GoodList.ProductsTypes" Role="ProductsTypes" Multiplicity="1" />
+  </Association>
+</Schema>

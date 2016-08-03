@@ -1,0 +1,170 @@
+﻿<Window x:Class="MusicSorter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicSorter"
+        xmlns:music="clr-namespace:MusicTagger"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="450" Width="525"
+        Background="#2f3237"
+        x:Name="window" Closed="window_Closed" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="{x:Type ProgressBar}" TargetType="{x:Type ProgressBar}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ProgressBar">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Determinate" >
+
+                                        </VisualState>
+                                        <VisualState x:Name="Indeterminate">
+
+                                        </VisualState>
+                                    </VisualStateGroup>
+
+                                </VisualStateManager.VisualStateGroups>
+                                <Rectangle x:Name="PART_Track" Fill="Transparent" Stroke="Black" RadiusX="10" RadiusY="10">
+
+                                </Rectangle>
+                                <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left"  Stroke="Black" RadiusX="10" RadiusY="10">
+                                    <Rectangle.Fill>
+                                        <DrawingBrush Stretch="UniformToFill"  ViewportUnits="Absolute"  Viewport="0,0,10,10" TileMode="Tile">
+                                            <DrawingBrush.Drawing>
+                                                <DrawingGroup>
+                                                    <DrawingGroup.Children>
+                                                        <GeometryDrawing Brush="Black">
+                                                            <GeometryDrawing.Geometry>
+                                                                <GeometryGroup FillRule="Nonzero">
+                                                                    <RectangleGeometry Rect="0,0,100,100"/>
+                                                                </GeometryGroup>
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                        <GeometryDrawing Brush="Transparent" >
+                                                            <GeometryDrawing.Geometry>
+                                                                <GeometryGroup  FillRule="Nonzero">
+                                                                    <RectangleGeometry  Rect="30,0,100,100"/>
+                                                                </GeometryGroup>
+                                                            </GeometryDrawing.Geometry>
+                                                        </GeometryDrawing>
+                                                    </DrawingGroup.Children>
+                                                </DrawingGroup>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
+                                    </Rectangle.Fill>
+
+                                </Rectangle>
+
+
+                            </Grid>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="RectengleStyle" TargetType="{x:Type ProgressBar}">
+                <Style.Setters>
+                    <Setter Property="Rectangle.Fill" Value="LightBlue"/>
+                </Style.Setters>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="/Resources/Music Label.xaml" x:Name="resource1"/>
+                <ResourceDictionary Source="/Resources/musicBlackLogo.xaml" x:Name="resource2"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Canvas Background="{StaticResource ResourceKey=MusicLogo}"  Width="50" Height="50" Margin="249,27,220,248"/>
+        <Grid Width="525" Height="300" VerticalAlignment="Bottom">
+            <!--#region  Grid layout-->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+            <!--#region Text blocks in Canvas-->
+            <Canvas >
+                <TextBlock   FontSize="30" Text="Source path" Height="45" Foreground="{DynamicResource 
+                    {x:Static SystemColors.GrayTextBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="33" Canvas.Top="20">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="2" Y="2" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Canvas.Left="33" Canvas.Top="20" FontSize="30"  Text="Source path" Height="30" Foreground="#2f3237" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Canvas>
+            <Canvas Grid.Row="1">
+                <TextBlock   FontSize="30" Text="Path to copy" Height="45" Foreground="{DynamicResource 
+                    {x:Static SystemColors.GrayTextBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="33" Canvas.Top="20">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="2" Y="2" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Canvas.Left="33" Canvas.Top="20" FontSize="30"  Text="Path to copy" Height="30" Foreground="#2f3237" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Canvas>
+            <Canvas Grid.Row="2">
+                <TextBlock   FontSize="20" Text="Sort your music by:" Height="45" Foreground="{DynamicResource 
+                    {x:Static SystemColors.GrayTextBrushKey}}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="33" Canvas.Top="20">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="1" Y="1" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Canvas.Left="33" Canvas.Top="20" FontSize="20"  Text="Sort your music by:" Height="30" Foreground="#2f3237" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Canvas>
+            <!--#endregion-->
+            <!--#region  Browse textbox and fields-->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <TextBox Height="30" HorizontalAlignment="Left" Text="D:\Leva\Temp Music" Width="190" x:Name="SelectedPath">
+                </TextBox>
+                <Separator Width="10" Opacity="0"/>
+                <Button  Style="{StaticResource NiceButton}" Width="50" Height="30" HorizontalAlignment="Center" Content="Browse" Click="BrowseButton" x:Name="BrowseSort"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Height="30" HorizontalAlignment="Left" Width="190" Text="C:\Temp music to copy" x:Name="PathToCopy"/>
+                <Separator Width="10" Opacity="0"/>
+                <Button Style="{StaticResource NiceButton}" Width="50" Height="30" HorizontalAlignment="Center" Content="Browse" Click="BrowseButton" x:Name="BrowseCopy"/>
+            </StackPanel>
+        <!--#endregion-->
+            <!--#region Checkboxes-->
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <CheckBox   x:Name="GenreCheckBox" Checked="GenreCheckBox_Checked">
+                    <CheckBox.Content>
+                        <TextBlock Text="Genre" Foreground="White"/>
+                    </CheckBox.Content>
+                </CheckBox>
+                <Separator Width="50" Opacity="0"/>
+                <CheckBox    x:Name="YearCheckBox" Checked="YearCheckBox_Checked">
+                    <CheckBox.Content>
+                        <TextBlock Text="Year" Foreground="White"/>
+                    </CheckBox.Content>
+                </CheckBox>
+                <Separator Width="50" Opacity="0"/>
+                <CheckBox  x:Name="ArtistCheckBox" Checked="ArtistCheckBox_Checked">
+                    <CheckBox.Content>
+                        <TextBlock Text="Artist" Foreground="White"/>
+                    </CheckBox.Content>
+                </CheckBox>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region progress elements-->
+            <TextBlock x:Name="ViewProgress" Foreground="Red" TextAlignment="Center" FontSize="10" Grid.ColumnSpan="2" Margin="0,15,10,36" Grid.Row="3"/>
+            <ProgressBar  Margin="4,39,13,14" Grid.Row="3" Value="{Binding MyVar}" Minimum="0"  RenderTransformOrigin="0.5,0.5" x:Name="SortProgress" Grid.ColumnSpan="2"/>
+            <!--#endregion-->
+            <!--#region CancelOkButtons-->
+            <Button Style="{StaticResource NiceButton}"  x:Name="ButtonToOk" Grid.Row="2" Content="OK" Height="20" Width="50"  Click="OkButton" Grid.Column="1" Grid.RowSpan="2" Margin="112,65,101,65"/>
+            <Button Style="{StaticResource NiceButton}" x:Name="ButtonToCancel" Click="CancelButton" Grid.Row="2" Content="Cancel" Height="20" Width="50" Margin="101,65,111,65"  Grid.RowSpan="2"/>
+            <!--#endregion-->
+        </Grid>
+    </Grid>
+</Window>

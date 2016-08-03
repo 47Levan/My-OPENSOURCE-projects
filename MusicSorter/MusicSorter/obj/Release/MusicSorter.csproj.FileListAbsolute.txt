@@ -1,0 +1,19 @@
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Release\MusicSorter.exe.config
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Release\MusicSorter.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Release\MusicSorter.pdb
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Release\taglib-sharp.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\Resources\Music Label.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\Resources\musicBlackLogo.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\AskReplace.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MainWindow.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\App.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter_MarkupCompile.cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter_MarkupCompile.lref
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\App.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\AskReplace.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MainWindow.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter.g.resources
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter.Properties.Resources.resources
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter.csproj.GenerateResource.Cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Release\MusicSorter.pdb

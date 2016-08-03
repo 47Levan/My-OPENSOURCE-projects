@@ -1,0 +1,20 @@
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Debug\MusicSorter.exe.config
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Debug\MusicSorter.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Debug\MusicSorter.pdb
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MainWindow.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\App.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter_MarkupCompile.cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter_MarkupCompile.lref
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MainWindow.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.g.resources
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.Properties.Resources.resources
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.csproj.GenerateResource.Cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.pdb
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\Resources\Music Label.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\Resources\musicBlackLogo.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\bin\Debug\taglib-sharp.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\App.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\AskReplace.g.cs
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\AskReplace.baml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\MusicSorter\MusicSorter\obj\Debug\MusicSorter.csprojResolveAssemblyReference.cache

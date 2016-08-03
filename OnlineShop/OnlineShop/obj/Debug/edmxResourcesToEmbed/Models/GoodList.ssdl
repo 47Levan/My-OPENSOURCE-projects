@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GoodList.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GoodListStoreContainer">
+    <EntitySet Name="ProductsTypesSet" EntityType="GoodList.Store.ProductsTypesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductDescriptionSet" EntityType="GoodList.Store.ProductDescriptionSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductDescriptionProductsTypes" Association="GoodList.Store.ProductDescriptionProductsTypes">
+      <End Role="ProductDescription" EntitySet="ProductDescriptionSet" />
+      <End Role="ProductsTypes" EntitySet="ProductsTypesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ProductsTypesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CellPhones" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Laptops" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeadPhones" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductDescriptionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="ProductsTypes_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductDescriptionProductsTypes">
+    <End Role="ProductDescription" Type="GoodList.Store.ProductDescriptionSet" Multiplicity="*" />
+    <End Role="ProductsTypes" Type="GoodList.Store.ProductsTypesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductsTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductDescription">
+        <PropertyRef Name="ProductsTypes_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

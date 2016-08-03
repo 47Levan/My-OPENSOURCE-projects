@@ -1,0 +1,10 @@
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFrameworkExample.exe.config
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFrameworkExample.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFrameworkExample.pdb
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFramework.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFramework.SqlServer.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFramework.xml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\bin\Debug\EntityFramework.SqlServer.xml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\obj\Debug\EntityFrameworkExample.csprojResolveAssemblyReference.cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\obj\Debug\EntityFrameworkExample.exe
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\EntityFrameworkExample\EntityFrameworkExample\obj\Debug\EntityFrameworkExample.pdb
