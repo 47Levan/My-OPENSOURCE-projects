@@ -9,9 +9,14 @@ namespace OnlineShop.Controllers
     public class FileOperController : Controller
     {
         // GET: FileOper
-        public ActionResult ShowPicture(byte[] imageData)
+        public ActionResult ShowPicture(int ImageDataId)
         {
-            return File(imageData,"image/jpg");
+            using (GoodsContainer1 goods=new GoodsContainer1())
+            {
+                byte[] imageData = goods.ProductSet.FirstOrDefault(x=>x.Id==ImageDataId).Picture;
+                return File(imageData, "image/jpg");
+            }
+               
         }
     }
 }

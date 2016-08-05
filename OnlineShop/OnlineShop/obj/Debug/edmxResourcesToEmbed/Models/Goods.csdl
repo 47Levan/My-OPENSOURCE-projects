@@ -8,9 +8,14 @@
       <End Role="SubCategory" EntitySet="SubCategorySet" />
       <End Role="Category" EntitySet="CategorySet" />
     </AssociationSet>
-    <AssociationSet Name="ProductSubCategory" Association="Goods.ProductSubCategory">
+    <EntitySet Name="DiscriptionParameters" EntityType="Goods.DescriptionParametrs" />
+    <AssociationSet Name="ProductDescriptionParametrs" Association="Goods.ProductDescriptionParametrs">
       <End Role="Product" EntitySet="ProductSet" />
+      <End Role="DescriptionParametrs" EntitySet="DiscriptionParameters" />
+    </AssociationSet>
+    <AssociationSet Name="SubCategoryProduct" Association="Goods.SubCategoryProduct">
       <End Role="SubCategory" EntitySet="SubCategorySet" />
+      <End Role="Product" EntitySet="ProductSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Category">
@@ -31,8 +36,10 @@
     <Property Name="Description" Type="String" Nullable="false" />
     <Property Name="Price" Type="Decimal" Nullable="false" />
     <Property Name="Picture" Type="Binary" Nullable="false" />
-    <NavigationProperty Name="SubCategory" Relationship="Goods.ProductSubCategory" FromRole="Product" ToRole="SubCategory" />
     <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="DescriptionParametrs" Relationship="Goods.ProductDescriptionParametrs" FromRole="Product" ToRole="DescriptionParametrs" />
+    <NavigationProperty Name="SubCategory" Relationship="Goods.SubCategoryProduct" FromRole="Product" ToRole="SubCategory" />
+    <Property Name="SubCategoryId" Type="Int32" Nullable="false" />
   </EntityType>
   <ComplexType Name="CategoryInfo">
     <Property Type="String" Name="CategoryName" Nullable="false" />
@@ -45,14 +52,44 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Subcategory" Type="String" Nullable="false" />
     <NavigationProperty Name="Category" Relationship="Goods.SubCategoryCategory" FromRole="SubCategory" ToRole="Category" />
-    <NavigationProperty Name="Product" Relationship="Goods.ProductSubCategory" FromRole="SubCategory" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="Goods.SubCategoryProduct" FromRole="SubCategory" ToRole="Product" />
   </EntityType>
   <Association Name="SubCategoryCategory">
     <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
     <End Type="Goods.Category" Role="Category" Multiplicity="1" />
   </Association>
-  <Association Name="ProductSubCategory">
-    <End Type="Goods.Product" Role="Product" Multiplicity="*" />
+  <EntityType Name="DescriptionParametrs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescriptionParametr" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Goods.ProductDescriptionParametrs" FromRole="DescriptionParametrs" ToRole="Product" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductDescriptionParametrs">
+    <End Type="Goods.Product" Role="Product" Multiplicity="1" />
+    <End Type="Goods.DescriptionParametrs" Role="DescriptionParametrs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DescriptionParametrs">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SubCategoryProduct">
     <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="1" />
+    <End Type="Goods.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

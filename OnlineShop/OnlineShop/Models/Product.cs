@@ -11,27 +11,26 @@ namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    
     public partial class Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.DescriptionParametrs = new HashSet<DescriptionParametrs>();
+        }
+    
         public int Id { get; set; }
-        [Required(ErrorMessage = "Enter name of product")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Enter article of product")]
         public string Article { get; set; }
-        [Required(ErrorMessage = "Enter description of product")]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Enter price of product")]
         public decimal Price { get; set; }
-        [Required(ErrorMessage = "Select picture of product")]
         public byte[] Picture { get; set; }
-        [Required(ErrorMessage = "Enter date of product")]
         public System.DateTime DateAdded { get; set; }
-        [Required(ErrorMessage = "Choose subcategory of product")]
+        public int SubCategoryId { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DescriptionParametrs> DescriptionParametrs { get; set; }
         public virtual SubCategory SubCategory { get; set; }
-        public int selectedSub { get; set; }
     }
 }

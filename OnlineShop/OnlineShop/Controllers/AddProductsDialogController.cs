@@ -13,15 +13,10 @@ namespace OnlineShop.Controllers
         [HttpGet]
         public ActionResult AddProducts()
         {
-
             GoodsContainer1 goods = new GoodsContainer1();
-
             ViewData["Categories"] = goods.CategorySet;
             ViewData["SubCategories"] = goods.SubCategorySet;
-
-
             return PartialView();
-
         }
         [HttpPost]
         public ActionResult ShowAddedProduct(Product product, HttpPostedFileBase uploadedImage)
@@ -37,7 +32,7 @@ namespace OnlineShop.Controllers
             using (GoodsContainer1 container = new GoodsContainer1())
             {
 
-                product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.selectedSub);
+                product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategoryId);
                 if (product.Article != null
                     && product.Name != null
                     && product.Description != null
@@ -52,7 +47,7 @@ namespace OnlineShop.Controllers
             }
 
           
-            return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);
+            return View("~/Views/AddProductsDialog/AddedProduct.cshtml", product);
 
         }
     }

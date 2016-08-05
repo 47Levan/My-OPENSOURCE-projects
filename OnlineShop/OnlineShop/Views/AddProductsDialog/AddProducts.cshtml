@@ -7,17 +7,18 @@
 }
 <link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css" />
 <script src="~/Scripts/jquery-3.1.0.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-3.1.0.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.11.4.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
-<script src="~/Scripts/AddRemoveProductDialog.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.validate.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.form.js"></script>
+<script src="~/Scripts/formScript.js"></script>
 <script src="~/Scripts/FillSubCategory.js" type="text/javascript"></script>
 
 <div>
-
-    @using (Ajax.BeginForm("ShowAddedProduct", "AddProductsDialog", new AjaxOptions { UpdateTargetId = "showProduct",HttpMethod="POST" }, new { id = "valForm", enctype = "multipart/form-data"}))
+    @using (Html.BeginForm("ShowAddedProduct", "AddProductsDialog",FormMethod.Post,new {id="AddProdForm" }))
     {
         <p>Name of product:</p>@Html.TextBoxFor(x => x.Name, new { Class = "EnterProductInfoField" });
         @Html.ValidationMessageFor(x => x.Name);
@@ -25,18 +26,23 @@
         @Html.ValidationMessageFor(x => x.Article);
         <p>Price:</p>@Html.TextBoxFor(x => x.Price, new { Class = "EnterProductInfoField" });
         @Html.ValidationMessageFor(x => x.Price);
-        <
         <p>Category:</p>
         @Html.DropDownList("Category", new SelectList(catList, "Id", "category"), "Select category");
         <p>SubCategory:</p>
-        @Html.DropDownListFor(x => x.selectedSub, new SelectList(string.Empty, "Id", "Subcategory"), "Select sub category", new { id = "subCategory" });
+        @Html.DropDownListFor(x => x.SubCategoryId, new SelectList(string.Empty, "Id", "Subcategory"), "Select sub category", new { id = "subCategory" });
         @Html.ValidationMessageFor(x => x.SubCategory);
         <p>Upload picture:</p>
         <input type="file" name="uploadedImage"/>
-        <p>Description:</p>@Html.TextAreaFor(x => x.Description, new { style = "height:100px;width:180px" });
+        <p>Description:</p>
+        @Html.TextBoxFor(x => x.DescriptionParametrs, new { style = "height:100px;width:180px" });
+        @Html.TextAreaFor(x => x.DescriptionParametrs, new { style = "height:100px;width:180px" });
+        <button id="+"></button>
         @Html.ValidationMessageFor(x => x.Description);
         <br />
         <br />
         <input id="submitValidation" type="submit" value="Add" />
     }
+</div>
+<div class="progress progress-striped">
+    <div class="progress-bar progress-bar-success">0% <p id="status"></p></div>
 </div>

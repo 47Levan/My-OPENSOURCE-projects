@@ -13,27 +13,5 @@
         }
     })
     })
-    $('#submitValidation').click(function () {
-        if ($("#valForm").valid()) {
-             
-            //alert($("#valForm").valid());
-            $.ajax({
-                url: '/AddProductsDialog/ShowAddedProduct',
-                data: $("#valForm").serialize(),
-                type: 'POST',
-                success: function (partialView) {
-                    $("#valForm").removeData("validator");
-                    $("#valForm").removeData("unobtrusiveValidation");               
-                    $.validator.unobtrusive.parse("#valForm");
-                    
-                },
-                error: function () {
-                    alert('Error has occured');
-                }
-            })
-        }
-        else {
-            //alert($("#valForm").valid());
-        }
-    });
+   
 })

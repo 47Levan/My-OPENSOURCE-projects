@@ -1,36 +1,28 @@
 ﻿
 @model OnlineShop.Models.Product
-<table style="border:1px solid black">
+<table>
+
    <tr>
        <td>
-           <p>Product name:</p>
+           Name of product:@Model.Name
        </td>
-       <td>
-           @Model.Name
+       <td rowspan="4">
+           <img style="width:auto;height:auto" src='@Url.Action("ShowPicture","FileOper",new {ImageDataId=@Model.Id})' />
        </td>
    </tr>
     <tr>
         <td>
-            <p>Product article:</p>
-        </td>
-        <td>
-            @Model.Article
+            Article of product:@Model.Article
         </td>
     </tr>
     <tr>
         <td>
-            <p>Product price:</p>
-        </td>
-        <td>
-            @Model.Price $
+            Price of product:@Model.Price $
         </td>
     </tr>
     <tr>
         <td>
-            <p>Product picture:</p>
+            Description:@Model.Description $
         </td>
-        <td>
-           @* <img src="@Url.Action("ShowPicture","FileOper",new {imageData=@Model.Picture})" />*@
-        </td>
-    </tr>
+    </tr> 
 </table>

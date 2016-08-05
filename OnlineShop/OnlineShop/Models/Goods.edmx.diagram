@@ -9,7 +9,9 @@
         <EntityTypeShape EntityType="Goods.Product" Width="1.5" PointX="7.875" PointY="1.25" />
         <EntityTypeShape EntityType="Goods.SubCategory" Width="1.5" PointX="5.5" PointY="1.25" />
         <AssociationConnector Association="Goods.SubCategoryCategory" />
-        <AssociationConnector Association="Goods.ProductSubCategory" />
+        <EntityTypeShape EntityType="Goods.DescriptionParametrs" Width="1.5" PointX="10.125" PointY="1.375" />
+        <AssociationConnector Association="Goods.ProductDescriptionParametrs" />
+        <AssociationConnector Association="Goods.SubCategoryProduct" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

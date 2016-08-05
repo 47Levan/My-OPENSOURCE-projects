@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/20/2016 11:55:08
+-- Date Created: 08/05/2016 15:22:23
 -- Generated from EDMX file: D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\Models\Goods.edmx
 -- --------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE [dbo].[ProductSet] (
     [Price] decimal(18,0)  NOT NULL,
     [Picture] varbinary(max)  NOT NULL,
     [DateAdded] datetime  NOT NULL,
-    [SubCategory_Id] int  NOT NULL
+    [SubCategoryId] int  NOT NULL
 );
 GO
 
@@ -67,6 +67,15 @@ CREATE TABLE [dbo].[SubCategorySet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Subcategory] nvarchar(max)  NOT NULL,
     [Category_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'DiscriptionParameters'
+CREATE TABLE [dbo].[DiscriptionParameters] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [DescriptionParametr] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [ProductId] int  NOT NULL
 );
 GO
 
@@ -92,6 +101,12 @@ ADD CONSTRAINT [PK_SubCategorySet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'DiscriptionParameters'
+ALTER TABLE [dbo].[DiscriptionParameters]
+ADD CONSTRAINT [PK_DiscriptionParameters]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -111,19 +126,34 @@ ON [dbo].[SubCategorySet]
     ([Category_Id]);
 GO
 
--- Creating foreign key on [SubCategory_Id] in table 'ProductSet'
+-- Creating foreign key on [ProductId] in table 'DiscriptionParameters'
+ALTER TABLE [dbo].[DiscriptionParameters]
+ADD CONSTRAINT [FK_ProductDescriptionParametrs]
+    FOREIGN KEY ([ProductId])
+    REFERENCES [dbo].[ProductSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductDescriptionParametrs'
+CREATE INDEX [IX_FK_ProductDescriptionParametrs]
+ON [dbo].[DiscriptionParameters]
+    ([ProductId]);
+GO
+
+-- Creating foreign key on [SubCategoryId] in table 'ProductSet'
 ALTER TABLE [dbo].[ProductSet]
-ADD CONSTRAINT [FK_ProductSubCategory]
-    FOREIGN KEY ([SubCategory_Id])
+ADD CONSTRAINT [FK_SubCategoryProduct]
+    FOREIGN KEY ([SubCategoryId])
     REFERENCES [dbo].[SubCategorySet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProductSubCategory'
-CREATE INDEX [IX_FK_ProductSubCategory]
+-- Creating non-clustered index for FOREIGN KEY 'FK_SubCategoryProduct'
+CREATE INDEX [IX_FK_SubCategoryProduct]
 ON [dbo].[ProductSet]
-    ([SubCategory_Id]);
+    ([SubCategoryId]);
 GO
 
 -- --------------------------------------------------

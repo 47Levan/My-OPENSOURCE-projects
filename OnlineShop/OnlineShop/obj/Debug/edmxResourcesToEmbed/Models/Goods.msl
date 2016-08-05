@@ -19,6 +19,7 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -30,19 +31,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DiscriptionParameters">
+      <EntityTypeMapping TypeName="IsTypeOf(Goods.DescriptionParametrs)">
+        <MappingFragment StoreEntitySet="DiscriptionParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DescriptionParametr" ColumnName="DescriptionParametr" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="SubCategoryCategory" TypeName="Goods.SubCategoryCategory" StoreEntitySet="SubCategorySet">
       <EndProperty Name="Category">
         <ScalarProperty Name="Id" ColumnName="Category_Id" />
       </EndProperty>
       <EndProperty Name="SubCategory">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ProductSubCategory" TypeName="Goods.ProductSubCategory" StoreEntitySet="ProductSet">
-      <EndProperty Name="SubCategory">
-        <ScalarProperty Name="Id" ColumnName="SubCategory_Id" />
-      </EndProperty>
-      <EndProperty Name="Product">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

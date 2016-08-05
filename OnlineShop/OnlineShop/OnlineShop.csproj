@@ -192,12 +192,16 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\FillSubCategory.js" />
+    <Content Include="Scripts\formScript.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery.form.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
@@ -223,6 +227,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastucture\NinjectResolver.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
@@ -230,6 +235,9 @@
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DatabaseModel.cs" />
+    <Compile Include="Models\DescriptionParametrs.cs">
+      <DependentUpon>GoodsList.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Goods.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
