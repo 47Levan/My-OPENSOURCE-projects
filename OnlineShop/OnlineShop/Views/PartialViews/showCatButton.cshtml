@@ -1,18 +1,13 @@
 ﻿@model OnlineShop.Models.GoodsContainer1
 @using OnlineShop.Models;
 @using System.Data.Entity;
-@{
-    DbSet<Category> goods = (DbSet<Category>)ViewData["Categories"];
-    DbSet<SubCategory> subGoods = (DbSet<SubCategory>)ViewData["SubCategories"];
-}
-
 <link type="text/css" rel="stylesheet" href="~/Content/CategoryList.css?Wednesday 20th of July 2016 07:45:21 AM"/>
     <script src='@Url.Content("~/Scripts/jquery-3.1.0.min.js")' type="text/javascript"></script>
     <script src='@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")' type="text/javascript"></script>
     <script src="~/Scripts/ResizeButton.js" type="text/javascript"></script>
 
         <ul id="mainMenu">
-            @foreach(string cat in goods.Select(x=>x.category))
+            @foreach(string cat in Model.CategorySet.Select(x=>x.category))
             {
                 <li>
                     <button class="MenuItem">
@@ -21,9 +16,9 @@
                     </button>
                        
                     <ul class="subMenu">
-                        @foreach (string subcat in subGoods.Where(x=>x.Category.category==cat).Select(x=>x.Subcategory))
+                        @foreach (string subcat in Model.SubCategorySet.Where(x=>x.Category.category==cat).Select(x=>x.Subcategory))
                         {
-                           
+
                              <li>                               
                                      <button class="subMenuItem">
                                          @subcat

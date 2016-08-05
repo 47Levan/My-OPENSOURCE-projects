@@ -8,9 +8,14 @@
         if ($('#Category :selected').text() != 'Select category') {        
             $.ajax({
                 type: 'POST',
-                url: '/Home/GetSubs',
+                url: '/MainPage/GetSubs',
                 data: { category: $("#Category").val() },
                 success: function (subs) {
+                    $('#subCategory').empty();
+                    $('#subCategory').append(
+                      '<option>'
+                         + "Select sub category" + '</option>'
+                        )
                     $.each(subs, function (i, sub) {
                         $('#subCategory').append(
                           '<option value="'

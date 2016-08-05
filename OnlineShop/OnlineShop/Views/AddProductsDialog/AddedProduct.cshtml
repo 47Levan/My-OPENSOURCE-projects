@@ -1,8 +1,6 @@
-﻿@*@{ 
-    var Base64 = Convert.ToBase64String(Model.Picture);
-    var ImgSrc = String.Format($"data:image/png;base64,{Base64}");
-}*@
-<table style="border:1px solid red">
+﻿
+@model OnlineShop.Models.Product
+<table style="border:1px solid black">
    <tr>
        <td>
            <p>Product name:</p>
@@ -32,7 +30,7 @@
             <p>Product picture:</p>
         </td>
         <td>
-            @*<img src='@Url.Action("show","image",new {Id=ImgSrc })'/>*@ 
+           @* <img src="@Url.Action("ShowPicture","FileOper",new {imageData=@Model.Picture})" />*@
         </td>
     </tr>
 </table>

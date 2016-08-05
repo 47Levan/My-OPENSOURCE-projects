@@ -19,20 +19,13 @@ namespace OnlineShop.Controllers
         }
         // GET: Home
         public ActionResult Index()
-        {
-         
-                return View();
-         
+        {        
+                return View();         
         }
         public ActionResult showCatButton()
         {
-            DatabaseModel model = new DatabaseModel();
-            using (GoodsContainer1 goods = new GoodsContainer1())
-            {    
-                model.Categories = goods.CategorySet.ToList();
-                model.SubCategories = goods.SubCategorySet.ToList();
-            }
-            return PartialView(model);
+            GoodsContainer1 goods = new GoodsContainer1();          
+            return PartialView(goods);
            
         }
         [HttpGet]
@@ -48,55 +41,7 @@ namespace OnlineShop.Controllers
            
             return PartialView();
             }
-        }
-        [HttpGet]
-        public ActionResult AddProducts()
-        {
-          
-            using (GoodsContainer1 goods = new GoodsContainer1())
-            {
-                ViewData["Categories"] = goods.CategorySet;
-                ViewData["SubCategories"] = goods.SubCategorySet;
-                ViewData["Categories"] = goods.CategorySet;
-        
-
-            return PartialView();
-            }
-        }
-        [HttpPost]
-        public ActionResult AddProducts(Product product,HttpPostedFileBase uploadedImage)
-        {
-            product.DateAdded =DateTime.Now;
-            if (uploadedImage !=null && uploadedImage.ContentLength>0)
-            {
-                using (BinaryReader reader = new BinaryReader(uploadedImage.InputStream))
-                {
-                    product.Picture = reader.ReadBytes(uploadedImage.ContentLength);
-                }
-            }
-            using (GoodsContainer1 container = new GoodsContainer1())
-            {
-                ViewData["Categories"] = container.CategorySet;
-                ViewData["SubCategories"] = container.SubCategorySet;
-                ViewData["Products"] = container.ProductSet;             
-                product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.selectedSub);
-                if (product.Article != null
-                    && product.Name != null
-                    && product.Description != null
-                    && product.Picture != null
-                    && product.Price != 0)
-                {
-                    container.ProductSet.Add(product);
-                    container.SaveChanges();
-                    ModelState.Clear();
-                    return PartialView("AddedProduct");
-                }
-            }
-
-            ModelState.Clear();
-            return PartialView("AddedProduct",product);
-           
-        }
+        }    
         [HttpPost]
         public JsonResult GetSubs(int category)
         {

@@ -53,7 +53,10 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /*>>cssclasses*/
     // option for enabling the HTML classes to be added
-    enableClasses = true,
+    enableClasses = 
+    
+    
+    ,
     /*>>cssclasses*/
 
     docElement = document.documentElement,
