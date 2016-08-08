@@ -29,20 +29,22 @@
         <p>Category:</p>
         @Html.DropDownList("Category", new SelectList(catList, "Id", "category"), "Select category");
         <p>SubCategory:</p>
-        @Html.DropDownListFor(x => x.SubCategoryId, new SelectList(string.Empty, "Id", "Subcategory"), "Select sub category", new { id = "subCategory" });
+        @Html.DropDownListFor(x => x.SubCategory_Id, new SelectList(string.Empty, "Id", "Subcategory"), "Select sub category", new { id = "subCategory" });
         @Html.ValidationMessageFor(x => x.SubCategory);
         <p>Upload picture:</p>
         <input type="file" name="uploadedImage"/>
-        <p>Description:</p>
-        @Html.TextBoxFor(x => x.DescriptionParametrs, new { style = "height:100px;width:180px" });
-        @Html.TextAreaFor(x => x.DescriptionParametrs, new { style = "height:100px;width:180px" });
-        <button id="+"></button>
-        @Html.ValidationMessageFor(x => x.Description);
+        <p>Description parameters:</p>
+        <table id="DiscriptionTable">    
+              <tbody>
+                  @Html.EditorFor(x => x.DescriptionParameters,new {Id="DescriptEditor" })
+              </tbody>
+        </table>
+        @Html.ValidationMessageFor(x => x.DescriptionParameters);
         <br />
         <br />
         <input id="submitValidation" type="submit" value="Add" />
     }
 </div>
-<div class="progress progress-striped">
+<div id="ProgressShow" class="progress progress-striped">
     <div class="progress-bar progress-bar-success">0% <p id="status"></p></div>
 </div>

@@ -11,14 +11,16 @@ namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DescriptionParametrs
+    using System.ComponentModel.DataAnnotations;
+    public partial class DescriptionParameters
     {
         public int Id { get; set; }
-        public string DescriptionParametr { get; set; }
+        [Required (ErrorMessage = "Please enter description")]
         public string Description { get; set; }
-        public int ProductId { get; set; }
+        [Required(ErrorMessage = "Please enter description parameter")]
+        public string DescriptionParameter { get; set; }
+        public int Product_Id { get; set; }
     
-        public virtual Product Product { get; set; }
+        public virtual Product ProductSet { get; set; }
     }
 }

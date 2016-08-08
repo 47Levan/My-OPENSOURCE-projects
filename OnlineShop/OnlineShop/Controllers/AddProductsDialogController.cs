@@ -16,7 +16,9 @@ namespace OnlineShop.Controllers
             GoodsContainer1 goods = new GoodsContainer1();
             ViewData["Categories"] = goods.CategorySet;
             ViewData["SubCategories"] = goods.SubCategorySet;
-            return PartialView();
+            Product product = new Product();
+            product.DescriptionParameters.Add(new DescriptionParameters());
+            return PartialView(product);
         }
         [HttpPost]
         public ActionResult ShowAddedProduct(Product product, HttpPostedFileBase uploadedImage)
@@ -32,10 +34,9 @@ namespace OnlineShop.Controllers
             using (GoodsContainer1 container = new GoodsContainer1())
             {
 
-                product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategoryId);
+                product.SubCategory = container.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id);
                 if (product.Article != null
                     && product.Name != null
-                    && product.Description != null
                     && product.Picture != null
                     && product.Price != 0)
                 {
@@ -46,9 +47,41 @@ namespace OnlineShop.Controllers
                 }
             }
 
-          
-            return View("~/Views/AddProductsDialog/AddedProduct.cshtml", product);
 
+            return RedirectToAction("AddProducts");
+
+        }
+        [HttpGet]
+        public ActionResult AddDescriptionPatrameter(Product product)
+        {
+            product.DescriptionParameters.Add(new DescriptionParameters());
+            GoodsContainer1 goods = new GoodsContainer1();
+            ViewData["Categories"] = goods.CategorySet;
+            ViewData["SubCategories"] = goods.SubCategorySet;
+            return PartialView("~/Views/AddProductsDialog/AddProducts.cshtml", product);
+        }
+        [HttpGet]
+        public ActionResult RemoveDescriptionPatrameter(Product product,string description,
+            string descriptionParametr)
+        {
+            if(description=="")
+            {
+                description = null;
+            }
+            if (descriptionParametr == "")
+            {
+                description = null;
+            }
+            if (product.DescriptionParameters.Count > 1)
+            {
+                product.DescriptionParameters.Remove(
+                    product.DescriptionParameters.FirstOrDefault(x=>x.Description==description 
+                    && x.DescriptionParameter==descriptionParametr));
+            }
+            GoodsContainer1 goods = new GoodsContainer1();
+            ViewData["Categories"] = goods.CategorySet;
+            ViewData["SubCategories"] = goods.SubCategorySet;
+            return PartialView("~/Views/AddProductsDialog/AddProducts.cshtml", product);
         }
     }
 }

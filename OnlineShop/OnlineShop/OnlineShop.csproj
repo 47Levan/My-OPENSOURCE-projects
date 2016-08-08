@@ -164,7 +164,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Goods.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Images\Nova_poshta_case3_1.jpg" />
     <Content Include="Models\Goods.edmx.diagram">
       <DependentUpon>Goods.edmx</DependentUpon>
     </Content>
@@ -191,6 +190,7 @@
     <Content Include="Scripts\AddRemoveProductDialog.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DiscriptionParameters.js" />
     <Content Include="Scripts\FillSubCategory.js" />
     <Content Include="Scripts\formScript.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
@@ -235,7 +235,7 @@
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DatabaseModel.cs" />
-    <Compile Include="Models\DescriptionParametrs.cs">
+    <Compile Include="Models\DescriptionParameters.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Goods.Designer.cs">
@@ -284,6 +284,7 @@
       <BrowseToURL>~/MainPageAddedProduct</BrowseToURL>
     </Content>
     <Content Include="Views\AddProductsDialog\AddProducts.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DescriptionParameters.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -293,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Views\FileOper\" />
   </ItemGroup>
   <ItemGroup>

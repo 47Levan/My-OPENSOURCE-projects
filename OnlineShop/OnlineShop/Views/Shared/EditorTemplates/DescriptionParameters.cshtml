@@ -1,0 +1,39 @@
+﻿@model OnlineShop.Models.DescriptionParameters
+<script src="~/Scripts/DiscriptionParameters.js" type="text/javascript"></script>
+<table>
+    <tr>  
+        <td>
+            @Html.TextBoxFor(x => x.Description, new { Id="DescriptionField",Class = "EnterDescriptionInfoField" })
+        
+        </td>
+        <td>
+            @Html.TextBoxFor(x => x.DescriptionParameter, new { Id = "DescriptionParamField", Class = "EnterDescriptionParameterInfoField" })
+           
+        </td>
+        <td>
+            <input class="AddDescription" type="button" value="+" 
+                   style="width:20px;height:20px" />
+        </td>
+        <td>
+            <input class="RemoveDescription" type="button" value="-"
+                    style="width:20px;height:20px;text-align:center" />
+        </td>
+    </tr>
+   
+</table>
+<table>
+    <tr>
+        <td>
+            @Html.ValidationMessageFor(x => x.Description)
+        </td>
+        <td style="padding-left:10px">
+            @Html.ValidationMessageFor(x => x.DescriptionParameter)
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+

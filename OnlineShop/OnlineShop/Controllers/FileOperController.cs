@@ -11,12 +11,18 @@ namespace OnlineShop.Controllers
         // GET: FileOper
         public ActionResult ShowPicture(int ImageDataId)
         {
-            using (GoodsContainer1 goods=new GoodsContainer1())
+            if (ImageDataId != 0)
             {
-                byte[] imageData = goods.ProductSet.FirstOrDefault(x=>x.Id==ImageDataId).Picture;
-                return File(imageData, "image/jpg");
+                using (GoodsContainer1 goods = new GoodsContainer1())
+                {
+                    byte[] imageData = goods.ProductSet.FirstOrDefault(x => x.Id == ImageDataId).Picture;
+                    return File(imageData, "image/jpg");
+                }
             }
-               
+            else
+            {
+                return null;
+            }
         }
     }
 }
