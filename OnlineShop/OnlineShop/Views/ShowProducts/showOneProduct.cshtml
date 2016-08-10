@@ -1,0 +1,30 @@
+﻿<link rel="stylesheet" type="text/css" href="~/Content/ShowOneProduct.css"/>
+@model OnlineShop.Models.Product
+    @using OnlineShop.Models;
+<table>
+    <thead>
+        <tr>
+            <td colspan="2" style="text-align:center;font-weight:bold">
+                @Model.Name @Model.Article @Model.Price $
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                <img style="width:400px;height:auto" src='@Url.Action("ShowPicture","FileOper",new {ImageDataId=@Model.Id})' />
+            </td>
+            <td>
+                <ul>
+                    @foreach (DescriptionParameters desc in Model.DescriptionParameters)
+                    {
+                        <li class="dicriptionParameters">
+                            <p style="font-weight:bold">@desc.Description:</p> @desc.DescriptionParameter
+                        </li>
+                    }
+                </ul>
+            </td>
+      
+    </tbody>
+</table>

@@ -28,7 +28,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
           <Property Name="DateAdded" Type="datetime" Nullable="false" />
           <Property Name="SubCategory_Id" Type="int" Nullable="false" />
@@ -40,6 +40,12 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Category_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_ParametrSetDescriptionParametrsSet">
           <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="1" />
@@ -82,6 +88,7 @@
           <EntitySet Name="DescriptionParametersSet" EntityType="Self.DescriptionParametersSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductSet" EntityType="Self.ProductSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCategorySet" EntityType="Self.SubCategorySet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Self.FK_ParametrSetDescriptionParametrsSet">
             <End Role="ProductSet" EntitySet="ProductSet" />
             <End Role="DescriptionParametersSet" EntitySet="DescriptionParametersSet" />
@@ -116,6 +123,7 @@
             <End Role="SubCategory" EntitySet="SubCategorySet" />
             <End Role="Product" EntitySet="ProductSet" />
           </AssociationSet>
+          <EntitySet Name="Table" EntityType="Goods.Table" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -132,7 +140,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Article" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Picture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
@@ -190,6 +198,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -239,6 +253,13 @@
                 <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
                 <ScalarProperty Name="DescriptionParameter" ColumnName="DescriptionParameter" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="Goods.Table">
+              <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

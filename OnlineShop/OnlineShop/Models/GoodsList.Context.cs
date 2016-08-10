@@ -29,5 +29,6 @@ namespace OnlineShop.Models
         public virtual DbSet<Product> ProductSet { get; set; }
         public virtual DbSet<SubCategory> SubCategorySet { get; set; }
         public virtual DbSet<DescriptionParameters> DescriptionParametersSet { get; set; }
+        public virtual DbSet<Table> Table { get; set; }
     }
 }

@@ -123,6 +123,7 @@
     <Content Include="Content\ContactPage.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\MainPage.css" />
+    <Content Include="Content\ShowOneProduct.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -214,6 +215,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ResizeButton.js" />
     <Content Include="Scripts\ShowProductsByFilter.js" />
+    <Content Include="Views\ShowProductsByFilter.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +225,7 @@
     <Compile Include="Controllers\FileOperController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ShowProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +264,9 @@
     <Compile Include="Models\SubCategory.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Table.cs">
+      <DependentUpon>GoodsList.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,14 +283,13 @@
     <Content Include="Views\Menu\Contacts.cshtml" />
     <Content Include="Views\Menu\AboutShop.cshtml" />
     <Content Include="Views\Menu\MethodsOfDelivery.cshtml" />
-    <Content Include="Views\PartialViews\showProductsByFilter.cshtml">
-      <BrowseToURL>~/MainPage/showProductsByFilter</BrowseToURL>
-    </Content>
     <Content Include="Views\AddProductsDialog\AddedProduct.cshtml">
       <BrowseToURL>~/MainPageAddedProduct</BrowseToURL>
     </Content>
     <Content Include="Views\AddProductsDialog\AddProducts.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DescriptionParameters.cshtml" />
+    <Content Include="Views\ShowProducts\showProductsByFilter.cshtml" />
+    <Content Include="Views\ShowProducts\showOneProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

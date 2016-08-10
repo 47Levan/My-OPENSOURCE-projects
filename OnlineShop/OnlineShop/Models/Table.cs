@@ -12,13 +12,8 @@ namespace OnlineShop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DescriptionParameters
+    public partial class Table
     {
         public int Id { get; set; }
-        public string Description { get; set; }
-        public string DescriptionParameter { get; set; }
-        public int Product_Id { get; set; }
-    
-        public virtual Product ProductSet { get; set; }
     }
 }

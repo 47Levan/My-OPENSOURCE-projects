@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="Goods.DescriptionParameters" Width="1.5" PointX="10.25" PointY="1.625" />
         <AssociationConnector Association="Goods.FK_ParametrSetDescriptionParametrsSet" />
         <AssociationConnector Association="Goods.FK_ProductSubCategory" />
+        <EntityTypeShape EntityType="Goods.Table" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

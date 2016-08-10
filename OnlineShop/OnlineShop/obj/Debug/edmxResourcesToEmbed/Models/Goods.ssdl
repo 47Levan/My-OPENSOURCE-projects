@@ -23,7 +23,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
     <Property Name="DateAdded" Type="datetime" Nullable="false" />
     <Property Name="SubCategory_Id" Type="int" Nullable="false" />
@@ -35,6 +35,12 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_ParametrSetDescriptionParametrsSet">
     <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="1" />
@@ -77,6 +83,7 @@
     <EntitySet Name="DescriptionParametersSet" EntityType="Self.DescriptionParametersSet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductSet" EntityType="Self.ProductSet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubCategorySet" EntityType="Self.SubCategorySet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Self.FK_ParametrSetDescriptionParametrsSet">
       <End Role="ProductSet" EntitySet="ProductSet" />
       <End Role="DescriptionParametersSet" EntitySet="DescriptionParametersSet" />

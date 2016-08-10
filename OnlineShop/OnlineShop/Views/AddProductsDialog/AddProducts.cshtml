@@ -18,28 +18,30 @@
 <script src="~/Scripts/FillSubCategory.js" type="text/javascript"></script>
 
 <div>
-    @using (Html.BeginForm("ShowAddedProduct", "AddProductsDialog",FormMethod.Post,new {id="AddProdForm" }))
+    
+    @using (Html.BeginForm("ShowAddedProduct", "AddProductsDialog",FormMethod.Post,
+        new {id="AddProdForm" }))
     {
-        <p>Name of product:</p>@Html.TextBoxFor(x => x.Name, new { Class = "EnterProductInfoField" });
+        <p>Name of product:</p>@Html.TextBoxFor(x => x.Name, 
+                              new { Class = "EnterProductInfoField" });
         @Html.ValidationMessageFor(x => x.Name);
-        <p>Article of product:</p>@Html.TextBoxFor(x => x.Article, new { Class = "EnterProductInfoField" });
+        <p>Article of product:</p>@Html.TextBoxFor(x => x.Article, 
+                                 new { Class = "EnterProductInfoField" });
         @Html.ValidationMessageFor(x => x.Article);
-        <p>Price:</p>@Html.TextBoxFor(x => x.Price, new { Class = "EnterProductInfoField" });
+        <p>Price:</p>@Html.TextBoxFor(x => x.Price, new { type="number",Class = "EnterProductInfoField"});
         @Html.ValidationMessageFor(x => x.Price);
         <p>Category:</p>
-        @Html.DropDownList("Category", new SelectList(catList, "Id", "category"), "Select category");
+        @Html.DropDownListFor(x=>x.SubCategory.Category, new SelectList(catList, "Id", "category"),
+       "Select category",
+       new {id="Category" });
         <p>SubCategory:</p>
-        @Html.DropDownListFor(x => x.SubCategory_Id, new SelectList(string.Empty, "Id", "Subcategory"), "Select sub category", new { id = "subCategory" });
-        @Html.ValidationMessageFor(x => x.SubCategory);
+        @Html.DropDownListFor(x => x.SubCategory_Id, new SelectList(subCatList,
+       "Id", "Subcategory"), "Select sub category", new {id = "subCategory" });
+        @Html.ValidationMessageFor(x => x.SubCategory_Id);
         <p>Upload picture:</p>
         <input type="file" name="uploadedImage"/>
         <p>Description parameters:</p>
-        <table id="DiscriptionTable">    
-              <tbody>
-                  @Html.EditorFor(x => x.DescriptionParameters,new {Id="DescriptEditor" })
-              </tbody>
-        </table>
-        @Html.ValidationMessageFor(x => x.DescriptionParameters);
+        @Html.EditorFor(x => x.DescriptionParameters,new {Id="DescriptEditor" })        
         <br />
         <br />
         <input id="submitValidation" type="submit" value="Add" />

@@ -1,21 +1,25 @@
-﻿$('.AddDescription').click(function () {
+﻿$('.AddDescription').click(function () {  
     $.ajax({
         url: '/AddProductsDialog/AddDescriptionPatrameter',
         type:'GET',
-        data: $('#AddProdForm').serialize(),
+        data: $('#AddProdForm').serialize() + "&categoryId=" + $('#Category').val(),
         success: function (product) {
             $('#ProgressShow').empty()
             $('#AddProdForm').replaceWith(product)
         }
     })
 })
+
 $('.RemoveDescription').click(function () {
+ 
     $.ajax({
-        url: '/AddProductsDialog/RemoveDescriptionPatrameter',
+        url: '/AddProductsDialog/RemoveDescriptionParameter',
+        context: this,
         type: 'GET',
         data: $('#AddProdForm').serialize() + "&description="
-            + $('#DescriptionField').val() + "&descriptionParametr="
-            + $('#DescriptionParamField').val(),
+            + $(this).closest("tr").find('.EnterDescriptionInfoField').val() + "&descriptionParametr="
+            + $(this).closest("tr").find('.EnterDescriptionParameterInfoField').val()
+            + "&categoryId=" + $('#Category').val(),
         success: function (product) {
             $('#ProgressShow').empty()
             $('#AddProdForm').replaceWith(product)

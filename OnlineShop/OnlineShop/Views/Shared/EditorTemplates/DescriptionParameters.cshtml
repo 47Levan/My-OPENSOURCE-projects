@@ -3,20 +3,20 @@
 <table>
     <tr>  
         <td>
-            @Html.TextBoxFor(x => x.Description, new { Id="DescriptionField",Class = "EnterDescriptionInfoField" })
+            @Html.TextBoxFor(x => x.Description, new { Value = Model.Description, Id="DescriptionField",Class = "EnterDescriptionInfoField" })
         
         </td>
         <td>
-            @Html.TextBoxFor(x => x.DescriptionParameter, new { Id = "DescriptionParamField", Class = "EnterDescriptionParameterInfoField" })
+            @Html.TextBoxFor(x => x.DescriptionParameter, new { Value = Model.DescriptionParameter, Id = "DescriptionParamField", Class = "EnterDescriptionParameterInfoField" })
            
         </td>
         <td>
-            <input class="AddDescription" type="button" value="+" 
-                   style="width:20px;height:20px" />
+            <input class="AddDescription" type="button"
+                   style="width:20px;height:20px" value="+"/>
         </td>
         <td>
             <input class="RemoveDescription" type="button" value="-"
-                    style="width:20px;height:20px;text-align:center" />
+                    style="width:20px;height:20px;text-align:center"/>
         </td>
     </tr>
    

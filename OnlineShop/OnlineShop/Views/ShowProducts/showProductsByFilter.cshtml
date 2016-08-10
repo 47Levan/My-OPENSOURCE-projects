@@ -1,0 +1,15 @@
+﻿   @using System.Collections.Generic;
+   @using OnlineShop.Models;
+@model  List<Product>
+<div>
+   <ul style="list-style-type:none">
+       @foreach (Product prod in Model)
+       {
+       <li >
+           @Html.Action("showOneProduct", "ShowProducts", new { product=prod })
+           <br/>
+       </li>
+       }
+   </ul>
+  
+</div>

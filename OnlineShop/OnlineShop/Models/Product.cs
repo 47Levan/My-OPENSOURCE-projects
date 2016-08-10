@@ -11,7 +11,7 @@ namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,18 +21,14 @@ namespace OnlineShop.Models
         }
     
         public int Id { get; set; }
-        [Required (ErrorMessage = "Enter name of product")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Enter article of product")]
         public string Article { get; set; }
-        [Required(ErrorMessage = "Enter price of product")]
         public decimal Price { get; set; }
         public byte[] Picture { get; set; }
         public System.DateTime DateAdded { get; set; }
         public int SubCategory_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [Required(ErrorMessage = "Fill all description parameters")]
         public virtual ICollection<DescriptionParameters> DescriptionParameters { get; set; }
         public virtual SubCategory SubCategory { get; set; }
     }

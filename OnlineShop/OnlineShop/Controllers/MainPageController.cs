@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models;
+using System.Collections;
 using System.IO;
 using System.Data.Entity;
 using System.Web.Helpers;
@@ -13,10 +14,6 @@ namespace OnlineShop.Controllers
     {
         List<Category> categoryListForButtonList = new List<Category>();
         List<SubCategory> subCategoryListForButtonList = new List<SubCategory>();
-        public MainPageController()
-        {
-            
-        }
         // GET: Home
         public ActionResult Index()
         {        
@@ -25,32 +22,18 @@ namespace OnlineShop.Controllers
         public ActionResult showCatButton()
         {
             GoodsContainer1 goods = new GoodsContainer1();          
-            return PartialView(goods);
-           
-        }
-        [HttpGet]
-        public ActionResult showProductsByFilter(string category)
-        {
-            
-            category = category.Trim();
-            ViewData["category"]= category;
-            using (GoodsContainer1 goods = new GoodsContainer1())
-            {
-                ViewData["SubCategories"] = goods.SubCategorySet;
-                ViewData["Categories"] = goods.CategorySet;
-           
-            return PartialView();
-            }
+            return PartialView(goods);           
         }    
         [HttpPost]
         public JsonResult GetSubs(int category)
         {
-            List<SubCategory> subs = new List<SubCategory>();
+            IEnumerable<SubCategory> subs;
             using (GoodsContainer1 goods=new GoodsContainer1())
             {
-                subs = goods.SubCategorySet.Where(x => x.Category.Id == category).ToList();
+                subs =  goods.SubCategorySet.Where(x => x.Category.Id == category).ToList(); 
             }
-            return Json(new SelectList(subs, "Id", "Subcategory"));
+            
+           return Json(new SelectList(subs, "Id", "Subcategory"));
         }
     }
   

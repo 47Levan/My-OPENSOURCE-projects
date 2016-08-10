@@ -17,7 +17,7 @@
     width:300px;
     height:50px;
     border-radius:5px;
-    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
     color:white;
     border:1px solid black;
     text-align:center;
@@ -28,7 +28,7 @@
     width:300px;
     height:50px;
     border-radius:5px;
-    background:linear-gradient(to bottom, #45484d 0%,#000000 100%);
+    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
     color:white;
     border:1px solid black;
     text-align:center;
@@ -36,8 +36,7 @@
 MenuItem:hover
 {
     color:black;
-    background:linear-gradient(to bottom, #e6e6e6 30%,#e6e6e6 40%,#e6e6e6 50%
-    , #f2f2f2 60%, #f2f2f2 70%, #f2f2f2 80%, #f2f2f2 90%, #f2f2f2 100%);
+    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
 }
 #mainMenu li ul {
     display:none;
