@@ -1,15 +1,26 @@
-﻿   @using System.Collections.Generic;
+﻿  <script></script>
+   @using System.Collections.Generic;
+   @using PagedList.Mvc;
+   @using PagedList;
    @using OnlineShop.Models;
-@model  List<Product>
-<div>
-   <ul style="list-style-type:none">
-       @foreach (Product prod in Model)
-       {
-       <li >
-           @Html.Action("showOneProduct", "ShowProducts", new { product=prod })
-           <br/>
-       </li>
-       }
-   </ul>
+@model PagedList.IPagedList<Product>
+    <div id="showSelectedProducts">
+        <ul style="list-style-type:none">
+            @foreach (Product prod in Model)
+            {
+                <li>
+                    @Html.Action("showOneProduct", "ShowProducts", new { product = prod })
+                    <br />
+                </li>
+            }
+        </ul>
+    </div>
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model,page=> Url.Action("showProductsByFilter", "ShowProducts",
+    new { subCategory=@ViewBag.clickedCategory, pageNumber=page, orderType= ViewBag.OrderType }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new AjaxOptions() {
+            HttpMethod ="GET",
+            UpdateTargetId= "showSelectedProducts"
+        }));
   
-</div>

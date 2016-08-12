@@ -16,12 +16,12 @@
                     </button>
                        
                     <ul class="subMenu">
-                        @foreach (string subcat in Model.SubCategorySet.Where(x=>x.Category.category==cat).Select(x=>x.Subcategory))
+                        @foreach (SubCategory subcat in Model.SubCategorySet.Where(x=>x.Category.category==cat))
                         {
 
                              <li>                               
-                                     <button class="subMenuItem">
-                                         @subcat
+                                     <button type="button" value="@subcat.Id" class="subMenuItem">
+                                         @subcat.Subcategory
                                      </button>
                                
                              </li>

@@ -38,3 +38,5 @@ D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tes
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.dll
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.pdb
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\PagedList.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\PagedList.xml

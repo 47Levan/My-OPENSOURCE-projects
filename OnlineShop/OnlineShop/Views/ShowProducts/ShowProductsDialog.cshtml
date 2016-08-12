@@ -1,0 +1,38 @@
+﻿@using System.Collections.Generic;
+@using PagedList.Mvc;
+@using PagedList;
+@using OnlineShop.Models;
+@model PagedList.IPagedList<Product>
+<div>
+    <select id="sortList">
+        <option value="Sort products">Sort products</option>
+        <option value="from cheap to expensive">from cheap to expensive</option>
+        <option value="from expensive to cheap">from expensive to cheap</option>
+        <option value="Newest">Newest first</option>
+        <option value="Oldest">Oldest first</option>
+    </select>
+</div>
+<div id="showSelectedProducts">
+    @Html.Action("showProductsByFilter","ShowProducts", Model)
+</div>
+<script>
+        $('#sortList').change(function () {
+            var viewBagJS = '@ViewBag.clickedCategory';
+            $.ajax({
+                url: '/ShowProducts/sortProductsByFilter',
+                type: 'POST',
+                data: {
+                    category: viewBagJS,
+                    orderType: $('#sortList').val()
+                },
+                success: function (partialView) {
+                    $('#showSelectedProducts').html(partialView);
+                    $('#showSelectedProducts').show(partialView);
+                },
+                error: function () {
+                    alert("SortProducts doesn't work");
+                }
+            })
+
+        })
+</script>

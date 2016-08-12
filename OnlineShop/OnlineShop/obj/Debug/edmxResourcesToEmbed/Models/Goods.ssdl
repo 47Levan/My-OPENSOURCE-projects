@@ -23,7 +23,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
     <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
     <Property Name="DateAdded" Type="datetime" Nullable="false" />
     <Property Name="SubCategory_Id" Type="int" Nullable="false" />

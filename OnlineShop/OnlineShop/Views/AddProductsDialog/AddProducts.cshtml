@@ -28,7 +28,7 @@
         <p>Article of product:</p>@Html.TextBoxFor(x => x.Article, 
                                  new { Class = "EnterProductInfoField" });
         @Html.ValidationMessageFor(x => x.Article);
-        <p>Price:</p>@Html.TextBoxFor(x => x.Price, new { type="number",Class = "EnterProductInfoField"});
+        <p>Price:</p>@Html.TextBoxFor(x => x.Price, new {type="number",step="0.01", Class = "EnterProductInfoField"});
         @Html.ValidationMessageFor(x => x.Price);
         <p>Category:</p>
         @Html.DropDownListFor(x=>x.SubCategory.Category, new SelectList(catList, "Id", "category"),

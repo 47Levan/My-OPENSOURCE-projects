@@ -23,7 +23,7 @@ namespace OnlineShop.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Article { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public byte[] Picture { get; set; }
         public System.DateTime DateAdded { get; set; }
         public int SubCategory_Id { get; set; }

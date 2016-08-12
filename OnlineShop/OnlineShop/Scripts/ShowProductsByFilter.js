@@ -1,9 +1,11 @@
 ﻿$(document).ready(function () {
     $('.subMenuItem').click(function () {
         $.ajax({
-            url: "/ShowProducts/showProductsByFilter",
+            url: "/ShowProducts/startShowProductsByFilter",
             type: "GET",
-            data: { category: $(this).closest('li').find('.subMenuItem').html() },
+            data: {
+                subCategory: $(this).closest('li').find('.subMenuItem').val(),
+            },
             success: function (partialView) {
                 $('#showProduct').empty();
                 $('#showProduct').html(partialView);
