@@ -17,8 +17,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="DescriptionParameter" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="DescriptionParameter" Type="varchar(max)" Nullable="false" />
           <Property Name="Product_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductSet">
@@ -29,7 +29,7 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
-          <Property Name="Picture" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DateAdded" Type="datetime" Nullable="false" />
           <Property Name="SubCategory_Id" Type="int" Nullable="false" />
         </EntityType>
@@ -40,12 +40,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Category_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_ParametrSetDescriptionParametrsSet">
           <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="1" />
@@ -88,7 +82,6 @@
           <EntitySet Name="DescriptionParametersSet" EntityType="Self.DescriptionParametersSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductSet" EntityType="Self.ProductSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCategorySet" EntityType="Self.SubCategorySet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Self.FK_ParametrSetDescriptionParametrsSet">
             <End Role="ProductSet" EntitySet="ProductSet" />
             <End Role="DescriptionParametersSet" EntitySet="DescriptionParametersSet" />
@@ -110,10 +103,6 @@
           <EntitySet Name="CategorySet" EntityType="Goods.Category" />
           <EntitySet Name="ProductSet" EntityType="Goods.Product" />
           <EntitySet Name="SubCategorySet" EntityType="Goods.SubCategory" />
-          <AssociationSet Name="SubCategoryCategory" Association="Goods.SubCategoryCategory">
-            <End Role="SubCategory" EntitySet="SubCategorySet" />
-            <End Role="Category" EntitySet="CategorySet" />
-          </AssociationSet>
           <EntitySet Name="DescriptionParametersSet" EntityType="Goods.DescriptionParameters" />
           <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Goods.FK_ParametrSetDescriptionParametrsSet">
             <End Role="Product" EntitySet="ProductSet" />
@@ -123,15 +112,18 @@
             <End Role="SubCategory" EntitySet="SubCategorySet" />
             <End Role="Product" EntitySet="ProductSet" />
           </AssociationSet>
-          <EntitySet Name="Table" EntityType="Goods.Table" />
+          <AssociationSet Name="CategorySubCategory" Association="Goods.CategorySubCategory">
+            <End Role="Category" EntitySet="CategorySet" />
+            <End Role="SubCategory" EntitySet="SubCategorySet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="SubCategory" Relationship="Goods.SubCategoryCategory" FromRole="Category" ToRole="SubCategory" />
           <Property Name="category" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SubCategory" Relationship="Goods.CategorySubCategory" FromRole="Category" ToRole="SubCategory" />
           </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -141,7 +133,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Article" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
-          <Property Name="Picture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DescriptionParameters" Relationship="Goods.FK_ParametrSetDescriptionParametrsSet" FromRole="Product" ToRole="DescriptionParametersSet" />
@@ -157,20 +149,17 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Subcategory" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Category" Relationship="Goods.SubCategoryCategory" FromRole="SubCategory" ToRole="Category" />
           <NavigationProperty Name="ProductSet" Relationship="Goods.FK_ProductSubCategory" FromRole="SubCategory" ToRole="Product" />
+          <NavigationProperty Name="Category" Relationship="Goods.CategorySubCategory" FromRole="SubCategory" ToRole="Category" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="SubCategoryCategory">
-          <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
-          <End Type="Goods.Category" Role="Category" Multiplicity="1" />
-        </Association>
         <EntityType Name="DescriptionParameters">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DescriptionParameter" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DescriptionParameter" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Product_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ProductSet" Relationship="Goods.FK_ParametrSetDescriptionParametrsSet" FromRole="DescriptionParametersSet" ToRole="Product" />
         </EntityType>
@@ -198,12 +187,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-        </EntityType>
+        <Association Name="CategorySubCategory">
+          <End Type="Goods.Category" Role="Category" Multiplicity="1" />
+          <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -234,32 +229,18 @@
     <EntitySetMapping Name="SubCategorySet">
       <EntityTypeMapping TypeName="IsTypeOf(Goods.SubCategory)">
         <MappingFragment StoreEntitySet="SubCategorySet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="Category_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Subcategory" ColumnName="Subcategory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="SubCategoryCategory" TypeName="Goods.SubCategoryCategory" StoreEntitySet="SubCategorySet">
-      <EndProperty Name="Category">
-        <ScalarProperty Name="Id" ColumnName="Category_Id" />
-      </EndProperty>
-      <EndProperty Name="SubCategory">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
           <EntitySetMapping Name="DescriptionParametersSet">
             <EntityTypeMapping TypeName="Goods.DescriptionParameters">
               <MappingFragment StoreEntitySet="DescriptionParametersSet">
                 <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
                 <ScalarProperty Name="DescriptionParameter" ColumnName="DescriptionParameter" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="Goods.Table">
-              <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

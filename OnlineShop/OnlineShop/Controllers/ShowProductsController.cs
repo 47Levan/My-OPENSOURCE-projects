@@ -42,13 +42,13 @@ namespace OnlineShop.Controllers
             {
                 products = sortProducts(subCategory,orderType);
             }
-            return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(pageNumber,2));            
+            return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(pageNumber,5));            
         }
         [HttpGet]
         public ActionResult startShowProductsByFilter(int? subCategory, string orderType)
         {
             List<Product> products = calcForProductsByFilter(subCategory);
-            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", products.ToPagedList(1, 2));
+            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", products.ToPagedList(1, 5));
 
         }
         public ActionResult showOneProduct(Product product)
@@ -59,7 +59,7 @@ namespace OnlineShop.Controllers
         public ActionResult showAllProducts(int pageNumber, string orderType)
         {
             GoodsContainer1 goods = new GoodsContainer1();
-            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", goods.ProductSet.ToList().ToPagedList(pageNumber, 2));
+            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", goods.ProductSet.ToList().ToPagedList(pageNumber, 5));
         }
         public List<Product> sortProducts(int? category,
             string orderType)
@@ -118,7 +118,7 @@ namespace OnlineShop.Controllers
                 GoodsContainer1 goods = new GoodsContainer1();
                 products = sortProducts(category, orderType);
                 ViewBag.OrderType = orderType;
-                return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(1, 2));
+                return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(1, 5));
             }
           
 

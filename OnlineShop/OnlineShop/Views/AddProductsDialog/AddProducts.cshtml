@@ -40,8 +40,10 @@
         @Html.ValidationMessageFor(x => x.SubCategory_Id);
         <p>Upload picture:</p>
         <input type="file" name="uploadedImage"/>
-        <p>Description parameters:</p>
-        @Html.EditorFor(x => x.DescriptionParameters,new {Id="DescriptEditor" })        
+        <div id="Descriptions">
+            @Html.Partial("~/Views/AddProductsDialog/AddRemoveDescription.cshtml", Model)
+        </div>
+ 
         <br />
         <br />
         <input id="submitValidation" type="submit" value="Add" />

@@ -3,6 +3,7 @@
 }
 
 #mainMenu{
+    margin-left:-42px;
     left:0px;
     position:fixed;
     top:50%;

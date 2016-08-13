@@ -1,6 +1,7 @@
 ﻿body {
 }
 #Header{
+    margin-top:-100px;
     position:fixed;
     min-width:1000px;
     margin-left:15%;
@@ -13,7 +14,7 @@
     background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
     color:white;
     text-align:center;
-    vertical-align:middle;
+    vertical-align:top;
 }
 .menuItems{
     color:white;

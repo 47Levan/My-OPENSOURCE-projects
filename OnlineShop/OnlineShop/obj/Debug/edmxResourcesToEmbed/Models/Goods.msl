@@ -25,32 +25,18 @@
     <EntitySetMapping Name="SubCategorySet">
       <EntityTypeMapping TypeName="IsTypeOf(Goods.SubCategory)">
         <MappingFragment StoreEntitySet="SubCategorySet">
+          <ScalarProperty Name="CategoryId" ColumnName="Category_Id" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Subcategory" ColumnName="Subcategory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="SubCategoryCategory" TypeName="Goods.SubCategoryCategory" StoreEntitySet="SubCategorySet">
-      <EndProperty Name="Category">
-        <ScalarProperty Name="Id" ColumnName="Category_Id" />
-      </EndProperty>
-      <EndProperty Name="SubCategory">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="DescriptionParametersSet">
       <EntityTypeMapping TypeName="Goods.DescriptionParameters">
         <MappingFragment StoreEntitySet="DescriptionParametersSet">
           <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
           <ScalarProperty Name="DescriptionParameter" ColumnName="DescriptionParameter" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Table">
-      <EntityTypeMapping TypeName="Goods.Table">
-        <MappingFragment StoreEntitySet="Table">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

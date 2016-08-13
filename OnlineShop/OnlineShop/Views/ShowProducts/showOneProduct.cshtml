@@ -14,7 +14,7 @@
 
         <tr>
             <td>
-                <img style="width:400px;height:auto" src='@Url.Action("ShowPicture","FileOper",new {ImageDataId=@Model.Id})' />
+                <img style="width:400px;height:auto" src="@Url.Content(Model.Picture)" alt="Image" />
             </td>
             <td>
                 <ul>

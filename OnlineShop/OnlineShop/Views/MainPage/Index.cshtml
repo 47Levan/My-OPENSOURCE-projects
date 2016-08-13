@@ -1,6 +1,6 @@
 ﻿@using OnlineShop.Models;
     @{
-        Layout = null;
+        Layout = "~/Views/Shared/_MainPageLayout.cshtml";
     }
 <html>
 <head>
@@ -16,19 +16,10 @@
     <script src="~/Scripts/ShowProductsByFilter.js" type="text/javascript"></script>
     <script src="~/Scripts/AddRemoveProductDialog.js" type="text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="~/Content/MainPage.css?Wednesday 20th of July 2016 07:45:21 AM" />
+    @*<link type="text/css" rel="stylesheet" href="~/Content/PagedList.css?Wednesday 20th of July 2016 07:45:21 AM" />*@
 
 </head>
 <body>
-   
-    <div>
-          @Html.Partial("~/Views/PartialViews/Header.cshtml")
-    </div>
-    <div id="CategoryList">
-    @{
-        GoodsContainer1 goods = new GoodsContainer1();
-    }
-        @Html.Partial("~/Views/PartialViews/showCatButton.cshtml",goods)
-    </div><br/>
     <div id="showProduct">
     </div>       
     <button id="DataOperationsAdd">

@@ -1,8 +1,7 @@
 ﻿@using OnlineShop.Models;
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -12,15 +11,6 @@
     <title>AboutShop</title>
 </head>
 <body>
-    <div>
-        @Html.Partial("~/Views/PartialViews/Header.cshtml")
-    </div>
-    <div id="CategoryList">
-        @{
-            GoodsContainer1 goods = new GoodsContainer1();
-        }
-        @Html.Partial("~/Views/PartialViews/showCatButton.cshtml", goods)
-    </div><br />
     <div id="showProduct">
         <h3 style="margin-left:50%;text-align:center">History:</h3>
         <p style="padding-left:20px;padding-right:20px;text-indent:20px">Early years

@@ -1,6 +1,6 @@
 ﻿@using OnlineShop.Models;
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
 }
 <html>
 <head>
@@ -9,16 +9,6 @@
     <title>Contacts</title>
 </head>
 <body>
-
-    <div>
-        @Html.Partial("~/Views/PartialViews/Header.cshtml")
-    </div>
-    <div id="CategoryList">
-        @{
-            GoodsContainer1 goods = new GoodsContainer1();
-        }
-        @Html.Partial("~/Views/PartialViews/showCatButton.cshtml", goods)
-    </div><br />
     <div id="showProduct">
         <p>Email:inimicos471@gmail.com</p>
         <p>Phone:555-555-555</p>

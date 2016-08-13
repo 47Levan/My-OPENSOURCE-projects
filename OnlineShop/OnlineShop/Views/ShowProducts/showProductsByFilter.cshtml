@@ -1,4 +1,5 @@
-﻿  <script></script>
+﻿ <link type="text/css" rel="stylesheet" href="~/Content/PagedList.css?Wednesday 20th of July 2016 07:45:21 AM"/>
+ <script></script>
    @using System.Collections.Generic;
    @using PagedList.Mvc;
    @using PagedList;
@@ -15,12 +16,13 @@
             }
         </ul>
     </div>
-Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount
+@*Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount*@
 @Html.PagedListPager(Model,page=> Url.Action("showProductsByFilter", "ShowProducts",
-    new { subCategory=@ViewBag.clickedCategory, pageNumber=page, orderType= ViewBag.OrderType }),
+    new { subCategory=@ViewBag.clickedCategory, pageNumber=page,
+        orderType = ViewBag.OrderType,@id="Page_Changer" }),
     PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
         new AjaxOptions() {
             HttpMethod ="GET",
             UpdateTargetId= "showSelectedProducts"
-        }));
+        }))
   

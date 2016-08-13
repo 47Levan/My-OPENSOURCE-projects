@@ -24,7 +24,7 @@ namespace OnlineShop.Models
         public string Name { get; set; }
         public string Article { get; set; }
         public double Price { get; set; }
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
         public System.DateTime DateAdded { get; set; }
         public int SubCategory_Id { get; set; }
     

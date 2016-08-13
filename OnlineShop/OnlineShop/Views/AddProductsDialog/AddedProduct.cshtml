@@ -12,7 +12,7 @@
      
         <tr>
             <td rowspan="4">
-                <img style="width:auto;height:auto" src='@Url.Action("ShowPicture","FileOper",new {ImageDataId=@Model.Id})' />
+                <img style="width:auto;height:auto" src="@Url.Content(Model.Picture)" alt="Image" />
             </td>
         </tr>
     </tbody>

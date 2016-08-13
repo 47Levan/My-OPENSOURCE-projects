@@ -131,6 +131,7 @@
     <Content Include="Content\ContactPage.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\MainPage.css" />
+    <Content Include="Content\PageChanger.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShowOneProduct.css" />
     <Content Include="Content\Site.css" />
@@ -174,6 +175,15 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Goods.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\Cell Phones\Smart phones\HTC ONE.jpg" />
+    <Content Include="Images\Cell Phones\Smart phones\Samsung galaxy S7.jpg" />
+    <Content Include="Images\Cell Phones\Smart phones\Samsung galaxy s7.png" />
+    <Content Include="Images\Cell Phones\Smart phones\Sony xperia XA.jpg" />
+    <Content Include="Images\Head phones\Over-Ear\Bose headphones.jpg" />
+    <Content Include="Images\Laptops\Gaming\HP1.jpg" />
+    <Content Include="Images\Laptops\Soft\Dell inspirion mini.jpg" />
+    <Content Include="Images\Laptops\Soft\Lenovo 1.jpg" />
+    <Content Include="Images\PC\For gaming\PC-1.jpg" />
     <Content Include="Models\Goods.edmx.diagram">
       <DependentUpon>Goods.edmx</DependentUpon>
     </Content>
@@ -275,9 +285,6 @@
     <Compile Include="Models\SubCategory.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Table.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -302,6 +309,7 @@
     <Content Include="Views\ShowProducts\showProductsByFilter.cshtml" />
     <Content Include="Views\ShowProducts\showOneProduct.cshtml" />
     <Content Include="Views\ShowProducts\ShowProductsDialog.cshtml" />
+    <Content Include="Views\AddProductsDialog\AddRemoveDescription.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -311,7 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\FileOper\" />
   </ItemGroup>
   <ItemGroup>
