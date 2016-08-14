@@ -3,14 +3,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="http://www.oldconsoles.com.ua/favicon.ico" />
     <script src="~/Scripts/jquery-3.1.0.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery-ui-1.11.4.js" type="text/javascript"></script>
 </head>
 <body>
-   
-        @Html.Partial("~/Views/PartialViews/Header.cshtml")
-   
+
+   <div>
+       @Html.Partial("~/Views/PartialViews/Navigation.cshtml")
+   </div>   
     <div style="position:absolute" id="CategoryList">
         @{
             GoodsContainer1 goods = new GoodsContainer1();

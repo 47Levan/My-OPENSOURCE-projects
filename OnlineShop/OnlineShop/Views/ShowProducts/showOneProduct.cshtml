@@ -1,31 +1,33 @@
-﻿<link rel="stylesheet" type="text/css" href="~/Content/ShowOneProduct.css"/>
+﻿
 @model OnlineShop.Models.Product
     @using OnlineShop.Models;
-<table>
-    <thead>
-        <tr>
-            <td colspan="2" style="text-align:center;font-weight:bold">
-                @Model.Name @Model.Article @Model.Price $ <br/>
-                Date Added:@Model.DateAdded
-            </td>
-        </tr>
-    </thead>
-    <tbody>
+<div id="ProductHead">
+    <h1>
+        @Model.Name @Model.Article @Model.Price $ 
+    </h1>
+    <h2>
+        Date Added:@Model.DateAdded
+    </h2>
+</div>   
+<div>
+    <div id="productPicture">
+        <img src="@Url.Content(Model.Picture)" alt="Image" />
+    </div>
+    <div id="productDiscriptions">
+        <dl>
+            @foreach (DescriptionParameters desc in Model.DescriptionParameters)
+            {
 
-        <tr>
-            <td>
-                <img style="width:400px;height:auto" src="@Url.Content(Model.Picture)" alt="Image" />
-            </td>
-            <td>
-                <ul>
-                    @foreach (DescriptionParameters desc in Model.DescriptionParameters)
-                    {
-                        <li class="dicriptionParameters">
-                            <p style="font-weight:bold">@desc.Description:</p> @desc.DescriptionParameter
-                        </li>
-                    }
-                </ul>
-            </td>
-      
-    </tbody>
-</table>
+                <dt style="font-weight:bold">@desc.Description:</dt>
+                <dd style="margin-top:10px">@desc.DescriptionParameter</dd>
+            }
+        </dl>
+    </div>
+</div> 
+
+
+
+             
+           
+               
+

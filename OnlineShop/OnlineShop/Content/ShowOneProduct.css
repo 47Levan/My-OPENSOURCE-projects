@@ -1,11 +1,34 @@
-﻿body {
+﻿#ProductHead{
+    width:100%;
 }
-td{
-
+h1{
+    text-align:center;
+}
+h2{
+    text-align:center;
 }
 ul{
     list-style-type:none;
 }
 .dicriptionParameters{
   
+}
+dd{
+   margin-bottom:30px;
+}
+img{
+    width:90%;
+    height:auto;
+}
+#productPicture {
+     width:60%;
+     height:auto;
+     display:inline-block;
+     vertical-align:middle;
+}
+#productDiscriptions{
+    width:39%;
+    height:auto;
+    vertical-align:middle;
+    display:inline-block;
 }

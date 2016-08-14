@@ -131,6 +131,7 @@
     <Content Include="Content\ContactPage.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\MainPage.css" />
+    <Content Include="Content\MethodsOfDelivery.css" />
     <Content Include="Content\PageChanger.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShowOneProduct.css" />
@@ -169,6 +170,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\ValidationStyle.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\Goods.edmx">
@@ -297,7 +299,7 @@
     </Content>
     <Content Include="Views\PartialViews\showCatButton.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
-    <Content Include="Views\PartialViews\Header.cshtml" />
+    <Content Include="Views\PartialViews\Navigation.cshtml" />
     <Content Include="Views\Menu\Contacts.cshtml" />
     <Content Include="Views\Menu\AboutShop.cshtml" />
     <Content Include="Views\Menu\MethodsOfDelivery.cshtml" />
