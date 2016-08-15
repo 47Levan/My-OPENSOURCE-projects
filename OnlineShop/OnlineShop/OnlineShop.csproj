@@ -51,6 +51,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GoogleMapsApi, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMapsApi.0.56.0\lib\net45\GoogleMapsApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -123,12 +127,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AboutShop.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CategoryList.css" />
     <Content Include="Content\ContactPage.css" />
+    <Content Include="Content\Contacts.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\MainPage.css" />
     <Content Include="Content\MethodsOfDelivery.css" />
@@ -136,6 +142,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShowOneProduct.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\TEMP.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -238,7 +245,7 @@
     <Content Include="Scripts\ShowAllProducts.js" />
     <Content Include="Scripts\ShowProductsByFilter.js" />
     <Content Include="Scripts\SortProducts.js" />
-    <Content Include="Views\ShowProductsByFilter.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -321,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\FileOper\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

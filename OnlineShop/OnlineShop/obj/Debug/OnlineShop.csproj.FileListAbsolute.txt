@@ -45,4 +45,6 @@ D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin\PagedList.Mvc.dll
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin\PagedList.xml
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin\PagedList.Mvc.xml
-d:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.csprojResolveAssemblyReference.cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin\GoogleMapsApi.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\bin\GoogleMapsApi.xml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.csprojResolveAssemblyReference.cache

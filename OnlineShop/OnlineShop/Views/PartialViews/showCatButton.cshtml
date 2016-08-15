@@ -2,33 +2,41 @@
 @using OnlineShop.Models;
 @using System.Data.Entity;
 <link type="text/css" rel="stylesheet" href="~/Content/CategoryList.css?Wednesday 20th of July 2016 07:45:21 AM"/>
-    <script src='@Url.Content("~/Scripts/jquery-3.1.0.min.js")' type="text/javascript"></script>
-    <script src='@Url.Content("~/Scripts/jquery-ui-1.11.4.min.js")' type="text/javascript"></script>
-    <script src="~/Scripts/ResizeButton.js" type="text/javascript"></script>
-    <script src="~/Scripts/ShowProductsByFilter.js" type="text/javascript"></script>
-        <ul id="mainMenu">
-            @foreach(string cat in Model.CategorySet.Select(x=>x.category))
-            {
-                <li>
-                    <button class="MenuItem">
-                        @cat
-                        
-                    </button>
-                       
-                    <ul class="subMenu">
-                        @foreach (SubCategory subcat in Model.SubCategorySet.Where(x=>x.Category.category==cat))
-                        {
+    <script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+     <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="~/Scripts/ResizeButton.js" type="text/javascript"></script> 
+   <div id="ListIndicator">
+       <img style="width:100%;height:100%" src="http://www.clker.com/cliparts/7/6/4/a/1206569902228245216pitr_green_single_arrows_set_1.svg.hi.png" />
+   </div>
+  <div id="MenuContainer">
+    <ul id="mainMenu">
+        @foreach (string cat in Model.CategorySet.Select(x => x.category))
+        {
+            <li>
+                <button class="MenuItem">
+                    @cat
 
-                             <li>                               
-                                     <button type="button" value="@subcat.Id" class="subMenuItem">
-                                         @subcat.Subcategory
-                                     </button>
-                               
-                             </li>
-                        }
-                    </ul>         
-                </li>
-            }
-        </ul>
+                </button>
+
+                <ul class="subMenu">
+                    @foreach (SubCategory subcat in Model.SubCategorySet.Where(x => x.Category.category == cat))
+                    {
+
+                        <li>
+                            <button type="button" value="@subcat.Id" class="subMenuItem">
+                                @subcat.Subcategory
+                            </button>
+
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
 
 

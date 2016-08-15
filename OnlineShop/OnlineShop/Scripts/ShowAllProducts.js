@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
-  
+
     $.ajax({
         url: '/ShowProducts/showAllProducts',
         data: { pageNumber: 1, orderType:$('sortList').val() },
         type:'GET',
         success: function (partialView) {
+            $('#showProduct').empty();
             $('#showProduct').html(partialView);
             $('#showProduct').show(partialView);
         },

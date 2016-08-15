@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     $('#DataOperationsAdd').click(function(){   
     $.ajax({
         url: '/AddProductsDialog/AddProducts',

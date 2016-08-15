@@ -1,5 +1,4 @@
-﻿$(document).ready(function () {
-    $('.subMenuItem').click(function () {
+﻿$('.subMenuItem').click(function (event) {
         $.ajax({
             url: "/ShowProducts/startShowProductsByFilter",
             type: "GET",
@@ -17,4 +16,5 @@
         })
     })
 
-})
+  
+

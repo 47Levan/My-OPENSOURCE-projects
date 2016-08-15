@@ -1,0 +1,53 @@
+﻿body {
+}
+#InfoParametr{
+    margin-top:2%;
+    position:absolute;
+    width:150px;
+    height:100%;
+    float:left;
+    z-index:0;
+ 
+}
+#showShopInfo{
+
+    margin-left:20px;
+    width:700px;
+    display:inline-block;
+}
+#showProduct{
+   
+    padding-left:20px;
+    width:70%;
+  
+    margin-top:100px;
+    margin-left:200px;
+}
+.listInfoItem{
+    width:100%;
+    height:30px;
+    margin-top:5px;
+    margin-bottom:5px;
+     text-align:center;
+}
+.listInfoItemHref{
+   
+  color:blue;
+}
+.listInfoItem:hover{
+    background-color:green;
+  
+}
+.listInfoItemHref:hover{
+  color:white;
+}
+#aboutShopSepar{
+
+    position:absolute;
+    width:1px;
+    height:100%;
+    float:left;
+    margin-left:190px;
+    margin-top:25px;
+    border-left:solid 1px #cccccc;
+}

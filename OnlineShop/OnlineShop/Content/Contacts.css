@@ -1,0 +1,19 @@
+﻿.contactdiv{
+    margin-top:10px;
+}
+.contacthead{
+    display:inline;
+}
+.contactpar{
+    display:inline;
+}
+#contactContainer{
+
+}
+#showProduct{
+    padding-left:20px;
+    width:60%;
+    height:auto;
+    margin-top:100px;
+    margin-left:400px;
+}
