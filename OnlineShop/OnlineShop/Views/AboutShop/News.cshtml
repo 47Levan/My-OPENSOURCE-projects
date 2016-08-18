@@ -1,0 +1,18 @@
+﻿@using OnlineShop.Models
+@model List<News>
+    <link rel="stylesheet" href="~/Content/News.css" type="text/css"/>
+<ul id="newsContainer">
+    @foreach(News news in Model)
+    {
+      
+        <li class="news">
+    <div class="newsDescription">
+        <h4>@news.Title @news.categories.ToString()</h4>
+         <p>@news.ShortDiscription</p> 
+         <p>  @news.DateAdded </p>
+    </div> 
+    <div class="newsPreviewsPicture"> <img style="width:200px;height:auto" src="@Url.Content(@news.PreviewPicture)" /> </div> 
+        </li>
+        
+    }
+</ul>

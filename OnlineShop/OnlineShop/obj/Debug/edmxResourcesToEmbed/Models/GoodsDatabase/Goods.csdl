@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Goods" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="GoodsContainer1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategorySet" EntityType="Goods.Category" />
+    <EntitySet Name="ProductSet" EntityType="Goods.Product" />
+    <EntitySet Name="SubCategorySet" EntityType="Goods.SubCategory" />
+    <EntitySet Name="DescriptionParametersSet" EntityType="Goods.DescriptionParameters" />
+    <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Goods.FK_ParametrSetDescriptionParametrsSet">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="DescriptionParametersSet" EntitySet="DescriptionParametersSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSubCategory" Association="Goods.FK_ProductSubCategory">
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+      <End Role="Product" EntitySet="ProductSet" />
+    </AssociationSet>
+    <AssociationSet Name="CategorySubCategory" Association="Goods.CategorySubCategory">
+      <End Role="Category" EntitySet="CategorySet" />
+      <End Role="SubCategory" EntitySet="SubCategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="SubCategory" Relationship="Goods.CategorySubCategory" FromRole="Category" ToRole="SubCategory" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Article" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SubCategory_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DescriptionParameters" Relationship="Goods.FK_ParametrSetDescriptionParametrsSet" FromRole="Product" ToRole="DescriptionParametersSet" />
+    <NavigationProperty Name="SubCategory" Relationship="Goods.FK_ProductSubCategory" FromRole="Product" ToRole="SubCategory" />
+  </EntityType>
+  <ComplexType Name="CategoryInfo">
+    <Property Type="String" Name="CategoryName" Nullable="false" />
+    <Property Type="String" Name="SubCategoryName" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subcategory" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ProductSet" Relationship="Goods.FK_ProductSubCategory" FromRole="SubCategory" ToRole="Product" />
+    <NavigationProperty Name="Category" Relationship="Goods.CategorySubCategory" FromRole="SubCategory" ToRole="Category" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DescriptionParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DescriptionParameter" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProductSet" Relationship="Goods.FK_ParametrSetDescriptionParametrsSet" FromRole="DescriptionParametersSet" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_ParametrSetDescriptionParametrsSet">
+    <End Type="Goods.Product" Role="Product" Multiplicity="1" />
+    <End Type="Goods.DescriptionParameters" Role="DescriptionParametersSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DescriptionParametersSet">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSubCategory">
+    <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="1" />
+    <End Type="Goods.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CategorySubCategory">
+    <End Type="Goods.Category" Role="Category" Multiplicity="1" />
+    <End Type="Goods.SubCategory" Role="SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

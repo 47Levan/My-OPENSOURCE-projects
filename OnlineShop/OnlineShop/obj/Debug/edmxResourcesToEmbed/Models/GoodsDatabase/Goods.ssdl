@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Goods.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DescriptionParametersSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="DescriptionParameter" Type="varchar(max)" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Article" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubCategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ParametrSetDescriptionParametrsSet">
+    <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="1" />
+    <End Role="DescriptionParametersSet" Type="Self.DescriptionParametersSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DescriptionParametersSet">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSubCategory">
+    <End Role="SubCategorySet" Type="Self.SubCategorySet" Multiplicity="1" />
+    <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategorySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductSet">
+        <PropertyRef Name="SubCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategoryCategory">
+    <End Role="CategorySet" Type="Self.CategorySet" Multiplicity="1" />
+    <End Role="SubCategorySet" Type="Self.SubCategorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubCategorySet">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GoodsStoreContainer">
+    <EntitySet Name="CategorySet" EntityType="Self.CategorySet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DescriptionParametersSet" EntityType="Self.DescriptionParametersSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSet" EntityType="Self.ProductSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategorySet" EntityType="Self.SubCategorySet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ParametrSetDescriptionParametrsSet" Association="Self.FK_ParametrSetDescriptionParametrsSet">
+      <End Role="ProductSet" EntitySet="ProductSet" />
+      <End Role="DescriptionParametersSet" EntitySet="DescriptionParametersSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSubCategory" Association="Self.FK_ProductSubCategory">
+      <End Role="SubCategorySet" EntitySet="SubCategorySet" />
+      <End Role="ProductSet" EntitySet="ProductSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategoryCategory" Association="Self.FK_SubCategoryCategory">
+      <End Role="CategorySet" EntitySet="CategorySet" />
+      <End Role="SubCategorySet" EntitySet="SubCategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

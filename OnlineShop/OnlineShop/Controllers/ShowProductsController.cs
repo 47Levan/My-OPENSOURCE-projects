@@ -9,45 +9,38 @@ namespace OnlineShop.Controllers
 {
     public class ShowProductsController : Controller
     {
-        public List<Product> calcForProductsByFilter(int? subCategory)
+        private IProductOperations prod;
+        public ShowProductsController(IProductOperations productOperations)
         {
-            ViewData["category"] = subCategory;
-            GoodsContainer1 goods = new GoodsContainer1();
-
-            List<Product> products = new List<Product>();
-            if (subCategory != null)
-            {
-                products = goods.ProductSet.Where(x => x.SubCategory.Id == subCategory).ToList();
-            }
-            else
-            {
-                products = goods.ProductSet.ToList();
-            }
-            ViewData["SubCategories"] = goods.SubCategorySet;
-            ViewData["Categories"] = goods.CategorySet;
-            ViewBag.clickedCategory = subCategory;
-            return products;
+            prod = productOperations;
         }
+     
         // GET: ShowProducts
         [HttpGet]
         public ActionResult showProductsByFilter(int? subCategory=null,int pageNumber=1,string orderType=null)
         {
+            GoodsContainer1 goods = new GoodsContainer1();
             List<Product> products=new List<Product>();
             ViewBag.OrderType=orderType;
             if (orderType == null)
             {
-                products = calcForProductsByFilter(subCategory);
+                products=prod.calcForProductsByFilter(subCategory);
+                ViewData["category"] = subCategory;
+                ViewData["SubCategories"] = goods.SubCategorySet;
+                ViewData["Categories"] = goods.CategorySet;
+                ViewBag.clickedCategory = subCategory;
             }
             else
             {
-                products = sortProducts(subCategory,orderType);
+                products = prod.sortProducts(subCategory,orderType);
             }
             return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(pageNumber,5));            
         }
         [HttpGet]
         public ActionResult startShowProductsByFilter(int? subCategory, string orderType)
         {
-            List<Product> products = calcForProductsByFilter(subCategory);
+
+            List<Product> products = prod.calcForProductsByFilter(subCategory);
             return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", products.ToPagedList(1, 5));
 
         }
@@ -61,49 +54,7 @@ namespace OnlineShop.Controllers
             GoodsContainer1 goods = new GoodsContainer1();
             return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", goods.ProductSet.ToList().ToPagedList(pageNumber, 5));
         }
-        public List<Product> sortProducts(int? category,
-            string orderType)
-        {
-            List<Product> products = new List<Product>();
-            GoodsContainer1 goods = new GoodsContainer1();
-            if (category == null)
-            {
-                switch (orderType)
-                {
-                    case "from cheap to expensive":
-                        products = goods.ProductSet.OrderBy(x => x.Price).ToList();
-                        break;
-                    case "from expensive to cheap":
-                        products = goods.ProductSet.OrderByDescending(x => x.Price).ToList();
-                        break;
-                    case "Newest":
-                        products = goods.ProductSet.OrderByDescending(x => x.DateAdded).ToList();
-                        break;
-                    case "Oldest":
-                        products = goods.ProductSet.OrderBy(x => x.DateAdded).ToList();
-                        break;
-                }
-            }
-            else
-            {
-                switch (orderType)
-                {
-                    case "from cheap to expensive":
-                        products = goods.ProductSet.Where(x => x.SubCategory_Id == category).OrderBy(x => x.Price).ToList();
-                        break;
-                    case "from expensive to cheap":
-                        products = goods.ProductSet.Where(x => x.SubCategory_Id == category).OrderByDescending(x => x.Price).ToList();
-                        break;
-                    case "Newest":
-                        products = goods.ProductSet.Where(x => x.SubCategory_Id == category).OrderByDescending(x => x.DateAdded).ToList();
-                        break;
-                    case "Oldest":
-                        products = goods.ProductSet.Where(x => x.SubCategory_Id == category).OrderBy(x => x.DateAdded).ToList();
-                        break;
-                }
-            }
-            return products;
-        }
+   
         [HttpPost]
         public ActionResult sortProductsByFilter(int? category,
             string orderType)
@@ -116,7 +67,7 @@ namespace OnlineShop.Controllers
             {
                 List<Product> products = new List<Product>();
                 GoodsContainer1 goods = new GoodsContainer1();
-                products = sortProducts(category, orderType);
+                products = prod.sortProducts(category, orderType);
                 ViewBag.OrderType = orderType;
                 return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(1, 5));
             }

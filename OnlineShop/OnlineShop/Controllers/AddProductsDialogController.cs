@@ -30,13 +30,13 @@ namespace OnlineShop.Controllers
             string pathToSave;
             using (GoodsContainer1 goods = new GoodsContainer1())
             {
-                string serverPathToSave = $"~/Images/"+
+                string serverPathToSave = $"~/Images/Products/"+
 $"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
 $"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}"+
 $"/{uploadedImage.FileName}";
                 pathToSave = Server.MapPath(serverPathToSave);
 
-                string folderToCreate = $@"~/Images/"+
+                string folderToCreate = $@"~/Images/Products/" +
 $"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
 $"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}";
                 if (!Directory.Exists(folderToCreate))
@@ -46,7 +46,7 @@ $"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subc
                 }
 
                 uploadedImage.SaveAs(pathToSave);
-                product.Picture = $@"~/Images/"+
+                product.Picture = $@"~/Images/Products/" +
 $"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
 $"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}/"+
 $"{uploadedImage.FileName}";

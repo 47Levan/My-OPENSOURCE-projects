@@ -138,6 +138,7 @@
     <Content Include="Content\Header.css" />
     <Content Include="Content\MainPage.css" />
     <Content Include="Content\MethodsOfDelivery.css" />
+    <Content Include="Content\News.css" />
     <Content Include="Content\PageChanger.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShowOneProduct.css" />
@@ -180,29 +181,32 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\Goods.edmx">
+    <EntityDeploy Include="Models\GoodsDatabase\Goods.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Goods.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Images\Cell Phones\Smart phones\HTC ONE.jpg" />
-    <Content Include="Images\Cell Phones\Smart phones\Samsung galaxy S7.jpg" />
-    <Content Include="Images\Cell Phones\Smart phones\Samsung galaxy s7.png" />
-    <Content Include="Images\Cell Phones\Smart phones\Sony xperia XA.jpg" />
-    <Content Include="Images\Head phones\Over-Ear\Bose headphones.jpg" />
-    <Content Include="Images\Laptops\Gaming\HP1.jpg" />
-    <Content Include="Images\Laptops\Soft\Dell inspirion mini.jpg" />
-    <Content Include="Images\Laptops\Soft\Lenovo 1.jpg" />
-    <Content Include="Images\PC\For gaming\PC-1.jpg" />
-    <Content Include="Models\Goods.edmx.diagram">
+    <Content Include="Images\NewsPreview\Internet\1.jpg" />
+    <Content Include="Images\NewsPreview\Internet\2.jpg" />
+    <Content Include="Images\NewsPreview\SmartPhones\1.jpg" />
+    <Content Include="Images\Products\Cell Phones\Smart phones\HTC ONE.jpg" />
+    <Content Include="Images\Products\Cell Phones\Smart phones\Samsung galaxy S7.jpg" />
+    <Content Include="Images\Products\Cell Phones\Smart phones\Samsung galaxy s7.png" />
+    <Content Include="Images\Products\Cell Phones\Smart phones\Sony xperia XA.jpg" />
+    <Content Include="Images\Products\Head phones\Over-Ear\Bose headphones.jpg" />
+    <Content Include="Images\Products\Laptops\Gaming\HP1.jpg" />
+    <Content Include="Images\Products\Laptops\Soft\Dell inspirion mini.jpg" />
+    <Content Include="Images\Products\Laptops\Soft\Lenovo 1.jpg" />
+    <Content Include="Images\Products\PC\For gaming\PC-1.jpg" />
+    <Content Include="Models\GoodsDatabase\Goods.edmx.diagram">
       <DependentUpon>Goods.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Goods.edmx.sql" />
-    <Content Include="Models\GoodsList.Context.tt">
+    <Content Include="Models\GoodsDatabase\Goods.edmx.sql" />
+    <Content Include="Models\GoodsDatabase\GoodsList.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GoodsList.Context.cs</LastGenOutput>
       <DependentUpon>Goods.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\GoodsList.tt">
+    <Content Include="Models\GoodsDatabase\GoodsList.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GoodsList.cs</LastGenOutput>
       <DependentUpon>Goods.edmx</DependentUpon>
@@ -216,6 +220,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\AboutShop.js" />
     <Content Include="Scripts\AddRemoveProductDialog.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -251,6 +256,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutShopController.cs" />
     <Compile Include="Controllers\AddProductsDialogController.cs" />
     <Compile Include="Controllers\FileOperController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
@@ -261,37 +267,38 @@
     </Compile>
     <Compile Include="Infrastucture\NinjectResolver.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Category.cs">
+    <Compile Include="Models\GoodsDatabase\Category.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoryInfo.cs">
+    <Compile Include="Models\GoodsDatabase\CategoryInfo.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseModel.cs" />
-    <Compile Include="Models\DescriptionParameters.cs">
+    <Compile Include="Models\GoodsDatabase\DescriptionParameters.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Goods.Designer.cs">
+    <Compile Include="Models\GoodsDatabase\Goods.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Goods.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\GoodsList.Context.cs">
+    <Compile Include="Models\GoodsDatabase\GoodsList.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoodsList.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GoodsList.cs">
+    <Compile Include="Models\GoodsDatabase\GoodsList.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IProductOperations.cs" />
-    <Compile Include="Models\Product.cs">
+    <Compile Include="Models\NewsDatabase\News.cs" />
+    <Compile Include="Models\ProductOperations\IProductOperations.cs" />
+    <Compile Include="Models\NewsDatabase\NewsDBContext.cs" />
+    <Compile Include="Models\GoodsDatabase\Product.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductOperations.cs" />
-    <Compile Include="Models\SubCategory.cs">
+    <Compile Include="Models\ProductOperations\ProductOperations.cs" />
+    <Compile Include="Models\GoodsDatabase\SubCategory.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +326,13 @@
     <Content Include="Views\ShowProducts\showOneProduct.cshtml" />
     <Content Include="Views\ShowProducts\ShowProductsDialog.cshtml" />
     <Content Include="Views\AddProductsDialog\AddRemoveDescription.cshtml" />
+    <Content Include="Views\AboutShop\History.cshtml" />
+    <Content Include="Views\AboutShop\Why_We.cshtml" />
+    <Content Include="Views\AboutShop\News.cshtml" />
+    <Content Include="Views\AboutShop\Our_Team.cshtml" />
+    <Content Include="Views\News\Internet\News1.cshtml" />
+    <Content Include="Views\News\Internet\News2.cshtml" />
+    <Content Include="Views\News\SmartPhones\News1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -328,6 +342,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\NewsPreview\Computers\" />
+    <Folder Include="Images\NewsPreview\HeadPhones\" />
+    <Folder Include="Images\NewsPreview\Hi_Tech\" />
+    <Folder Include="Views\News\Computers\" />
+    <Folder Include="Views\News\HeadPhones\" />
+    <Folder Include="Views\News\Hi_Tech\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

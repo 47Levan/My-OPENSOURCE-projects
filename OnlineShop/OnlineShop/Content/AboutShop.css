@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 #InfoParametr{
     margin-top:2%;
     position:absolute;
@@ -14,12 +13,11 @@
     margin-left:20px;
     width:700px;
     display:inline-block;
+    min-height:700px;
 }
-#showProduct{
-   
+#showProduct{  
     padding-left:20px;
-    width:70%;
-  
+    width:70%; 
     margin-top:100px;
     margin-left:200px;
 }
@@ -31,22 +29,35 @@
      text-align:center;
 }
 .listInfoItemHref{
-   
-  color:blue;
+  color:black;
+  text-decoration:none;
+  font-weight:bold;
 }
 .listInfoItem:hover{
-    background-color:green;
-  
+    background-color:green;  
 }
-.listInfoItemHref:hover{
+
+.listInfoItem:hover a{
   color:white;
+}
+.SelectedlistInfoItemHref{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+.SelectedlistInfoItem{
+    width:100%;
+    height:30px;
+    margin-top:5px;
+    margin-bottom:5px;
+    text-align:center;
+    background-color:green;  
 }
 #aboutShopSepar{
 
-    position:absolute;
-    width:1px;
+    clear:both;
+    width:1px;  
     height:100%;
-    float:left;
     margin-left:190px;
     margin-top:25px;
     border-left:solid 1px #cccccc;

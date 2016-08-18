@@ -49,6 +49,10 @@
 #MenuContainer:hover{
     display:block;
 }
+#MenuContainer:hover +#ListIndicator{
+    margin-left:50%;
+    background-color:green;
+}
 .MenuItem:hover
 {
     text-decoration:underline;

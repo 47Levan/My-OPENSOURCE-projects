@@ -1,0 +1,25 @@
+﻿#newsContainer{
+    list-style-type:none;
+}
+.news{
+    margin-bottom:5%;
+    border-bottom:solid 1px  #d9d9d9;
+}
+.newsDescription{
+    display:inline-block;
+   
+    width:50%;
+    vertical-align:middle;
+    min-height:200px;
+}
+.newsDescription p{
+   
+    height:100%;
+  
+}
+.newsPreviewsPicture{
+    vertical-align:middle;
+    display:inline-block;
+  
+   
+}
