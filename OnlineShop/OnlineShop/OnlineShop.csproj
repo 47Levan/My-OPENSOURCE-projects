@@ -246,9 +246,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\News.js" />
     <Content Include="Scripts\ResizeButton.js" />
     <Content Include="Scripts\ShowAllProducts.js" />
     <Content Include="Scripts\ShowProductsByFilter.js" />
+    <Content Include="Scripts\SortNews.js" />
     <Content Include="Scripts\SortProducts.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -265,6 +267,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastucture\HelperMethods.cs" />
     <Compile Include="Infrastucture\NinjectResolver.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GoodsDatabase\Category.cs">
@@ -333,6 +336,9 @@
     <Content Include="Views\News\Internet\News1.cshtml" />
     <Content Include="Views\News\Internet\News2.cshtml" />
     <Content Include="Views\News\SmartPhones\News1.cshtml" />
+    <Content Include="Views\News\SmartPhones\News2.cshtml" />
+    <Content Include="Views\News\SmartPhones\News3.cshtml" />
+    <Content Include="Views\PartialViews\NewsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

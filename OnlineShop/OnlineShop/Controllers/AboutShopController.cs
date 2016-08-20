@@ -8,45 +8,49 @@ namespace OnlineShop.Controllers
 {
     public class AboutShopController : Controller
     {
+        [HttpPost]
         public ActionResult ShowSelector(string showCriteria)
         {
             if (showCriteria == "History")
             {
-                return RedirectToAction("History");
+                return PartialView("~/Views/AboutShop/History.cshtml");
             }
             else if(showCriteria== "Why we")
             {
-                return RedirectToAction("Why_We");
+                return PartialView("~/Views/AboutShop/Why_We.cshtml");
             }
             else if(showCriteria == "Our team")
             {
-                return RedirectToAction("Our_Team");
+                return PartialView("~/Views/AboutShop/Our_Team.cshtml");
             }
             else if(showCriteria == "News")
             {
-                return RedirectToAction("News");
+                NewsDBContext news = new NewsDBContext();
+                return PartialView("~/Views/AboutShop/News.cshtml",news.newsDataSet.ToList());
             }
-            return RedirectToAction("History");
+            return PartialView("~/Views/AboutShop/History.cshtml");
         }
-        // GET: AboutShop
-        [HttpGet]
-        public ActionResult History()
-        {
-            return PartialView();
-        }
-        public ActionResult Why_We()
-        {
-            return PartialView();
-        }
-        public ActionResult News()
+        [HttpPost]
+        public ActionResult ShowNews(string pagelink)
         {
             NewsDBContext news = new NewsDBContext();
-            return PartialView(news.newsDataSet.ToList());
+            return PartialView(pagelink,news.newsDataSet.FirstOrDefault(x=>x.FullPageLink==pagelink));
         }
-        public ActionResult Our_Team()
+        [HttpPost]
+        public ActionResult SortNews(string sortParameters)
         {
-            return PartialView();
-        }
+            NewsDBContext news = new NewsDBContext();
+            if (sortParameters == "Newest")
+            {
+                return PartialView("~/Views/PartialViews/NewsList.cshtml",
+                news.newsDataSet.OrderByDescending(x => x.DateAdded).ToList());
+            }
+            else
+            {
 
+                return PartialView("~/Views/PartialViews/NewsList.cshtml",
+                news.newsDataSet.OrderBy(x => x.DateAdded).ToList());
+            }
+        }
     }
 }

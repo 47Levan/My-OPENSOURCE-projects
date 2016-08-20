@@ -8,6 +8,7 @@
     $('.subMenuItem').mouseleave(function () {
         $(this).animate({
             width: '-=10px'
+            
         })
     })
 })

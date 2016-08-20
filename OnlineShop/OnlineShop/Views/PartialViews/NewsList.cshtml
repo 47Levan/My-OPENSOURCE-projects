@@ -1,0 +1,28 @@
+﻿<script src="~/Scripts/News.js" type="text/javascript"></script>
+<script src="~/Scripts/SortNews.js" type="text/javascript"></script>
+@using OnlineShop.Models
+@model List<News>
+<ul id="newsContainer">
+    @foreach (News news in Model)
+    {
+        <li class="news">
+            <div class="newsContainer">
+                <div class="newsDescription">
+                    <a class="NewsRef" href="@news.FullPageLink">
+                        <h4>@news.Title @news.categories.ToString()</h4>
+                    </a>
+                    <a class="NewsRef" style="text-decoration:none;color:black" href="@news.FullPageLink">
+                        <p>@news.ShortDiscription</p>
+                        <p>  @news.DateAdded </p>
+                    </a>
+                </div>
+                <div class="newsPreviewsPicture">
+                    <a class="NewsRef" href="@news.FullPageLink">
+                        <img style="width:200px;height:auto" src="@Url.Content(@news.PreviewPicture)" />
+                    </a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+

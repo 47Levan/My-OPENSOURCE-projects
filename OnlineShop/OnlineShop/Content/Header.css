@@ -23,19 +23,18 @@
 }
 
 
-h3 a{
+.MenuNavItem a{
     color:white;
     text-decoration:none;
 }
-h3 a:hover{
+.MenuNavItem a:hover{
     text-decoration:underline;
 }
-h3{
+.MenuNavItem{
     display:inline;
 }
-h3:hover{
-   text-decoration:underline;
-   
+.MenuNavItem:hover{
+   text-decoration:underline;  
 }
 #HeaderList {
       list-style-type:none;

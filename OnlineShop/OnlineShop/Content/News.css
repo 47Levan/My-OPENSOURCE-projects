@@ -5,6 +5,15 @@
     margin-bottom:5%;
     border-bottom:solid 1px  #d9d9d9;
 }
+
+.newsContainer {
+     border:solid 1px white;
+}
+.newsContainer:hover{
+  -webkit-box-shadow: 10px 6px 62px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 6px 62px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 6px 62px 0px rgba(0,0,0,0.75);
+}
 .newsDescription{
     display:inline-block;
    
@@ -19,7 +28,6 @@
 }
 .newsPreviewsPicture{
     vertical-align:middle;
-    display:inline-block;
-  
-   
+    display:inline-block;   
 }
+
