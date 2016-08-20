@@ -18,27 +18,29 @@
     margin-top:100px;
     margin-left:400px;
 }
-#DataOperationsAdd{
+.DataOperations{
+    border-radius:10px;
     width:100px;
     height:50px;
-    margin-left:75%;
-    margin-bottom:10px;
-    border-radius:10px;
     background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
     color:white;   
     text-align:center;
-    position:absolute;
-   
+    cursor:pointer; 
+}
+#BuyProduct{
+    margin-left:75%;
+}
+#DataOperationsAdd{  
+  
+    margin-left:75%;
+    margin-bottom:10px;   
+    position:absolute;   
 }
 
 #DataOperationsRemove{
-    width:100px;
-    height:50px;
+   
     margin-left:35%;
     margin-bottom:10px;
-    border-radius:10px;
-    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
-    color:white;
-    text-align:center;
+   
     position:relative;
 }

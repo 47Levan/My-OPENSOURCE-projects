@@ -2,16 +2,16 @@
 @using OnlineShop.Models;
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+   @* <meta name="viewport" content="width=device-width" />*@
     <script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
     <script src="~/Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
 </head>
 <body>
-        <div>
+        <header>           
                 @Html.Partial("~/Views/PartialViews/Navigation.cshtml")
-        </div>
+        </header>
             <div style="position:absolute" id="CategoryList">
                 @{
                     GoodsContainer1 goods = new GoodsContainer1();

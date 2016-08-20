@@ -20,14 +20,37 @@
                     @Html.ActionLink("About Shop","AboutShop","Menu")
                 </h3>
             </li>
-            <li class="listForHead">
-              
+            <li class="listForHead">              
                     <h3  class="MenuNavItem">
                          @Html.RouteLink("Contacts", "MenuRoute")
-                    </h3>
-               
-              
+                    </h3>            
             </li>
+            <li  class="listForHead">
+                <div id="SignInMenu">
+                    <h4 class="MenuNavItem">
+                        @Html.ActionLink("Sign in", "AboutShop", "Menu")
+                    </h4>
+                    <h4 class="MenuNavItem" style="margin-left:6px">
+                        @Html.ActionLink("Sign up", "AboutShop", "Menu")
+                    </h4>
+                    <div id="AuthPartWin">
+                        <button id="signInHead">Sign in</button>
+                        <div  id="authSectionDevider">
+                            <span style="display:inline-block">or</span>
+                        </div>
+                       
+                            <a href="#">
+                                Create accaunt
+                            </a>
+                            <p>
+                                Sign up to be able to buy products from shop
+                            </p>
+                        
+                      
+                    </div>
+                </div>
+            </li>
+
         </ul>
     </div>
 
