@@ -10,6 +10,7 @@ using System.Data.Entity;
 using System.Web.Helpers;
 namespace OnlineShop.Controllers
 {
+    [AllowAnonymous]
     public class MainPageController : Controller
     {
         List<Category> categoryListForButtonList = new List<Category>();

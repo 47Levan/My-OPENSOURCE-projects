@@ -1,0 +1,25 @@
+﻿@*@using OnlineShop.Models.Authentication;*@
+@model OnlineShop.Models.Authentication.SignIn
+<link type="text/css" rel="stylesheet" href="~/Content/MainPage.css?Wednesday 20th of July 2016 07:45:21 AM" />
+<link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css" />
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
+}
+
+<div id="showProduct">
+     @using (Html.BeginForm("SignIn", "Auth",FormMethod.Post))
+     {
+         <p>Email:</p>
+         @Html.EditorFor(x => x.Email,new {Class= "EnterProductInfoField", @type = "email" })
+         @Html.ValidationMessageFor(x=>x.Email)      
+         <p>Password:</p>
+         @Html.PasswordFor(x => x.Password, new { Class = "EnterProductInfoField" })
+         @Html.ValidationMessageFor(x => x.Password)      
+         <br/>
+         <br/>
+         <input type="submit"  value="Log In" class="DataOperations" style="left:0px"/>
+     }
+</div>     
+
+

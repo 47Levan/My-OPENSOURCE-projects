@@ -7,6 +7,7 @@ using OnlineShop.Models;
 using PagedList;
 namespace OnlineShop.Controllers
 {
+    [AllowAnonymous]
     public class ShowProductsController : Controller
     {
         private IProductOperations prod;

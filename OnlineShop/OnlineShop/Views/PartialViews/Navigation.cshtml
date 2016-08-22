@@ -34,19 +34,19 @@
                         @Html.ActionLink("Sign up", "AboutShop", "Menu")
                     </h4>
                     <div id="AuthPartWin">
-                        <button id="signInHead">Sign in</button>
+                        <form action="/Auth/SignIn" method="get">
+                            <button id="signInHead">Sign in</button>
+                        </form>
+                   
                         <div  id="authSectionDevider">
                             <span style="display:inline-block">or</span>
-                        </div>
-                       
-                            <a href="#">
+                        </div>                   
+                            <a href="/Auth/SignUp">
                                 Create accaunt
                             </a>
                             <p>
                                 Sign up to be able to buy products from shop
-                            </p>
-                        
-                      
+                            </p>                    
                     </div>
                 </div>
             </li>

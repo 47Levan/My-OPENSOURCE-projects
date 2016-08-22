@@ -1,0 +1,41 @@
+﻿@*@using OnlineShop.Models.Authentication;*@
+@model OnlineShop.Models.Authentication.SignUp
+<link type="text/css" rel="stylesheet" href="~/Content/MainPage.css?Wednesday 20th of July 2016 07:45:21 AM" />
+<link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css" />
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
+}
+
+<div id="showProduct">
+    @using (Html.BeginForm("SignUp", "Auth", FormMethod.Post))
+    {
+        <p>User name:</p>
+        @Html.TextBoxFor(x => x.UserName, new { Class = "EnterProductInfoField" })
+        <p style="color:red;display:inline">*</p>
+        @Html.ValidationMessageFor(x => x.UserName)     
+        <p>Email:</p>
+        @Html.EditorFor(x => x.EmailAdress, new { Class = "EnterProductInfoField", @type = "email" })
+        <p style="color:red;display:inline">*</p>
+        @Html.ValidationMessageFor(x => x.EmailAdress)      
+        <p>Password:</p>
+        @Html.PasswordFor(x => x.Password, new { Class = "EnterProductInfoField" })
+        <p style="color:red;display:inline">*</p>
+        @Html.ValidationMessageFor(x => x.Password)
+        <p>First name:</p>
+        @Html.TextBoxFor(x => x.FirstName, new { Class = "EnterProductInfoField" })
+        @Html.ValidationMessageFor(x => x.FirstName)
+        <p>Second name:</p>
+        @Html.TextBoxFor(x => x.SecondName, new { Class = "EnterProductInfoField" })
+        @Html.ValidationMessageFor(x => x.SecondName)
+        <p>Age:</p>
+        @Html.TextBoxFor(x => x.Age, new { Class = "EnterProductInfoField" ,@type = "number" })
+        @Html.ValidationMessageFor(x => x.Age)
+        <p>Country:</p>
+        @Html.TextBoxFor(x => x.Country, new { Class = "EnterProductInfoField" })
+        @Html.ValidationMessageFor(x => x.Country)
+        <br />
+        <br />
+        <input type="submit" value="Register" class="DataOperations" style="left:0px" />
+    }
+</div>

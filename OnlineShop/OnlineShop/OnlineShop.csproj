@@ -311,7 +311,20 @@
     </Compile>
     <Compile Include="Infrastucture\HelperMethods.cs" />
     <Compile Include="Infrastucture\NinjectResolver.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\AuthMigratons\201608221845312_Migration1.cs" />
+    <Compile Include="Migrations\AuthMigratons\201608221845312_Migration1.Designer.cs">
+      <DependentUpon>201608221845312_Migration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AuthMigratons\201608221849570_Migration2.cs" />
+    <Compile Include="Migrations\AuthMigratons\201608221849570_Migration2.Designer.cs">
+      <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AuthMigratons\Configuration.cs" />
+    <Compile Include="Migrations\NewsMigratons\Configuration.cs" />
+    <Compile Include="Models\Authentication\AuthDBContext.cs" />
+    <Compile Include="Models\Authentication\SignIn.cs" />
+    <Compile Include="Models\Authentication\SignUp.cs" />
+    <Compile Include="Models\Authentication\User.cs" />
     <Compile Include="Models\GoodsDatabase\Category.cs">
       <DependentUpon>GoodsList.tt</DependentUpon>
     </Compile>
@@ -382,6 +395,8 @@
     <Content Include="Views\News\SmartPhones\News2.cshtml" />
     <Content Include="Views\News\SmartPhones\News3.cshtml" />
     <Content Include="Views\PartialViews\NewsList.cshtml" />
+    <Content Include="Views\Auth\SignUp.cshtml" />
+    <Content Include="Views\Auth\SignIn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -394,14 +409,20 @@
     <Folder Include="Images\NewsPreview\Computers\" />
     <Folder Include="Images\NewsPreview\HeadPhones\" />
     <Folder Include="Images\NewsPreview\Hi_Tech\" />
-    <Folder Include="Models\Authentication\" />
-    <Folder Include="Views\Auth\" />
     <Folder Include="Views\News\Computers\" />
     <Folder Include="Views\News\HeadPhones\" />
     <Folder Include="Views\News\Hi_Tech\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\AuthMigratons\201608221845312_Migration1.resx">
+      <DependentUpon>201608221845312_Migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\AuthMigratons\201608221849570_Migration2.resx">
+      <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

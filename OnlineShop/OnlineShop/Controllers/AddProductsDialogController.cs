@@ -8,6 +8,7 @@ using System.Data.Entity.Validation;
 using OnlineShop.Models;
 namespace OnlineShop.Controllers
 {
+    [AllowAnonymous]
     public class AddProductsDialogController : Controller
     {
         // GET: AddProducts

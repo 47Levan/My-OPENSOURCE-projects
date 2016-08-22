@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OnlineShop.Models;
 namespace OnlineShop.Controllers
 {
+    [AllowAnonymous]
     public class AboutShopController : Controller
     {
         [HttpPost]

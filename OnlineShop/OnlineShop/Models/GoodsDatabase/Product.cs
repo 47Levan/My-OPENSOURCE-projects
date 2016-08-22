@@ -11,7 +11,8 @@ namespace OnlineShop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,13 @@ namespace OnlineShop.Models
         {
             this.DescriptionParameters = new HashSet<DescriptionParameters>();
         }
-    
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required(ErrorMessage ="Please enter name of product")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter article of product")]
         public string Article { get; set; }
+        [Required(ErrorMessage = "Please enter price of product")]
         public double Price { get; set; }
         public string Picture { get; set; }
         public System.DateTime DateAdded { get; set; }

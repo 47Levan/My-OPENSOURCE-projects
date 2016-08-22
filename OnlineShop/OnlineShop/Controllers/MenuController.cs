@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OnlineShop.Models;
 namespace OnlineShop.Controllers
 {
+    [AllowAnonymous]
     public class MenuController : Controller
     {
         static GoodsContainer1 goods = new GoodsContainer1();
