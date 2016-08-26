@@ -10,6 +10,8 @@ namespace OnlineShop.Models.Authentication
 {
     public  class SignIn
     {
+        [Required(ErrorMessage = "Please enter user name")]
+        public string UserName { get; set; }
         [Required(ErrorMessage ="Please enter email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

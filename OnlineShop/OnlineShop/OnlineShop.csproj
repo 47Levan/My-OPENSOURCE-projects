@@ -182,6 +182,7 @@
     <Content Include="Content\PageChanger.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShowOneProduct.css" />
+    <Content Include="Content\ShowUserProfile.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\TEMP.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -225,6 +226,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Goods.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\Accaunts\Users\Kayla_Person-small.jpg" />
+    <Content Include="Images\Accaunts\Users\person-detail.person_image.jpeg" />
     <Content Include="Images\NewsPreview\Internet\1.jpg" />
     <Content Include="Images\NewsPreview\Internet\2.jpg" />
     <Content Include="Images\NewsPreview\SmartPhones\1.jpg" />
@@ -262,8 +265,10 @@
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\AboutShop.js" />
     <Content Include="Scripts\AddRemoveProductDialog.js" />
+    <Content Include="Scripts\Animate user buttons.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\BuyProduct.js" />
     <Content Include="Scripts\DiscriptionParameters.js" />
     <Content Include="Scripts\FillSubCategory.js" />
     <Content Include="Scripts\formScript.js" />
@@ -319,8 +324,14 @@
     <Compile Include="Migrations\AuthMigratons\201608221849570_Migration2.Designer.cs">
       <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.cs" />
+    <Compile Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.Designer.cs">
+      <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AuthMigratons\Configuration.cs" />
     <Compile Include="Migrations\NewsMigratons\Configuration.cs" />
+    <Compile Include="Models\AccountOperations\AccauntOperations.cs" />
+    <Compile Include="Models\AccountOperations\IAccauntOperations.cs" />
     <Compile Include="Models\Authentication\AuthDBContext.cs" />
     <Compile Include="Models\Authentication\SignIn.cs" />
     <Compile Include="Models\Authentication\SignUp.cs" />
@@ -397,6 +408,7 @@
     <Content Include="Views\PartialViews\NewsList.cshtml" />
     <Content Include="Views\Auth\SignUp.cshtml" />
     <Content Include="Views\Auth\SignIn.cshtml" />
+    <Content Include="Views\Auth\showUserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -406,6 +418,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Accaunts\Admins\" />
+    <Folder Include="Images\Accaunts\Moderators\" />
     <Folder Include="Images\NewsPreview\Computers\" />
     <Folder Include="Images\NewsPreview\HeadPhones\" />
     <Folder Include="Images\NewsPreview\Hi_Tech\" />
@@ -422,6 +436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\AuthMigratons\201608221849570_Migration2.resx">
       <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.resx">
+      <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

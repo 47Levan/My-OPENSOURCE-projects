@@ -95,13 +95,18 @@
     background-color:white;
     width:30px;
 }
+
 #AuthPartWin a{
     position:relative;
-    top:40px;
+    text-align:center;
+    top:20px;
   
 }
 #AuthPartWin p{
-     top:40px;
+    width:70%;
+    top:10px;
+    left:15%;
+    text-align:center;
     color:black;
     position:relative;  
 }

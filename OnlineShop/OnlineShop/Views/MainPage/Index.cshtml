@@ -18,12 +18,16 @@
     <div id="showProduct">
     </div>     
     <div>
-        <button class="DataOperations" id="DataOperationsAdd">
-            Add Product
-        </button>
-        <button class="DataOperations" id="DataOperationsRemove">
-            Remove Product
-        </button>
+        @if (User.IsInRole("Admin"))
+        {
+            <button class="DataOperations" id="DataOperationsAdd">
+                Add Product
+            </button>
+            <button class="DataOperations" id="DataOperationsRemove">
+                Remove Product
+            </button>
+        }
+     
     </div>  
 </body>
 </html>

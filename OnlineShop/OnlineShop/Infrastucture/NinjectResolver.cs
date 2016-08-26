@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Ninject;
 using OnlineShop.Models;
+using OnlineShop.Models.AccountOperations;
 namespace OnlineShop.Infrastucture
 {
     class NinjectResolver :IDependencyResolver
@@ -27,6 +26,7 @@ namespace OnlineShop.Infrastucture
         private void AddBindings()
         {
             kernel.Bind<IProductOperations>().To<ProductOperations>();
+            kernel.Bind<IAccauntOperations>().To<AccauntOperations>();
         }
     }
 }

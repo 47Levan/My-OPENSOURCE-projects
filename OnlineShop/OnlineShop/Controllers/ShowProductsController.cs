@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models;
 using PagedList;
@@ -72,8 +70,12 @@ namespace OnlineShop.Controllers
                 ViewBag.OrderType = orderType;
                 return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(1, 5));
             }
-          
-
+        }
+        [Authorize(Roles ="User,Admin,Moderator")]
+        [HttpPost]
+        public ActionResult BuyProduct()
+        {
+            return View();
         }
     }
 }

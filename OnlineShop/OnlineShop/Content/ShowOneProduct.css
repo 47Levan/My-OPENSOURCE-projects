@@ -32,3 +32,12 @@ img{
     vertical-align:middle;
     display:inline-block;
 }
+.BuyOperations{
+    border-radius:10px;
+    width:100px;
+    height:50px;
+    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
+    color:white;   
+    text-align:center;
+    cursor:pointer; 
+}

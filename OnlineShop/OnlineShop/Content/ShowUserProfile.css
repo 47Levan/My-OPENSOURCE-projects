@@ -1,0 +1,89 @@
+﻿body {
+}
+#showProduct{   
+    min-height:500px;
+    margin-top:100px;
+    margin-left:200px;
+    width:76%;  
+}
+#userContainer{   
+    margin-left:10%;
+    width:763px;
+    height:300px;
+}
+#userDiscription{    
+    float:left;
+    height:100%;  
+    display:table;
+}
+#userDiscription ul{
+  
+    list-style-type:none;
+    display:table-cell;   
+    vertical-align:middle;
+}
+#userDiscription ul li {
+   margin-top:10px;
+}
+
+#userDiscription ul li p{
+   display:inline;
+}
+#userDiscription ul li h4{
+   display:inline;
+}
+
+#userPicture{
+    margin-left:20px;
+    display:inline-block;
+    height:100%;
+    width:240px;
+}
+#userPicture img{
+   
+    height:100%;
+    width:100%;   
+}
+#profileAdjust{
+    height:100%;
+    display:table;
+    float:right;
+    width:auto;
+    list-style-type:none;
+    text-align:left;    
+   
+}
+
+#profileAdjust ul{  
+    height:100%;
+    display:table-cell;    
+    vertical-align:middle;  
+    width:100%;
+    list-style-type:none;  
+   
+}
+#profileAdjust ul li{   
+    display:table;
+    width:200px;
+    margin-top:5px;
+    background-color: #1a1a1a;
+    height:30px;
+    border-radius:10px;
+    text-align:center;
+    border:1px solid black;
+    cursor:pointer;
+}
+#profileAdjust ul li:hover{ 
+    
+    background-color:green;
+}
+#profileAdjust ul li a{ 
+     display:table-cell;
+    vertical-align:middle;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+
+

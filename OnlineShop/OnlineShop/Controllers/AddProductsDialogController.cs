@@ -4,13 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
-using System.Data.Entity.Validation;
 using OnlineShop.Models;
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
     public class AddProductsDialogController : Controller
     {
+        private IProductOperations prod;
+        public AddProductsDialogController(IProductOperations userProd)
+        {
+            prod = userProd;
+        }
         // GET: AddProducts
         [HttpGet]
         public ActionResult AddProducts()
@@ -26,49 +30,15 @@ namespace OnlineShop.Controllers
         [HttpPost]
         public ActionResult ShowAddedProduct(Product product, HttpPostedFileBase uploadedImage)
         {
-          
-            product.DateAdded = DateTime.Now;
-            string pathToSave;
-            using (GoodsContainer1 goods = new GoodsContainer1())
+            if (product.Article == null
+                 && product.Name == null
+                 && product.Picture == null
+                 && product.Price == 0)
             {
-                string serverPathToSave = $"~/Images/Products/"+
-$"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
-$"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}"+
-$"/{uploadedImage.FileName}";
-                pathToSave = Server.MapPath(serverPathToSave);
-
-                string folderToCreate = $@"~/Images/Products/" +
-$"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
-$"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}";
-                if (!Directory.Exists(folderToCreate))
-                {
-
-                    Directory.CreateDirectory(Server.MapPath(folderToCreate));
-                }
-
-                uploadedImage.SaveAs(pathToSave);
-                product.Picture = $@"~/Images/Products/" +
-$"{goods.CategorySet.FirstOrDefault(x => x.Id == goods.SubCategorySet.FirstOrDefault(y => y.Id == product.SubCategory_Id).CategoryId).category}/"+
-$"{goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id).Subcategory}/"+
-$"{uploadedImage.FileName}";
-
-
-
-                product.SubCategory = goods.SubCategorySet.FirstOrDefault(x => x.Id == product.SubCategory_Id);
-                if (product.Article != null
-                    && product.Name != null
-                    && product.Picture != null
-                    && product.Price != 0)
-                {
-                    goods.ProductSet.Add(product);                 
-                    goods.SaveChanges();                   
-                    return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);
-                }
+                return RedirectToAction("AddProducts");
             }
-
-
-            return RedirectToAction("AddProducts");
-
+            product=prod.postAddProduct(product,uploadedImage);            
+            return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);   
         }
         [HttpGet]
         public ActionResult AddDescriptionPatrameter(Product product, int categoryId)

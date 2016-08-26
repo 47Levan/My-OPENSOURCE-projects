@@ -2,19 +2,26 @@
 @model OnlineShop.Models.Authentication.SignIn
 <link type="text/css" rel="stylesheet" href="~/Content/MainPage.css?Wednesday 20th of July 2016 07:45:21 AM" />
 <link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css" />
+<script src="~/Scripts/ShowProductsByFilter.js" type="text/javascript"></script>
 @{
     ViewBag.Title = "SignIn";
     Layout = "~/Views/Shared/_MainPageLayout.cshtml";
 }
 
 <div id="showProduct">
-     @using (Html.BeginForm("SignIn", "Auth",FormMethod.Post))
+     @using (Html.BeginForm("SignIn", "Auth", new { returnUrl = ViewBag.returnUrl }, FormMethod.Post,new { }))
      {
+        <p>User name:</p>
+         @Html.EditorFor(x => x.UserName, new { Class = "EnterProductInfoField" })
+        <p style="color:red;display:inline">*</p>
+         @Html.ValidationMessageFor(x => x.Email)
          <p>Email:</p>
          @Html.EditorFor(x => x.Email,new {Class= "EnterProductInfoField", @type = "email" })
+        <p style="color:red;display:inline">*</p>
          @Html.ValidationMessageFor(x=>x.Email)      
          <p>Password:</p>
          @Html.PasswordFor(x => x.Password, new { Class = "EnterProductInfoField" })
+        <p style="color:red;display:inline">*</p>
          @Html.ValidationMessageFor(x => x.Password)      
          <br/>
          <br/>

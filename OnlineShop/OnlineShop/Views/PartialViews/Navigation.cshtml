@@ -26,29 +26,50 @@
                     </h3>            
             </li>
             <li  class="listForHead">
-                <div id="SignInMenu">
-                    <h4 class="MenuNavItem">
-                        @Html.ActionLink("Sign in", "AboutShop", "Menu")
-                    </h4>
-                    <h4 class="MenuNavItem" style="margin-left:6px">
-                        @Html.ActionLink("Sign up", "AboutShop", "Menu")
-                    </h4>
-                    <div id="AuthPartWin">
-                        <form action="/Auth/SignIn" method="get">
-                            <button id="signInHead">Sign in</button>
-                        </form>
-                   
-                        <div  id="authSectionDevider">
-                            <span style="display:inline-block">or</span>
-                        </div>                   
-                            <a href="/Auth/SignUp">
-                                Create accaunt
-                            </a>
+                @if (!Request.IsAuthenticated)
+                {
+                    <div id="SignInMenu">
+                        <h4 class="MenuNavItem">
+                            @Html.ActionLink("Sign in", "SignIn", "Auth",
+new { returnUrl = Request.RawUrl }, new { })
+                        </h4>
+                        <h4 class="MenuNavItem" style="margin-left:6px">
+                            @Html.ActionLink("Sign up", "SignUp", "Auth",
+new { returnUrl = Request.RawUrl }, new { })
+                        </h4>
+                        <div id="AuthPartWin">
+                            @*<form action="/Auth/SignIn" method="get">
+                                <button id="signInHead">Sign in</button>
+                            </form>*@
+                            @using (Html.BeginForm(
+                                "startSignIn", "Auth", new { returnUrl = Request.RawUrl }, FormMethod.Post))
+                            {
+                                <input id="signInHead" type="submit" value="Sign in"/>
+                            }                            
+                           
+                            <div id="authSectionDevider">
+                                <span style="display:inline-block">or</span>
+                            </div>                           
                             <p>
                                 Sign up to be able to buy products from shop
-                            </p>                    
+                                @Html.ActionLink("Create accaunt", "SignUp", "Auth",
+new { returnUrl = Request.RawUrl }, new { })
+                            </p>   
+                                
+                        </div>
                     </div>
-                </div>
+                }
+                else
+                {
+                    <h4 class="MenuNavItem">
+                        @Html.ActionLink(User.Identity.Name, "showUserProfile", "Auth",
+               new { returnUrl = Request.RawUrl }, new { })                   
+                    </h4>
+                    <h4 class="MenuNavItem">
+                        @Html.ActionLink("[logout]", "SignOut", "Auth",
+               new { returnUrl = Request.RawUrl }, new { })
+                    </h4>
+                }
             </li>
 
         </ul>
