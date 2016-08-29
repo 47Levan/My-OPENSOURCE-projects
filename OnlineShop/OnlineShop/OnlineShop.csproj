@@ -226,6 +226,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Goods.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\Accaunts\Users\Christian-PERSON-PDG-Umalis1.png" />
+    <Content Include="Images\Accaunts\Users\cover-image-1.jpg" />
     <Content Include="Images\Accaunts\Users\Kayla_Person-small.jpg" />
     <Content Include="Images\Accaunts\Users\person-detail.person_image.jpeg" />
     <Content Include="Images\NewsPreview\Internet\1.jpg" />
@@ -265,7 +267,8 @@
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\AboutShop.js" />
     <Content Include="Scripts\AddRemoveProductDialog.js" />
-    <Content Include="Scripts\Animate user buttons.js" />
+    <Content Include="Scripts\ShowAccaunts.js" />
+    <Content Include="Scripts\showUserProfile.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\BuyProduct.js" />
@@ -395,7 +398,6 @@
     <Content Include="Views\ShowProducts\showProductsByFilter.cshtml" />
     <Content Include="Views\ShowProducts\showOneProduct.cshtml" />
     <Content Include="Views\ShowProducts\ShowProductsDialog.cshtml" />
-    <Content Include="Views\AddProductsDialog\AddRemoveDescription.cshtml" />
     <Content Include="Views\AboutShop\History.cshtml" />
     <Content Include="Views\AboutShop\Why_We.cshtml" />
     <Content Include="Views\AboutShop\News.cshtml" />
@@ -409,6 +411,9 @@
     <Content Include="Views\Auth\SignUp.cshtml" />
     <Content Include="Views\Auth\SignIn.cshtml" />
     <Content Include="Views\Auth\showUserProfile.cshtml" />
+    <Content Include="Views\AddProductsDialog\AddRemoveDescription.cshtml" />
+    <Content Include="Views\Auth\ShowAccaunts.cshtml" />
+    <Content Include="Views\Auth\ShowOneUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

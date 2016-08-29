@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 namespace OnlineShop.Models.Authentication
 {
-    class AuthDBContext :IdentityDbContext<User>
+    public class AuthDBContext :IdentityDbContext<User>
     {
         public AuthDBContext() :base("OnlineShopAuth")
         {

@@ -2,22 +2,16 @@
    
     background-color:#1a1a1a;
 }*/
-#temp {
-  
-    height:1000px;
-    width:500px;
-    background-color:red; 
-}
+
 #CategoryList {
     vertical-align:middle;   
 }
 #showProduct{
     padding-left:20px;
-    width:60%;
-    /*height:auto;*/
+    width:73%;
     min-height:500px;
     margin-top:100px;
-    margin-left:400px;
+    margin-left:210px;
 }
 .DataOperations{
     border-radius:10px;

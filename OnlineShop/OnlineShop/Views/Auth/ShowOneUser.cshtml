@@ -1,0 +1,109 @@
+﻿<link type="text/css" rel="stylesheet" href="~/Content/ShowUserProfile.css" />
+@using Microsoft.AspNet.Identity;
+@using OnlineShop.Models.Authentication;
+@using Microsoft.AspNet.Identity.EntityFramework;
+@{ 
+    UserManager<User> userManager = new UserManager<User>(new UserStore<User>(new AuthDBContext()));
+}
+@model OnlineShop.Models.Authentication.User
+    <div id="userContainer">
+        <div class="userDiscription">
+            <ul>
+                <li>
+                    <h4 class="userCategory">User name:</h4>
+                    <p class="userDescription">@Model.UserName</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Email:</h4>
+                    <p class="userDescription">@Model.Email</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Name:</h4>
+                    <p class="userDescription">@Model.Name</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Second name:</h4>
+                    <p class="userDescription">@Model.SecondName</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Age:</h4>
+                    <p class="userDescription">@Model.Age</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Country:</h4>
+                    <p class="userDescription">@Model.Country</p>
+                </li>
+                <li>
+                    <h4 class="userCategory">Phone number:</h4>
+                    <p class="userDescription">@Model.PhoneNumber</p>
+                </li>
+            </ul>
+
+        </div>
+        <div id="userPicture">
+            @if (Model.Picture != null)
+            {
+                <img src="@Url.Content(Model.Picture)" />
+            }
+            else
+            {
+                <img src="https://augustschell.com/sites/default/files/No_image_available.jpg" />
+            }
+
+        </div>
+        <div id="profileAdjust">
+            <ul>
+                <li>
+                    <a class="editProfile" href="#">
+                        edit profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        show bought products
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        show favorite products
+                    </a>
+                </li>
+                @if (userManager.IsInRole(Model.Id,"Admin"))
+                {
+                    <li id="adminFeatures">
+                        <a href="#">
+                            admin features
+                        </a>
+                        <ul>
+                            <li>
+                                <a id="DataOperationsAdd" href="#">
+                                    Add product
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Remove product
+                                </a>
+                            </li>
+                            <li>
+                                <a class="showAccaunts" href="#">
+                                    Show accaunts
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+
+        </div>
+
+    </div>
+ <script>
+     $('.editProfile').click(function () {
+         $.get("/Auth/EditProfile", { user: @Model}, function (PartialView) {
+             $('#showProduct').empty();
+             $('#showProduct').html(PartialView);
+             $('#showProduct').show(PartialView);
+         })
+     });
+ </script> 

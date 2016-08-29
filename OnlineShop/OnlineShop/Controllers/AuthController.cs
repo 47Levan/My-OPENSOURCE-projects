@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models.Authentication;
 using Microsoft.AspNet.Identity;
@@ -94,6 +95,16 @@ namespace OnlineShop.Controllers
                 return Redirect(returnUrl);
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult ShowAccaunts()
+        {
+            return PartialView(userManager.Users.ToList());
+        }
+        [HttpGet]
+        public ActionResult EditProfile(User user)
+        {
+            return PartialView();
         }
         public async Task SignIn(User user)
         {

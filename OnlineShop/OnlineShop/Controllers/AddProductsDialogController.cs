@@ -41,17 +41,20 @@ namespace OnlineShop.Controllers
             return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);   
         }
         [HttpGet]
-        public ActionResult AddDescriptionPatrameter(Product product, int categoryId)
+        public ActionResult AddDescriptionPatrameter(Product product, int? categoryId)
         {
             product.DescriptionParameters.Add(new DescriptionParameters());
             GoodsContainer1 goods = new GoodsContainer1();
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+            if (categoryId != null)
+            {
+                ViewData["Categories"] = goods.CategorySet;
+                ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+            }
             return PartialView("~/Views/AddProductsDialog/AddRemoveDescription.cshtml", product);
         }
         [HttpGet]
         public ActionResult RemoveDescriptionParameter(Product product,string description,
-            string descriptionParametr, int categoryId)
+            string descriptionParametr, int? categoryId)
         {
             if(description=="")
             {
@@ -68,8 +71,11 @@ namespace OnlineShop.Controllers
                     && x.DescriptionParameter==descriptionParametr));
             }
             GoodsContainer1 goods = new GoodsContainer1();
-            ViewData["Categories"] = goods.CategorySet;
-            ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+            if (categoryId != null)
+            {
+                ViewData["Categories"] = goods.CategorySet;
+                ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+            }
             return PartialView("~/Views/AddProductsDialog/AddRemoveDescription.cshtml", product);
         }
     }

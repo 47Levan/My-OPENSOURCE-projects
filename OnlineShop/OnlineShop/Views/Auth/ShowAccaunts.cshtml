@@ -1,0 +1,7 @@
+﻿@using OnlineShop.Models.Authentication
+@model List<User>
+@foreach (User user in Model)
+{
+    @Html.Partial("~/Views/Auth/ShowOneUser.cshtml", user);
+    <br/>
+}

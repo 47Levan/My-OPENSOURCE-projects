@@ -1,35 +1,40 @@
 ﻿body {
 }
 #showProduct{   
-    min-height:500px;
+    padding-left:20px;
+    width:73%;
+    height:auto;
     margin-top:100px;
-    margin-left:200px;
-    width:76%;  
+    margin-left:210px;
+    position: relative;
+    height: auto;
+    min-height: 1000px;
+    overflow:hidden; 
 }
 #userContainer{   
-    margin-left:10%;
-    width:763px;
+    width:950px;
     height:300px;
+
+
 }
-#userDiscription{    
+.userDiscription{    
     float:left;
     height:100%;  
     display:table;
 }
-#userDiscription ul{
-  
+.userDiscription ul{
     list-style-type:none;
     display:table-cell;   
     vertical-align:middle;
 }
-#userDiscription ul li {
+.userDiscription ul li {
    margin-top:10px;
 }
 
-#userDiscription ul li p{
+.userDiscription ul li p{
    display:inline;
 }
-#userDiscription ul li h4{
+.userDiscription ul li h4{
    display:inline;
 }
 
@@ -46,23 +51,34 @@
 }
 #profileAdjust{
     height:100%;
-    display:table;
-    float:right;
-    width:auto;
+    display:inline-block;
+    width:100px;
     list-style-type:none;
+    list-style:none;
     text-align:left;    
    
 }
 
-#profileAdjust ul{  
+#profileAdjust ul:nth-child(1){  
+    margin-top:70%;
+    padding-left:15px;
     height:100%;
-    display:table-cell;    
     vertical-align:middle;  
     width:100%;
     list-style-type:none;  
    
 }
+
 #profileAdjust ul li{   
+    display:table;
+    width:200px;
+    margin-top:5px;   
+    height:30px;
+    border-radius:10px;
+    text-align:center;
+    cursor:pointer;
+}
+#profileAdjust ul li a{   
     display:table;
     width:200px;
     margin-top:5px;
@@ -72,18 +88,30 @@
     text-align:center;
     border:1px solid black;
     cursor:pointer;
-}
-#profileAdjust ul li:hover{ 
-    
-    background-color:green;
-}
-#profileAdjust ul li a{ 
-     display:table-cell;
-    vertical-align:middle;
-  color:white;
+     color:white;
   text-decoration:none;
   font-weight:bold;
 }
+#profileAdjust ul li a:hover{ 
+    border:1px solid black;
+    background-color:green;
+}
+#profileAdjust ul li ul{ 
+    position:relative;
+    left:170px;
+    top:-42px;
+}
+#profileAdjust ul li ul {
+   display:none;
+ 
+}
+#profileAdjust ul li ul a{ 
+   border:1px solid black;
+   background-color:#1a1a1a;
+}
 
+#adminFeatures:hover ul {
+    display:block;
+}
 
 
