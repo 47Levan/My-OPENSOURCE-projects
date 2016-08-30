@@ -15,6 +15,8 @@ namespace OnlineShop.Models.Authentication
         public string Country { get; set; }
         public int? Age { get; set; }
         public string Picture { get; set; }
+        public bool isModified { get; set; }
         public DateTime DateAdded { get; set; }
+        public DateTime DateModified { get; set; }
     }
 }

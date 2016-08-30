@@ -71,3 +71,4 @@ D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.Migrations.AuthMigratons.Migration2.resources
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.Migrations.AuthMigratons.PictDateColumns.resources
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.csprojResolveAssemblyReference.cache
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop\obj\Debug\OnlineShop.Migrations.AuthMigratons.DateModifiedAdded.resources

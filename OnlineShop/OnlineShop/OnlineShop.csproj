@@ -331,6 +331,10 @@
     <Compile Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.Designer.cs">
       <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.cs" />
+    <Compile Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.Designer.cs">
+      <DependentUpon>201608301125158_DateModifiedAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AuthMigratons\Configuration.cs" />
     <Compile Include="Migrations\NewsMigratons\Configuration.cs" />
     <Compile Include="Models\AccountOperations\AccauntOperations.cs" />
@@ -414,6 +418,7 @@
     <Content Include="Views\AddProductsDialog\AddRemoveDescription.cshtml" />
     <Content Include="Views\Auth\ShowAccaunts.cshtml" />
     <Content Include="Views\Auth\ShowOneUser.cshtml" />
+    <Content Include="Views\Auth\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -444,6 +449,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.resx">
       <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.resx">
+      <DependentUpon>201608301125158_DateModifiedAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

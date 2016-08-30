@@ -9,6 +9,7 @@ namespace OnlineShop.Models.Authentication
 {
     public class SignUp
     {
+        public string Id { get; set; }
         [Required(ErrorMessage = "Enter your UserName please")]
         public string UserName { get; set; }      
         public string FirstName { get;set; }

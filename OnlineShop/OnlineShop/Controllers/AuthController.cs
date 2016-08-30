@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OnlineShop.Models.Authentication;
@@ -68,6 +69,23 @@ namespace OnlineShop.Controllers
             ViewBag.returnUrl = returnUrl;
             return View();
         }
+        [HttpPost]
+        public async Task<ActionResult> SignUp(SignUp model, HttpPostedFileBase uploadedImage, string returnUrl)
+        {
+            if (model.UserName == null && model.EmailAdress == null && model.Password == null)
+            {
+                return View();
+            }
+            User user = acc.getUserFromSignUp(model, uploadedImage);
+            var result = await userManager.CreateAsync(user, model.Password);
+            userManager.AddToRole(user.Id, "User");
+            if (result.Succeeded)
+            {
+                await SignIn(user);
+                return Redirect(returnUrl);
+            }
+            return View();
+        }
         [HttpGet]
         public async Task<ActionResult> showUserProfile()
         {
@@ -79,32 +97,36 @@ namespace OnlineShop.Controllers
             }          
                return RedirectToAction("Index","MainPage");         
         }
-        [HttpPost]
-        public async Task<ActionResult> SignUp(SignUp model,HttpPostedFileBase uploadedImage, string returnUrl)
-        {          
-            if(model.UserName==null && model.EmailAdress == null && model.Password == null)
-            {
-                return View();
-            }
-            User user = acc.getUserFromSignUp(model, uploadedImage);
-            var result = await userManager.CreateAsync(user,model.Password);
-            userManager.AddToRole(user.Id,"User");          
-            if (result.Succeeded)
-            {
-                await SignIn(user);
-                return Redirect(returnUrl);
-            }
-            return View();
-        }
+       
         [HttpGet]
         public ActionResult ShowAccaunts()
         {
             return PartialView(userManager.Users.ToList());
         }
-        [HttpGet]
+        [HttpPost]
         public ActionResult EditProfile(User user)
         {
-            return PartialView();
+            SignUp signUp = acc.getSignUpFromUser(user);
+            return PartialView(signUp);
+        }
+        [HttpPost]
+        public async Task<ActionResult> ChangeProfile(SignUp signUp,HttpPostedFileBase uploadedImage)
+        {
+            //UserStore<User> store = new UserStore<User>(new AuthDBContext());
+            //UserManager<User> tempUserManager = new UserManager<User>(store);
+            User user =acc.getUserFromSignUp(signUp,uploadedImage);
+            //User userToUpdate = tempUserManager.FindById(signUp.Id);
+            User userToUpdate = userManager.FindById(signUp.Id);
+
+            acc.EqualUser(userToUpdate,user);
+            //IdentityResult result = await tempUserManager.UpdateAsync(userToUpdate);
+            IdentityResult result = await userManager.UpdateAsync(userToUpdate);
+            if (result.Succeeded)
+            {
+                //await   store.Context.SaveChangesAsync();
+                return  PartialView("~/Views/Auth/ShowOneUser.cshtml",userToUpdate);
+            }
+            return PartialView("~/Views/Auth/EditProfile.cshtml", signUp);
         }
         public async Task SignIn(User user)
         {
