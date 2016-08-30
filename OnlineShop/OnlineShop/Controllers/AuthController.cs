@@ -15,8 +15,8 @@ namespace OnlineShop.Controllers
     [AllowAnonymous]
     public class AuthController : Controller
     {
-        private readonly UserManager<User> userManager = new UserManager<User>(
-          new UserStore<User>(new AuthDBContext()));
+        private static readonly UserStore<User> userStore = new UserStore<User>(new AuthDBContext());
+        private readonly UserManager<User> userManager = new UserManager<User>(userStore);
         private IAccauntOperations acc;
         public AuthController(IAccauntOperations userAcc)
         {
@@ -112,18 +112,14 @@ namespace OnlineShop.Controllers
         [HttpPost]
         public async Task<ActionResult> ChangeProfile(SignUp signUp,HttpPostedFileBase uploadedImage)
         {
-            //UserStore<User> store = new UserStore<User>(new AuthDBContext());
-            //UserManager<User> tempUserManager = new UserManager<User>(store);
+           
             User user =acc.getUserFromSignUp(signUp,uploadedImage);
-            //User userToUpdate = tempUserManager.FindById(signUp.Id);
             User userToUpdate = userManager.FindById(signUp.Id);
-
             acc.EqualUser(userToUpdate,user);
-            //IdentityResult result = await tempUserManager.UpdateAsync(userToUpdate);
             IdentityResult result = await userManager.UpdateAsync(userToUpdate);
             if (result.Succeeded)
             {
-                //await   store.Context.SaveChangesAsync();
+                await   userStore.Context.SaveChangesAsync();
                 return  PartialView("~/Views/Auth/ShowOneUser.cshtml",userToUpdate);
             }
             return PartialView("~/Views/Auth/EditProfile.cshtml", signUp);

@@ -86,7 +86,6 @@ namespace OnlineShop.Models.AccountOperations
             userToEqual.SecondName = equalUser.SecondName;
             userToEqual.Age = equalUser.Age;
             userToEqual.Country = equalUser.Country;
-            userToEqual.DateAdded = equalUser.DateAdded;
             userToEqual.DateModified = equalUser.DateModified;
             userToEqual.isModified = true;
             userToEqual.UserName = equalUser.UserName;
