@@ -1,6 +1,6 @@
 ﻿
-@using OnlineShop.Models;
-@model OnlineShop.Models.Product
+@using OnlineShop.Models.OnlineShopDatabase.Goods;
+@model OnlineShop.Models.OnlineShopDatabase.Goods.Product
 @{
     IEnumerable<SubCategory> subCatList = (IEnumerable<SubCategory>)ViewData["SubCategories"];
     IEnumerable<Category> catList = (IEnumerable<Category>)ViewData["Categories"];

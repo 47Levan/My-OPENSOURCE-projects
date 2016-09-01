@@ -8,7 +8,7 @@ namespace OnlineShop.Controllers
         //{
         //    if (ImageDataId != 0)
         //    {
-        //        using (GoodsContainer1 goods = new GoodsContainer1())
+        //        using (OnlineShopDbContext goods = new OnlineShopDbContext())
         //        {
         //            //byte[] imageData = goods.ProductSet.FirstOrDefault(x => x.Id == ImageDataId).Picture;
         //            //return File(imageData, "image/jpg");

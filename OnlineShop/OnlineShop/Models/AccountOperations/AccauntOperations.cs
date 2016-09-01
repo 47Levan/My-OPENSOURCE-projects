@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.IO;
-using OnlineShop.Models.Authentication;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using OnlineShop.Models.OnlineShopDatabase;
+using OnlineShop.Models.OnlineShopDatabase.Authentication;
 
 namespace OnlineShop.Models.AccountOperations
 {
@@ -23,7 +24,7 @@ namespace OnlineShop.Models.AccountOperations
             user.SecondName = signUp.SecondName;
             user.Age = signUp.Age;
             user.Country = signUp.Country;
-          
+            
             user.PhoneNumber = signUp.PhoneNumber;
             if(signUp.Id!=null)
             {
@@ -35,6 +36,7 @@ namespace OnlineShop.Models.AccountOperations
             else
             {
                 user.DateAdded = DateTime.Now;
+                user.DateModified = DateTime.Now;
                 savePicture(user, file,false);
             }
          
@@ -62,7 +64,7 @@ namespace OnlineShop.Models.AccountOperations
                 if(ismodify)
                 {
                     UserManager<User> userManager = new UserManager<User>(
-          new UserStore<User>(new AuthDBContext()));
+          new UserStore<User>(new OnlineShopDbContext()));
                     user.Picture = userManager.Users.FirstOrDefault(x=>x.Id==user.Id).Picture;
                 }
             }

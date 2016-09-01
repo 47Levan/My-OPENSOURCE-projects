@@ -4,12 +4,13 @@
 
 @using System;
 @using Microsoft.AspNet.Identity;
-@using OnlineShop.Models.Authentication;
 @using Microsoft.AspNet.Identity.EntityFramework;
+@using OnlineShop.Models.OnlineShopDatabase
+@using OnlineShop.Models.OnlineShopDatabase.Authentication
 @{ 
-    UserManager<User> userManager = new UserManager<User>(new UserStore<User>(new AuthDBContext()));
+    UserManager<User> userManager = new UserManager<User>(new UserStore<User>(new OnlineShopDbContext()));
 }
-@model OnlineShop.Models.Authentication.User
+@model OnlineShop.Models.OnlineShopDatabase.Authentication.User
     <div id="userContainer">
         <div class="userDiscription">
             <ul>

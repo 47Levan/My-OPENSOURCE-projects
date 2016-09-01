@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using OnlineShop.Models.Authentication;
 using Microsoft.AspNet.Identity;
 using OnlineShop.Models.AccountOperations;
 using System.Threading.Tasks;
@@ -10,12 +9,14 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using Microsoft.Owin.Security;
 using Microsoft.Owin;
+using OnlineShop.Models.OnlineShopDatabase.Authentication;
+using OnlineShop.Models.OnlineShopDatabase;
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
     public class AuthController : Controller
     {
-        private static readonly UserStore<User> userStore = new UserStore<User>(new AuthDBContext());
+        private static readonly UserStore<User> userStore = new UserStore<User>(new OnlineShopDbContext());
         private readonly UserManager<User> userManager = new UserManager<User>(userStore);
         private IAccauntOperations acc;
         public AuthController(IAccauntOperations userAcc)
@@ -29,7 +30,7 @@ namespace OnlineShop.Controllers
    
         // GET: Auth
         [HttpPost]
-        public ActionResult startSignIn(string returnUrl)
+        public ActionResult StartSignIn(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;           
             return View("~/Views/Auth/SignIn.cshtml");
@@ -87,9 +88,8 @@ namespace OnlineShop.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<ActionResult> showUserProfile()
+        public async Task<ActionResult> ShowUserProfile()
         {
-            AuthDBContext auth = new AuthDBContext();
             User user = await userManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
             {

@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using OnlineShop.Models;
+using OnlineShop.Models.OnlineShopDatabase;
+using OnlineShop.Models.OnlineShopDatabase.Goods;
+
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
@@ -19,12 +22,12 @@ namespace OnlineShop.Controllers
         [HttpGet]
         public ActionResult AddProducts()
         {
-            GoodsContainer1 goods = new GoodsContainer1();
-            ViewData["Categories"] = goods.CategorySet;
+            OnlineShopDbContext goods = new OnlineShopDbContext();
+            ViewData["Categories"] = goods.Categories;
             ViewData["SubCategories"] = new List<SubCategory>();
             ViewBag.SubCat = string.Empty;
             Product product = new Product();
-            product.DescriptionParameters.Add(new DescriptionParameters());
+            product.Descriptions.Add(new DescriptionParameters());
             return PartialView(product);
         }
         [HttpPost]
@@ -41,20 +44,20 @@ namespace OnlineShop.Controllers
             return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);   
         }
         [HttpGet]
-        public ActionResult AddDescriptionPatrameter(Product product, int? categoryId)
+        public ActionResult AddDescriptionPatrameter(Product product, Guid? categoryId)
         {
-            product.DescriptionParameters.Add(new DescriptionParameters());
-            GoodsContainer1 goods = new GoodsContainer1();
+            product.Descriptions.Add(new DescriptionParameters());
+            OnlineShopDbContext goods = new OnlineShopDbContext();
             if (categoryId != null)
             {
-                ViewData["Categories"] = goods.CategorySet;
-                ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+                ViewData["Categories"] = goods.Categories;
+                ViewData["SubCategories"] = goods.SubCategories.Where(x => x.Category_Id == categoryId).ToList();
             }
             return PartialView("~/Views/AddProductsDialog/AddRemoveDescription.cshtml", product);
         }
         [HttpGet]
         public ActionResult RemoveDescriptionParameter(Product product,string description,
-            string descriptionParametr, int? categoryId)
+            string descriptionParametr, Guid? categoryId)
         {
             if(description=="")
             {
@@ -64,17 +67,17 @@ namespace OnlineShop.Controllers
             {
                 descriptionParametr = null;
             }
-            if (product.DescriptionParameters.Count > 1)
+            if (product.Descriptions.Count > 1)
             {
-                product.DescriptionParameters.Remove(
-                    product.DescriptionParameters.FirstOrDefault(x=>x.Description==description 
+                product.Descriptions.Remove(
+                    product.Descriptions.FirstOrDefault(x=>x.Description==description 
                     && x.DescriptionParameter==descriptionParametr));
             }
-            GoodsContainer1 goods = new GoodsContainer1();
+            OnlineShopDbContext goods = new OnlineShopDbContext();
             if (categoryId != null)
             {
-                ViewData["Categories"] = goods.CategorySet;
-                ViewData["SubCategories"] = goods.SubCategorySet.Where(x => x.Category.Id == categoryId).ToList();
+                ViewData["Categories"] = goods.Categories;
+                ViewData["SubCategories"] = goods.SubCategories.Where(x => x.Category_Id == categoryId).ToList();
             }
             return PartialView("~/Views/AddProductsDialog/AddRemoveDescription.cshtml", product);
         }

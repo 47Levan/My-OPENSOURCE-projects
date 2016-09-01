@@ -222,10 +222,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\GoodsDatabase\Goods.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Goods.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Images\Accaunts\Users\Christian-PERSON-PDG-Umalis1.png" />
     <Content Include="Images\Accaunts\Users\cover-image-1.jpg" />
     <Content Include="Images\Accaunts\Users\Kayla_Person-small.jpg" />
@@ -242,20 +238,6 @@
     <Content Include="Images\Products\Laptops\Soft\Dell inspirion mini.jpg" />
     <Content Include="Images\Products\Laptops\Soft\Lenovo 1.jpg" />
     <Content Include="Images\Products\PC\For gaming\PC-1.jpg" />
-    <Content Include="Models\GoodsDatabase\Goods.edmx.diagram">
-      <DependentUpon>Goods.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\GoodsDatabase\Goods.edmx.sql" />
-    <Content Include="Models\GoodsDatabase\GoodsList.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GoodsList.Context.cs</LastGenOutput>
-      <DependentUpon>Goods.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\GoodsDatabase\GoodsList.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GoodsList.cs</LastGenOutput>
-      <DependentUpon>Goods.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -319,64 +301,28 @@
     </Compile>
     <Compile Include="Infrastucture\HelperMethods.cs" />
     <Compile Include="Infrastucture\NinjectResolver.cs" />
-    <Compile Include="Migrations\AuthMigratons\201608221845312_Migration1.cs" />
-    <Compile Include="Migrations\AuthMigratons\201608221845312_Migration1.Designer.cs">
-      <DependentUpon>201608221845312_Migration1.cs</DependentUpon>
+    <Compile Include="Migrations\OnlineShopDataBase\201609011644204_ChangedGoodToGlobalDatabase.cs" />
+    <Compile Include="Migrations\OnlineShopDataBase\201609011644204_ChangedGoodToGlobalDatabase.Designer.cs">
+      <DependentUpon>201609011644204_ChangedGoodToGlobalDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AuthMigratons\201608221849570_Migration2.cs" />
-    <Compile Include="Migrations\AuthMigratons\201608221849570_Migration2.Designer.cs">
-      <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
+    <Compile Include="Migrations\OnlineShopDataBase\201609011654216_ChangedGoodToGlobalDatabase2.cs" />
+    <Compile Include="Migrations\OnlineShopDataBase\201609011654216_ChangedGoodToGlobalDatabase2.Designer.cs">
+      <DependentUpon>201609011654216_ChangedGoodToGlobalDatabase2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.cs" />
-    <Compile Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.Designer.cs">
-      <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.cs" />
-    <Compile Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.Designer.cs">
-      <DependentUpon>201608301125158_DateModifiedAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AuthMigratons\Configuration.cs" />
-    <Compile Include="Migrations\NewsMigratons\Configuration.cs" />
+    <Compile Include="Migrations\OnlineShopDataBase\Configuration.cs" />
     <Compile Include="Models\AccountOperations\AccauntOperations.cs" />
     <Compile Include="Models\AccountOperations\IAccauntOperations.cs" />
-    <Compile Include="Models\Authentication\AuthDBContext.cs" />
-    <Compile Include="Models\Authentication\SignIn.cs" />
-    <Compile Include="Models\Authentication\SignUp.cs" />
-    <Compile Include="Models\Authentication\User.cs" />
-    <Compile Include="Models\GoodsDatabase\Category.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoodsDatabase\CategoryInfo.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoodsDatabase\DescriptionParameters.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoodsDatabase\Goods.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Goods.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoodsDatabase\GoodsList.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GoodsList.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoodsDatabase\GoodsList.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NewsDatabase\News.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Authentication\SignIn.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Authentication\SignUp.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Goods\Category.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Goods\Product.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Goods\DescriptionParameters.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Goods\SubCategory.cs" />
+    <Compile Include="Models\OnlineShopDatabase\NewsDataBase\NewsList.cs" />
+    <Compile Include="Models\OnlineShopDatabase\OnlineShopDbContext.cs" />
+    <Compile Include="Models\OnlineShopDatabase\Authentication\User.cs" />
     <Compile Include="Models\ProductOperations\IProductOperations.cs" />
-    <Compile Include="Models\NewsDatabase\NewsDBContext.cs" />
-    <Compile Include="Models\GoodsDatabase\Product.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ProductOperations\ProductOperations.cs" />
-    <Compile Include="Models\GoodsDatabase\SubCategory.cs">
-      <DependentUpon>GoodsList.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -441,17 +387,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\AuthMigratons\201608221845312_Migration1.resx">
-      <DependentUpon>201608221845312_Migration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\OnlineShopDataBase\201609011644204_ChangedGoodToGlobalDatabase.resx">
+      <DependentUpon>201609011644204_ChangedGoodToGlobalDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AuthMigratons\201608221849570_Migration2.resx">
-      <DependentUpon>201608221849570_Migration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AuthMigratons\201608231451402_PictDateColumns.resx">
-      <DependentUpon>201608231451402_PictDateColumns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AuthMigratons\201608301125158_DateModifiedAdded.resx">
-      <DependentUpon>201608301125158_DateModifiedAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\OnlineShopDataBase\201609011654216_ChangedGoodToGlobalDatabase2.resx">
+      <DependentUpon>201609011654216_ChangedGoodToGlobalDatabase2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

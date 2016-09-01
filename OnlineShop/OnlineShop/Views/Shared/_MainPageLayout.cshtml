@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-@using OnlineShop.Models;
+@using OnlineShop.Models.OnlineShopDatabase;
 <html>
 <head>
    @* <meta name="viewport" content="width=device-width" />*@
@@ -14,7 +14,7 @@
         </header>
             <div style="position:absolute" id="CategoryList">
                 @{
-                    GoodsContainer1 goods = new GoodsContainer1();
+                    OnlineShopDbContext goods = new OnlineShopDbContext();
                 }
                 @Html.Partial("~/Views/PartialViews/showCatButton.cshtml", goods)
             </div>

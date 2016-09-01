@@ -1,5 +1,5 @@
-﻿@model OnlineShop.Models.Product
-    @using OnlineShop.Models;
+﻿@model OnlineShop.Models.OnlineShopDatabase.Goods.Product
+    @using OnlineShop.Models.OnlineShopDatabase.Goods;
 <link rel="stylesheet" type="text/css" href="~/Content/ShowOneProduct.css?Wednesday 20th of July 2016 07:45:21 AM" />
 <script  type="text/javascript" src="~/Scripts/BuyProduct.js"></script>
 <div id="ProductHead">
@@ -16,7 +16,7 @@
     </div>
     <div id="productDiscriptions">
         <dl>
-            @foreach (DescriptionParameters desc in Model.DescriptionParameters)
+            @foreach (DescriptionParameters desc in Model.Descriptions)
             {
                 <dt style="font-weight:bold">@desc.Description:</dt>
                 <dd style="margin-top:10px">@desc.DescriptionParameter</dd>

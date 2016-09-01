@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using OnlineShop.Models.Authentication;
+using OnlineShop.Models.OnlineShopDatabase.Authentication;
+
 namespace OnlineShop.Models.AccountOperations
 {
     public interface IAccauntOperations

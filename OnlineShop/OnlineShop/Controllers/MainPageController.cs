@@ -8,6 +8,9 @@ using System.Collections;
 using System.IO;
 using System.Data.Entity;
 using System.Web.Helpers;
+using OnlineShop.Models.OnlineShopDatabase;
+using OnlineShop.Models.OnlineShopDatabase.Goods;
+
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
@@ -22,16 +25,16 @@ namespace OnlineShop.Controllers
         }
         public ActionResult showCatButton()
         {
-            GoodsContainer1 goods = new GoodsContainer1();          
+            OnlineShopDbContext goods = new OnlineShopDbContext();          
             return PartialView(goods);           
         }    
         [HttpPost]
-        public JsonResult GetSubs(int category)
+        public JsonResult GetSubs(Guid? category)
         {
             IEnumerable<SubCategory> subs;
-            using (GoodsContainer1 goods=new GoodsContainer1())
+            using (OnlineShopDbContext goods=new OnlineShopDbContext())
             {
-                subs =  goods.SubCategorySet.Where(x => x.Category.Id == category).ToList(); 
+                subs =  goods.SubCategories.Where(x => x.Category.Id == category).ToList(); 
             }
             
            return Json(new SelectList(subs, "Id", "Subcategory"));

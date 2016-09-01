@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using OnlineShop.Models;
+using OnlineShop.Models.OnlineShopDatabase;
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
@@ -23,31 +23,31 @@ namespace OnlineShop.Controllers
             }
             else if(showCriteria == "News")
             {
-                NewsDBContext news = new NewsDBContext();
-                return PartialView("~/Views/AboutShop/News.cshtml",news.newsDataSet.ToList());
+                OnlineShopDbContext news = new OnlineShopDbContext();
+                return PartialView("~/Views/AboutShop/News.cshtml",news.Newses.ToList());
             }
             return PartialView("~/Views/AboutShop/History.cshtml");
         }
         [HttpPost]
         public ActionResult ShowNews(string pagelink)
         {
-            NewsDBContext news = new NewsDBContext();
-            return PartialView(pagelink,news.newsDataSet.FirstOrDefault(x=>x.FullPageLink==pagelink));
+            OnlineShopDbContext news = new OnlineShopDbContext();
+            return PartialView(pagelink,news.Newses.FirstOrDefault(x=>x.FullPageLink==pagelink));
         }
         [HttpPost]
         public ActionResult SortNews(string sortParameters)
         {
-            NewsDBContext news = new NewsDBContext();
+            OnlineShopDbContext news = new OnlineShopDbContext();
             if (sortParameters == "Newest")
             {
                 return PartialView("~/Views/PartialViews/NewsList.cshtml",
-                news.newsDataSet.OrderByDescending(x => x.DateAdded).ToList());
+                news.Newses.OrderByDescending(x => x.DateAdded).ToList());
             }
             else
             {
 
                 return PartialView("~/Views/PartialViews/NewsList.cshtml",
-                news.newsDataSet.OrderBy(x => x.DateAdded).ToList());
+                news.Newses.OrderBy(x => x.DateAdded).ToList());
             }
         }
     }

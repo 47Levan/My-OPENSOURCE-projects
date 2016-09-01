@@ -1,11 +1,13 @@
 ﻿using System.Web.Mvc;
 using OnlineShop.Models;
+using OnlineShop.Models.OnlineShopDatabase;
+
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
     public class MenuController : Controller
     {
-        static GoodsContainer1 goods = new GoodsContainer1();
+        static OnlineShopDbContext goods = new OnlineShopDbContext();
         // GET: Menu
         public ActionResult Contacts()
         {

@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using OnlineShop.Models;
 using PagedList;
+using OnlineShop.Models.OnlineShopDatabase;
+using OnlineShop.Models.OnlineShopDatabase.Goods;
+
 namespace OnlineShop.Controllers
 {
     [AllowAnonymous]
@@ -16,17 +20,17 @@ namespace OnlineShop.Controllers
      
         // GET: ShowProducts
         [HttpGet]
-        public ActionResult showProductsByFilter(int? subCategory=null,int pageNumber=1,string orderType=null)
+        public ActionResult showProductsByFilter(Guid? subCategory=null,int pageNumber=1,string orderType=null)
         {
-            GoodsContainer1 goods = new GoodsContainer1();
+            OnlineShopDbContext goods = new OnlineShopDbContext();
             List<Product> products=new List<Product>();
             ViewBag.OrderType=orderType;
             if (orderType == null)
             {
                 products=prod.calcForProductsByFilter(subCategory);
                 ViewData["category"] = subCategory;
-                ViewData["SubCategories"] = goods.SubCategorySet;
-                ViewData["Categories"] = goods.CategorySet;
+                ViewData["SubCategories"] = goods.SubCategories;
+                ViewData["Categories"] = goods.Categories;
                 ViewBag.clickedCategory = subCategory;
             }
             else
@@ -36,7 +40,7 @@ namespace OnlineShop.Controllers
             return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(pageNumber,5));            
         }
         [HttpGet]
-        public ActionResult startShowProductsByFilter(int? subCategory, string orderType)
+        public ActionResult startShowProductsByFilter(Guid? subCategory, string orderType)
         {
 
             List<Product> products = prod.calcForProductsByFilter(subCategory);
@@ -50,12 +54,12 @@ namespace OnlineShop.Controllers
         [HttpGet]
         public ActionResult showAllProducts(int pageNumber, string orderType)
         {
-            GoodsContainer1 goods = new GoodsContainer1();
-            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", goods.ProductSet.ToList().ToPagedList(pageNumber, 5));
+            OnlineShopDbContext goods = new OnlineShopDbContext();
+            return PartialView("~/Views/ShowProducts/ShowProductsDialog.cshtml", goods.Products.ToList().ToPagedList(pageNumber, 5));
         }
    
         [HttpPost]
-        public ActionResult sortProductsByFilter(int? category,
+        public ActionResult sortProductsByFilter(Guid? category,
             string orderType)
         {
             if (orderType == "Sort products")
@@ -65,7 +69,7 @@ namespace OnlineShop.Controllers
             else
             {
                 List<Product> products = new List<Product>();
-                GoodsContainer1 goods = new GoodsContainer1();
+                OnlineShopDbContext goods = new OnlineShopDbContext();
                 products = prod.sortProducts(category, orderType);
                 ViewBag.OrderType = orderType;
                 return PartialView("~/Views/ShowProducts/showProductsByFilter.cshtml", products.ToPagedList(1, 5));
