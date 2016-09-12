@@ -16,8 +16,8 @@
             percent.html(percentVal);
         },
         success: function (partialView) {
-            var percentVal = '100%';
-            bar.width(percentVal)
+            var percentVal = "100%";
+            bar.width(percentVal);
             percent.html(percentVal);
             $('#AddProdForm').removeData(".validator")
             $('#AddProdForm').removeData("unobtrusiveValidation");

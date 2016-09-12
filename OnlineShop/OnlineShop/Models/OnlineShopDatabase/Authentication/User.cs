@@ -18,6 +18,6 @@ namespace OnlineShop.Models.OnlineShopDatabase.Authentication
         public bool isModified { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime DateModified { get; set; }
-        public virtual ICollection<Product> Shipment { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

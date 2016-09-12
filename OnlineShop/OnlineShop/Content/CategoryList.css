@@ -1,8 +1,21 @@
-﻿body {
+﻿
+#CatContainer {
+    float: left;
+    margin-left:0px;
+    width:20px;
+    height:20px;
 
 }
+#CatContainer >  img{
+    position:fixed;
+    height:30px;
+    width: 20px;
+    margin-top:23%;
+    margin-left:-0.1%;
+}
 
-#mainMenu{
+#CatContainer  > ul{
+    display: none;
     z-index:100;
     margin-left:-42px;
     left:0px;
@@ -11,62 +24,39 @@
     transform: translateY(-50%);
     list-style-type:none;
 }
-.subMenu {
+
+#CatContainer > ul:hover {
+    display: block;
+}
+#CatContainer  >img:hover ~ ul{
+    display:block;
+}
+#CatContainer  > ul > li > ul {
      list-style-type:none;
-}
-.MenuItem
-{
-    width:200px;
-    height:50px;
-    border-radius:5px;
-    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
-    color:white;
-    border:1px solid black;
-    text-align:center;
-}
-.subMenuItem
-{   
-    width:200px;
-    height:50px;
-    border-radius:5px;
-    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
-    color:white;
-    border:1px solid black;
-    text-align:center;
-}
-#ListIndicator{
-    position:fixed;
-    width:20px;
-    margin-top:16%;
-    margin-left:-0.6%;
-}
-#MenuContainer{
     display:none;
+
 }
-#ListIndicator:hover + #MenuContainer{
-    display:block;
+#CatContainer  > ul > li > button,
+#CatContainer  > ul > li > ul > li > button{
+    width:200px;
+    height:50px;
+    border-radius:5px;
+    background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
+    color:white;
+    border:1px solid black;
+    text-align:center;
 }
-#MenuContainer:hover{
-    display:block;
-}
-#MenuContainer:hover +#ListIndicator{
-    margin-left:50%;
-    background-color:green;
-}
-.MenuItem:hover
-{
+
+
+#CatContainer > ul > li > button:hover,
+#CatContainer > ul > li > ul > li > button:hover{
     text-decoration:underline;
-    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
 }
-#mainMenu li ul {
-    display:none;
-}
-#mainMenu li:hover ul {
+
+#CatContainer > ul > li:hover > ul {
     display:block;
     position:absolute;
     top:0px;
     left:200px;
 }
-.subMenuItem:hover{
-    text-decoration:underline;
-}
+

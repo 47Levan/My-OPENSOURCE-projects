@@ -1,19 +1,20 @@
-﻿.contactdiv{
-    margin-top:10px;
-}
-.contacthead{
-    display:inline;
-}
-.contactpar{
-    display:inline;
-}
-#contactContainer{
-
-}
-#showProduct{
+﻿#showProduct{
     padding-left:20px;
     width:60%;
     height:auto;
     margin-top:100px;
     margin-left:400px;
+}
+#contactContainer > div{
+    margin-top:10px;
+}
+#contactContainer > div > h4,
+#contactContainer > div > p{
+    display:inline;
+}
+
+#canvas {
+   height:500px;
+   width:500px;
+   margin-bottom:5%   
 }

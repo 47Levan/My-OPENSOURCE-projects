@@ -1,7 +1,5 @@
-﻿<link type="text/css" rel="stylesheet" href="~/Content/ShowUserProfile.css" />
-<script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
-
+﻿<script src="~/Scripts/AddRemoveProductDialog.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="~/Content/ShowUserProfile.css" />
 @using System;
 @using Microsoft.AspNet.Identity;
 @using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,40 +10,53 @@
 }
 @model OnlineShop.Models.OnlineShopDatabase.Authentication.User
     <div id="userContainer">
-        <div class="userDiscription">
-            <ul>
-                <li>
-                    <h4 class="userCategory">User name:</h4>
-                    <p class="userDescription">@Model.UserName</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Email:</h4>
-                    <p class="userDescription">@Model.Email</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Name:</h4>
-                    <p class="userDescription">@Model.Name</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Second name:</h4>
-                    <p class="userDescription">@Model.SecondName</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Age:</h4>
-                    <p class="userDescription">@Model.Age</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Country:</h4>
-                    <p class="userDescription">@Model.Country</p>
-                </li>
-                <li>
-                    <h4 class="userCategory">Phone number:</h4>
-                    <p class="userDescription">@Model.PhoneNumber</p>
-                </li>
-            </ul>
-
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    User name
+                </dt>
+                <dd>
+                    @Model.UserName
+                </dd>
+                <dt>
+                    Email:
+                </dt>
+                <dd>
+                    @Model.Email
+                </dd>
+                <dt>
+                    Name:
+                </dt>
+                <dd>
+                    @Model.Name
+                </dd>
+                <dt>
+                    Second name:
+                </dt>
+                <dd>
+                    @Model.SecondName
+                </dd>
+                <dt>
+                    Age:
+                </dt>
+                <dd>
+                    @Model.Age
+                </dd>
+                <dt>
+                    Country:
+                </dt>
+                <dd>
+                    @Model.Country
+                </dd>
+                <dt>
+                    Phone number:
+                </dt>
+                <dd>
+                    @Model.PhoneNumber
+                </dd>
+            </dl>
         </div>
-        <div id="userPicture">
+        <div>
             @if (Model.Picture != null)
             {
                 <img src="@Url.Content(Model.Picture)" />
@@ -56,10 +67,10 @@
             }
 
         </div>
-        <div id="profileAdjust">
+        <div>
             <ul>
                 <li>
-                    <a class="editProfile" href="#">
+                    <a href="#">
                         edit profile
                     </a>
                 </li>
@@ -75,13 +86,13 @@
                 </li>
                 @if (userManager.IsInRole(Model.Id, "Admin"))
                 {
-                    <li id="adminFeatures">
+                    <li>
                         <a href="#">
                             admin features
                         </a>
                         <ul>
                             <li>
-                                <a id="DataOperationsAdd" href="#">
+                                <a  href="#">
                                     Add product
                                 </a>
                             </li>
@@ -101,14 +112,13 @@
             </ul>
 
         </div>
-
     </div>
  <script>
-     $('.editProfile').click(function () {
+     $('#userContainer > div:last-child > ul > li:first-child >a').click(function () {
          $.post("/Auth/EditProfile", {user: @Html.Raw(Json.Encode(Model))}, function (PartialView) {
-             $('#showProduct').empty();
-             $('#showProduct').html(PartialView);
-             $('#showProduct').show(PartialView);
+             $('#userContainer').empty();
+             $('#userContainer').html(PartialView);
+             $('#userContainer').show(PartialView);
          })
      });
 

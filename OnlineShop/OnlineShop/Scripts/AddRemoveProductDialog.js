@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-    $('#DataOperationsAdd').click(function(){   
+    $('#userContainer > div:last-child > ul > li > ul >li:first-child > a').click(function () {
     $.ajax({
         url: '/AddProductsDialog/AddProducts',
         type: 'GET',

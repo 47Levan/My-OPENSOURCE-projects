@@ -1,0 +1,16 @@
+﻿#DescriptionContainer > table  tr  td{
+   padding-top:10px;
+}
+#DescriptionContainer > table  tr  td:nth-child(2),
+#DescriptionContainer > table  tr  td:nth-child(3),
+#DescriptionContainer > table  tr  td:nth-child(4){
+    padding-left:6px;
+}
+#DescriptionContainer > table  tr  td:nth-child(3) input,
+#DescriptionContainer > table  tr  td:nth-child(4) input{
+    height:33px;
+    width:33px;
+    background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
+    color:white;
+
+}

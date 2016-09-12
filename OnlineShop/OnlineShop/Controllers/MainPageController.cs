@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using OnlineShop.Models;
-using System.Collections;
-using System.IO;
-using System.Data.Entity;
-using System.Web.Helpers;
 using OnlineShop.Models.OnlineShopDatabase;
 using OnlineShop.Models.OnlineShopDatabase.Goods;
 

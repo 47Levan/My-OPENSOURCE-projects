@@ -1,26 +1,23 @@
 ﻿@model OnlineShop.Models.OnlineShopDatabase.Goods.DescriptionParameters
 <script src="~/Scripts/DiscriptionParameters.js" type="text/javascript"></script>
-<div >
+<div id="DescriptionContainer">
     <table>
         <tr>
             <td>
-                @Html.TextBoxFor(x => x.Description, new { Value = Model.Description, Id = "DescriptionField", Class = "EnterDescriptionInfoField" })
+                @Html.TextBoxFor(x => x.Description, new { Value = Model.Description, Id = "DescriptionField", @Class = "form-control" })
 
             </td>
             <td>
-                @Html.TextBoxFor(x => x.DescriptionParameter, new { Value = Model.DescriptionParameter, Id = "DescriptionParamField", Class = "EnterDescriptionParameterInfoField" })
+                @Html.TextBoxFor(x => x.DescriptionParameter, new { Value = Model.DescriptionParameter, Id = "DescriptionParamField", @Class = "form-control" })
 
             </td>
             <td>
-                <input class="AddDescription" type="button"
-                       style="width:20px;height:20px" value="+" />
+                <input class="AddDescription" type="button" value="+" />
             </td>
             <td>
-                <input class="RemoveDescription" type="button" value="-"
-                       style="width:20px;height:20px;text-align:center" />
+                <input class="RemoveDescription" type="button" value="-"  />
             </td>
         </tr>
-
     </table>
     <table>
         <tr>

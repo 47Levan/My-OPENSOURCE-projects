@@ -3,9 +3,7 @@
     background-color:#1a1a1a;
 }*/
 
-#CategoryList {
-    vertical-align:middle;   
-}
+
 #showProduct{
     padding-left:20px;
     width:73%;
@@ -13,29 +11,4 @@
     margin-top:100px;
     margin-left:210px;
 }
-.DataOperations{
-    border-radius:10px;
-    width:100px;
-    height:50px;
-    background:linear-gradient(to bottom, #006e2e 0%,#006e2e 100%);
-    color:white;   
-    text-align:center;
-    cursor:pointer; 
-}
-#BuyProduct{
-    
-}
-#DataOperationsAdd{  
-  
-    margin-left:75%;
-    margin-bottom:10px;   
-    position:absolute;   
-}
 
-#DataOperationsRemove{
-   
-    margin-left:35%;
-    margin-bottom:10px;
-   
-    position:relative;
-}

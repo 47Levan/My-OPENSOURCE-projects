@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 
 .field-validation-error {
     color: #b94a48;
@@ -31,10 +30,11 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-.EnterProductInfoField{
-    width:180px;
-   
+#AddProductContainer {
+    margin-left:100px;
 }
+#EditProfile > input,
+#AddProdForm > input,
 .EnterDescriptionParameterInfoField{
-     width:180px;
+    width:180px;
 }

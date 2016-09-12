@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.IO;
 using OnlineShop.Models;
 using OnlineShop.Models.OnlineShopDatabase;
 using OnlineShop.Models.OnlineShopDatabase.Goods;
@@ -27,6 +27,7 @@ namespace OnlineShop.Controllers
             ViewData["SubCategories"] = new List<SubCategory>();
             ViewBag.SubCat = string.Empty;
             Product product = new Product();
+            product.Descriptions = new List<DescriptionParameters>();
             product.Descriptions.Add(new DescriptionParameters());
             return PartialView(product);
         }

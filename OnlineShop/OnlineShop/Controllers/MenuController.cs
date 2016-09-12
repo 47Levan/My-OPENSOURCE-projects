@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using OnlineShop.Models;
 using OnlineShop.Models.OnlineShopDatabase;
 
 namespace OnlineShop.Controllers

@@ -1,65 +1,50 @@
-﻿body {
-}
-#showProduct{   
-    padding-left:20px;
-    width:73%;
+﻿#showProduct{   
+    width:93%;
     height:auto;
     margin-top:100px;
-    margin-left:210px;
+    margin-left:110px;
     position: relative;
     height: auto;
     min-height: 1000px;
     overflow:hidden; 
+
 }
 #userContainer{   
-    width:950px;
+    width:1150px;
     height:300px;
-
-
 }
-.userDiscription{    
+#userContainer > div:first-child{    
     float:left;
     height:100%;  
     display:table;
 }
-.userDiscription ul{
-    list-style-type:none;
-    display:table-cell;   
+#userContainer > div:first-child dl{ 
+ display:table-cell;   
     vertical-align:middle;
 }
-.userDiscription ul li {
-   margin-top:10px;
-}
 
-.userDiscription ul li p{
-   display:inline;
-}
-.userDiscription ul li h4{
-   display:inline;
-}
-
-#userPicture{
+#userContainer > div:nth-child(2){
     margin-left:20px;
     display:inline-block;
     height:100%;
     width:240px;
 }
-#userPicture img{
-   
+#userContainer > div:nth-child(2) > img{
+    float:left;
     height:100%;
     width:100%;   
 }
-#profileAdjust{
+#userContainer > div:last-child{
     height:100%;
     display:inline-block;
     width:100px;
     list-style-type:none;
     list-style:none;
-    text-align:left;    
-   
+    text-align:left;
+    margin-left:30px;
 }
 
-#profileAdjust ul:nth-child(1){  
+#userContainer > div:last-child > ul:first-child{  
     margin-top:70%;
     padding-left:15px;
     height:100%;
@@ -69,7 +54,7 @@
    
 }
 
-#profileAdjust ul li{   
+#userContainer > div:last-child > ul li{   
     display:table;
     width:200px;
     margin-top:5px;   
@@ -78,7 +63,7 @@
     text-align:center;
     cursor:pointer;
 }
-#profileAdjust ul li a{   
+#userContainer > div:last-child > ul  li  a{   
     display:table;
     width:200px;
     margin-top:5px;
@@ -92,25 +77,25 @@
   text-decoration:none;
   font-weight:bold;
 }
-#profileAdjust ul li a:hover{ 
+#userContainer > div:last-child  > ul  li  a:hover{ 
     border:1px solid black;
     background-color:green;
 }
-#profileAdjust ul li ul{ 
+#userContainer > div:last-child > ul > li > ul{ 
     position:relative;
     left:170px;
     top:-42px;
 }
-#profileAdjust ul li ul {
+#userContainer > div:last-child  > ul > li > ul {
    display:none;
  
 }
-#profileAdjust ul li ul a{ 
+#userContainer > div:last-child  ul > li > ul > a{ 
    border:1px solid black;
    background-color:#1a1a1a;
 }
 
-#adminFeatures:hover ul {
+#userContainer > div:last-child > ul > li:last-child:hover ul {
     display:block;
 }
 

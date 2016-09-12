@@ -55,3 +55,5 @@ D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tes
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.pdb
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\System.Web.Optimization.dll
+D:\Leva\Work\Informatika\CSharp\My OPENSOURCE projects\OnlineShop\OnlineShop.Tests\bin\Debug\System.Web.Optimization.xml
