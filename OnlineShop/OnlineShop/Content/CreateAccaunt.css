@@ -1,0 +1,9 @@
+﻿#showProduct > form {
+    margin-left:50px;
+}
+#showProduct > form > input[type="submit"]{
+    width:100px;
+    height:50px;
+    background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
+    color: white;
+}

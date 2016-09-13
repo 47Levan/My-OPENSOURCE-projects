@@ -1,15 +1,16 @@
 ﻿<script src="~/Scripts/showUserProfile.js"  type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/ValidationStyle.css"/>
+<link rel="stylesheet" type="text/css" href="~/Content/EditProfile.css" />
+<script src="~/Scripts/FileInputEventListener.js" type="text/javascript"></script>
 @model OnlineShop.Models.OnlineShopDatabase.Authentication.SignUp
-
-    @using (Html.BeginForm("ChangeProfile", "Auth", new { }, FormMethod.Post, new { @Class = "form-group", id = "EditProfile", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("ChangeProfile", "Auth", new { }, FormMethod.Post, new { @Class = "form-group", enctype = "multipart/form-data" }))
     {
         <p>User name:</p>
-        @Html.TextBoxFor(x => x.Id, new { @style = "display:none", @Class="form-control" });
+        @Html.TextBoxFor(x => x.Id, new { @style = "display:none", @Class = "form-control" });
         @Html.TextBoxFor(x => x.UserName, new { @Class = "form-control" })
         @Html.ValidationMessageFor(x => x.UserName)
         <p>Email:</p>
-        @Html.EditorFor(x => x.EmailAdress, new { @Class = "form-control", @type = "email" })
+        @Html.EditorFor(x => x.EmailAdress, new { htmlAttributes = new { @Class = "form-control", @type = "email" } })
         @Html.ValidationMessageFor(x => x.EmailAdress)
         <p>Password:</p>
         @Html.PasswordFor(x => x.Password, new { @Class = "form-control" })
@@ -19,16 +20,19 @@
         <p>Second name:</p>
         @Html.TextBoxFor(x => x.SecondName, new { @Class = "form-control" })
         <p>Age:</p>
-        @Html.TextBoxFor(x => x.Age, new { @Class = "form-control",@type = "number" })
+        @Html.TextBoxFor(x => x.Age, new { @Class = "form-control", @type = "number" })
         <p>Country:</p>
         @Html.TextBoxFor(x => x.Country, new { @Class = "form-control" })
         <p>Phone number:</p>
         @Html.TextBoxFor(x => x.PhoneNumber, new { @Class = "form-control" })
         <p>Upload your photo:</p>
-        <input type="file" name="uploadedImage" />
+        <div>
+            <input value="Upload image" type="file" name="uploadedImage" id="realButton" />
+            <input value="Fake Upload image" type="button" id="fakeButton" />
+            <img id="previewPicture" src="#" />
+        </div>
         <br />
         <br />
         <input type="submit" value="Edit profile" id="submitEditProfile" class="DataOperations" style="left: 0px" />
 
     }
-<

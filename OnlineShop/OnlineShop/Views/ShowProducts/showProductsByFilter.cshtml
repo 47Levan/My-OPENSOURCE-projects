@@ -1,9 +1,11 @@
-﻿<link type="text/css" rel="stylesheet" href="~/Content/MainPage.css"/> 
+﻿<link type="text/css" rel="stylesheet" href="~/Content/MainPage.css"/>
 <link type="text/css" rel="stylesheet" href="~/Content/PagedList.css"/>
+<script type="text/javascript" src="~/Scripts/BuyProduct.js"></script>
    @using PagedList.Mvc;
 @using OnlineShop.Models.OnlineShopDatabase.Goods
 @model PagedList.IPagedList<Product>
     <div id="showSelectedProducts">
+        @Html.ActionLink("Buy", "BuyProduct", "ShowProducts")
         <ul style="list-style-type:none">
             @foreach (Product prod in Model)
             {

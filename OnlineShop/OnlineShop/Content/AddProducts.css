@@ -1,0 +1,18 @@
+﻿#AddProductContainer > form > input[type="submit"]{
+    background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
+    color:white;
+    width:100px;
+    height:50px;
+}
+#AddProductContainer > form > div > input[type="file"]{
+display:none;
+}
+#fakeButton{
+   background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
+   color:white;
+}
+#previewPicture{
+    margin-left:10px;
+    width:100px;
+    height:100px;
+}

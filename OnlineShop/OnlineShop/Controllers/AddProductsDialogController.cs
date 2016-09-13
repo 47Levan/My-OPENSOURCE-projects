@@ -45,7 +45,7 @@ namespace OnlineShop.Controllers
             return PartialView("~/Views/AddProductsDialog/AddedProduct.cshtml", product);   
         }
         [HttpGet]
-        public ActionResult AddDescriptionPatrameter(Product product, Guid? categoryId)
+        public ActionResult AddDescriptionParameter(Product product, Guid? categoryId)
         {
             product.Descriptions.Add(new DescriptionParameters());
             OnlineShopDbContext goods = new OnlineShopDbContext();

@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
  
     $('.showAccaunts').click(function () {
-        alert(".showAccaunt works");
         $.get("/Auth/ShowAccaunts", function (PartialView) {
             $('#showProduct').empty();
             $('#showProduct').html(PartialView);

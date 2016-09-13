@@ -1,33 +1,35 @@
-﻿$('#Category').change(function () {
-    $('#subCategory').empty();
-    $('#subCategory').append(
-                    '<option>'
-                       + "Select sub category" + '</option>'
-                      )
+﻿var SelectCategory = '#AddProductContainer > form > select:first-of-type';
+var SelectSubCategory = '#AddProductContainer > form > select:last-of-type';
+$(SelectCategory).change(function () {
+    $(SelectSubCategory).empty();
+    $(SelectSubCategory).append(
+        '<option>'
+        + "Select sub category" + '</option>'
+    );
    
-    if ($('#Category :selected').text() != 'Select category') {
-        $.ajax({         
+    if ($(SelectCategory +':selected').text() != 'Select category') {
+        $.ajax({
             url: '/MainPage/GetSubs',
             type: 'POST',
-            data: {category: $('#Category').val()},
-            success: function (subs) {
-                $('#subCategory').empty();
-                $('#subCategory').append(
-                  '<option>'
-                     + "Select sub category" + '</option>'
+            data: { category: $(SelectCategory).val() },
+            success: function(subs) {
+                $(SelectSubCategory).empty();
+                $(SelectSubCategory).append(
+                    '<option>'
+                    + "Select sub category" + '</option>'
+                )
+                $.each(subs, function(i, sub) {
+                    $(SelectSubCategory).append(
+                        '<option value="'
+                        + sub.Value + '">'
+                        + sub.Text + '</option>'
                     )
-                $.each(subs, function (i, sub) {
-                    $('#subCategory').append(
-                      '<option value="'
-                         + sub.Value + '">'
-                         + sub.Text + '</option>'
-                        )
                 })
             },
-            error: function () {
+            error: function() {
 
                 alert("filling subs didn't work");
             }
-        })
+        });
     }
 })

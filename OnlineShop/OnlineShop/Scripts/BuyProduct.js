@@ -1,9 +1,16 @@
 ﻿$(document).ready(function () {
-    $(".BuyOperations").click(function () {
-        alert("ButtonClick")
-        $.post("/ShowProducts/BuyProduct", new {}, function () {
-            alert("ButtonClick")
-        })
-    })
-  
+    $("#ProductContainer button").click(function () {
+        $.ajax({
+            url: "/ShowProducts/BuyProduct",
+            type: "GET",
+            success: function (partialView) {
+                $('body').empty();
+                $('body').html(partialView);
+                $('body').show(partialView);
+            },
+          
+        });
+     
+    });
+
 })

@@ -103,9 +103,11 @@ namespace OnlineShop.Controllers
             return PartialView(userManager.Users.ToList());
         }
         [HttpPost]
-        public ActionResult EditProfile(User user)
+        public ActionResult EditProfile(User user,string userId)
         {
-            SignUp signUp = acc.getSignUpFromUser(user);
+            OnlineShopDbContext _db = new OnlineShopDbContext();
+            User _user = _db.Users.FirstOrDefault(x=>x.Id==userId);
+            SignUp signUp = acc.getSignUpFromUser(_user);
             return PartialView(signUp);
         }
         [HttpPost]

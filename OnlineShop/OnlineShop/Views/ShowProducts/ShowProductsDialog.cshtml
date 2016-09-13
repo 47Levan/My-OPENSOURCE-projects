@@ -1,7 +1,8 @@
 ﻿@using OnlineShop.Models.OnlineShopDatabase.Goods;
 @model PagedList.IPagedList<Product>
-<div>
-    <select id="sortList">
+<link href="~/Content/ShowProductDialog.css" rel="stylesheet" type="text/css"/>
+<div id="sortProductsContainer">
+    <select class="form-control">
         <option value="Sort products">Sort products</option>
         <option value="from cheap to expensive">from cheap to expensive</option>
         <option value="from expensive to cheap">from expensive to cheap</option>
@@ -13,23 +14,24 @@
     @Html.Action("showProductsByFilter","ShowProducts", Model)
 </div>
 <script>
-        $('#sortList').change(function () {
-            var viewBagJS = '@ViewBag.clickedCategory';
-            $.ajax({
-                url: '/ShowProducts/sortProductsByFilter',
-                type: 'POST',
-                data: {
-                    category: viewBagJS,
-                    orderType: $('#sortList').val()
-                },
-                success: function (partialView) {
-                    $('#showSelectedProducts').html(partialView);
-                    $('#showSelectedProducts').show(partialView);
-                },
-                error: function () {
-                    alert("SortProducts doesn't work");
-                }
-            })
-
+    var sortedList = '#sortProductsContainer > select';
+    $(sortedList).change(function () {
+        var viewBagJS = '@ViewBag.clickedCategory';
+        $.ajax({
+            url: '/ShowProducts/sortProductsByFilter',
+            type: 'POST',
+            data: {
+                category: viewBagJS,
+                orderType: $(sortedList).val()
+            },
+            success: function (partialView) {
+                $('#showSelectedProducts').html(partialView);
+                $('#showSelectedProducts').show(partialView);
+            },
+            error: function () {
+                alert("SortProducts doesn't work");
+            }
         })
+
+    })
 </script>

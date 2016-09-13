@@ -13,6 +13,10 @@
     width:1150px;
     height:300px;
 }
+#userContainer > form{   
+    margin-left:110px;
+    width:200px;
+}
 #userContainer > div:first-child{    
     float:left;
     height:100%;  

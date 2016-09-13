@@ -1,6 +1,4 @@
-﻿<script src="~/Scripts/AddRemoveProductDialog.js" type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" href="~/Content/ShowUserProfile.css" />
-@using System;
+﻿<link type="text/css" rel="stylesheet" href="~/Content/ShowUserProfile.css" />
 @using Microsoft.AspNet.Identity;
 @using Microsoft.AspNet.Identity.EntityFramework;
 @using OnlineShop.Models.OnlineShopDatabase
@@ -70,7 +68,7 @@
         <div>
             <ul>
                 <li>
-                    <a href="#">
+                    <a  class="editProfile" href=@Model.Id>
                         edit profile
                     </a>
                 </li>
@@ -113,13 +111,3 @@
 
         </div>
     </div>
- <script>
-     $('#userContainer > div:last-child > ul > li:first-child >a').click(function () {
-         $.post("/Auth/EditProfile", {user: @Html.Raw(Json.Encode(Model))}, function (PartialView) {
-             $('#userContainer').empty();
-             $('#userContainer').html(PartialView);
-             $('#userContainer').show(PartialView);
-         })
-     });
-
- </script> 

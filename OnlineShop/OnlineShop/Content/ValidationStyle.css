@@ -35,6 +35,7 @@ input[type="checkbox"].input-validation-error {
 }
 #EditProfile > input,
 #AddProdForm > input,
-.EnterDescriptionParameterInfoField{
+#AddProdForm > .form-control,
+.EnterDescriptionParameterInfoField:last-of-type{
     width:180px;
 }
