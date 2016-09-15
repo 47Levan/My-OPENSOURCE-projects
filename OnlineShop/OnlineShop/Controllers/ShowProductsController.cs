@@ -81,8 +81,15 @@ namespace OnlineShop.Controllers
         }
         [HttpGet]
         [Authorize(Roles = "Admin,User,Moderator")]
-        public ActionResult BuyProduct()
+        public ActionResult BuyProduct(Guid? ModelId)
         {
+            if (ModelId!=null)
+            {
+                OnlineShopDbContext db = new OnlineShopDbContext();
+                Product product=db.Products.FirstOrDefault(x=>x.Id==ModelId);
+                return PartialView(product);
+
+            }
             return PartialView();
         }
     }

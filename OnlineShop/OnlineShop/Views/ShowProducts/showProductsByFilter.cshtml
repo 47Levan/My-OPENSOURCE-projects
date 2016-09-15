@@ -5,7 +5,6 @@
 @using OnlineShop.Models.OnlineShopDatabase.Goods
 @model PagedList.IPagedList<Product>
     <div id="showSelectedProducts">
-        @Html.ActionLink("Buy", "BuyProduct", "ShowProducts")
         <ul style="list-style-type:none">
             @foreach (Product prod in Model)
             {

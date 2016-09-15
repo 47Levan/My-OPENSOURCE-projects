@@ -1,17 +1,13 @@
 ﻿
+@using System.Web.Optimization
 @using OnlineShop.Models.OnlineShopDatabase.Goods;
 @model OnlineShop.Models.OnlineShopDatabase.Goods.Product
 @{
     IEnumerable<SubCategory> subCatList = (IEnumerable<SubCategory>)ViewData["SubCategories"];
     IEnumerable<Category> catList = (IEnumerable<Category>)ViewData["Categories"];
 }
-<link href="~/Content/ValidationStyle.css" rel="stylesheet" type="text/css" />
-<link href="~/Content/DescriptionParameters.css" rel="stylesheet" type="text/css" />
-<link href="~/Content/AddProducts.css" rel="stylesheet" type="text/css" />
-<script src="~/Scripts/formScript.js" type="text/javascript"></script>
-<script src="~/Scripts/FillSubCategory.js" type="text/javascript"></script>
-<script src="~/Scripts/DiscriptionParameters.js" type="text/javascript"></script>
-<script src="~/Scripts/FileInputEventListener.js" type="text/javascript"></script>
+@Styles.Render("~/bundle/AddProductStyles");
+@Scripts.Render("~/bundle/AddProductScripts");
 <div id="AddProductContainer">
 
     @using (Html.BeginForm("ShowAddedProduct", "AddProductsDialog", FormMethod.Post,

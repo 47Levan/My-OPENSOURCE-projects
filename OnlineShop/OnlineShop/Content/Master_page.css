@@ -1,5 +1,4 @@
-﻿
-.navbar.navbar-fixed-top {
+﻿.navbar.navbar-fixed-top {
     border-radius: 10px;
     height:70px;
     background: linear-gradient(to bottom, #307936 0%,#58a741 50%,#1a5f0c 51%,#408b31 100%);
@@ -17,14 +16,45 @@
 .nav.navbar-nav > li {
      padding: 20px 30px;
 }
-.nav.navbar-nav > li:last-child{
-     padding: 22px 30px;
-    
+.nav.navbar-nav > li:nth-child(5) {
+     padding: 20px 10px;
+
 }
-.nav.navbar-nav > li:last-child > a {
+.nav.navbar-nav > li:nth-child(5) > a {
     display: inline;
     font:bold 15px arial;
+    margin-left:2px;
 }
+.nav.navbar-nav > li:last-child{
+     padding: 14px 5px;
+}
+.nav.navbar-nav > li:last-child a{
+     display:inline;
+}
+.nav.navbar-nav > li:last-child  img{
+    width:35px;
+    display:inline-block;
+}
+.nav.navbar-nav > li:last-child:hover  img{
+     width:40px;
+     cursor:pointer;
+}
+.nav.navbar-nav > li:last-child  div{
+   display:inline-block;
+   width:15px;
+   height:15px;
+   background-color:black;
+   margin-left:-6px;
+    border-radius: 100px;
+
+
+}
+.nav.navbar-nav  li:last-child > div > p{
+   font-weight:bold;
+   color: #f69e00;
+   margin-top:-2px;
+}
+
 .nav.navbar-nav > li > a:hover,
 .nav.navbar-nav > li > a:focus {
     text-decoration: underline;
@@ -80,7 +110,14 @@
 .dropdown-menu p {
     text-align:center;
 }
-.navbar.navbar-static-bottom > div{
-    margin-top:10px;
-    border-top:1px solid grey;
+.navbar.navbar-static-bottom{
+    height:100px;
+   background-color: rgba(0, 14, 0, 1);
+    color:white;
+    text-indent:20px;
+    padding-top:42px;
+    z-index:100;
+}
+.navbar.navbar-static-bottom p{
+    font:bold 20px arial;
 }

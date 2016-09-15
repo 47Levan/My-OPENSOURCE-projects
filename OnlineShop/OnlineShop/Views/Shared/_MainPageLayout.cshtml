@@ -4,12 +4,10 @@
 <html>
 <head>
     @Scripts.Render("~/bundle/BasicScripts")
-</head>
-<body>
     <link type="text/css" rel="stylesheet" href="~/Content/Master_page.css" />
     <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css" />
-
-
+</head>
+<body>
     <nav class="navbar navbar-fixed-top">
         <ul class="nav navbar-nav">
             <li>
@@ -60,7 +58,10 @@
                             new { returnUrl = Request.RawUrl }, new { })
                 }
             </li>
-
+            <li>
+                <a class="active"><img src="http://altyntumar.kz/0-theme/desktop/images/cart.png"/></a>
+                <div><p>0</p></div>
+            </li>
         </ul>
     </nav>
     <div>
@@ -73,9 +74,6 @@
         @RenderBody()
     </div>
     <footer class="navbar navbar-static-bottom">
-        <div>
-
-        </div>
         <p>This is application created for showing my skills,no commercial using</p>
     </footer>
 </body>

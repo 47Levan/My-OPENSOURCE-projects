@@ -1,0 +1,15 @@
+﻿#BuyProdContainer {
+    height:400px;
+    width:100%;
+}
+#BuyProdContainer h1{
+    margin-top:20%;
+    vertical-align: middle;
+    text-align: center;
+    font-size:100px;
+}
+#BuyProdContainer h4{
+    vertical-align: middle;
+    text-align: center;
+    font-size:50px;
+}

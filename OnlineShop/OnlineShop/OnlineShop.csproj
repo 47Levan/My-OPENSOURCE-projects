@@ -186,6 +186,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BuyProduct.css" />
     <Content Include="Content\CategoryList.css" />
     <Content Include="Content\ContactPage.css" />
     <Content Include="Content\Contacts.css" />
@@ -331,6 +332,10 @@
     <Compile Include="Migrations\OnlineShopDataBase\201609011654216_ChangedGoodToGlobalDatabase2.Designer.cs">
       <DependentUpon>201609011654216_ChangedGoodToGlobalDatabase2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\OnlineShopDataBase\201609141914277_PicturePreviewCatSubCat.cs" />
+    <Compile Include="Migrations\OnlineShopDataBase\201609141914277_PicturePreviewCatSubCat.Designer.cs">
+      <DependentUpon>201609141914277_PicturePreviewCatSubCat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\OnlineShopDataBase\Configuration.cs" />
     <Compile Include="Models\AccountOperations\AccauntOperations.cs" />
     <Compile Include="Models\AccountOperations\IAccauntOperations.cs" />
@@ -360,9 +365,6 @@
     </Content>
     <Content Include="Views\PartialViews\showCatButton.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
-    <Content Include="Views\Menu\Contacts.cshtml" />
-    <Content Include="Views\Menu\AboutShop.cshtml" />
-    <Content Include="Views\Menu\MethodsOfDelivery.cshtml" />
     <Content Include="Views\AddProductsDialog\AddedProduct.cshtml">
       <BrowseToURL>~/MainPageAddedProduct</BrowseToURL>
     </Content>
@@ -389,6 +391,9 @@
     <Content Include="Views\Auth\ShowOneUser.cshtml" />
     <Content Include="Views\Auth\EditProfile.cshtml" />
     <Content Include="Views\ShowProducts\BuyProduct.cshtml" />
+    <Content Include="Views\Menu\Contacts.cshtml" />
+    <Content Include="Views\Menu\AboutShop.cshtml" />
+    <Content Include="Views\Menu\MethodsOfDelivery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -416,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\OnlineShopDataBase\201609011654216_ChangedGoodToGlobalDatabase2.resx">
       <DependentUpon>201609011654216_ChangedGoodToGlobalDatabase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\OnlineShopDataBase\201609141914277_PicturePreviewCatSubCat.resx">
+      <DependentUpon>201609141914277_PicturePreviewCatSubCat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

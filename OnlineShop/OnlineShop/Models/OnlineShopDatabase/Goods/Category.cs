@@ -10,6 +10,7 @@ namespace OnlineShop.Models.OnlineShopDatabase.Goods
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string category { get; set; }
+        public string PictureRef { get; set; }
         public virtual ICollection<SubCategory> SubCategory { get; set; }
     }
 }
