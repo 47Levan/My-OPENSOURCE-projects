@@ -1,0 +1,94 @@
+﻿@model ZenchenkoProject.Models.Entities.WarmFloor
+
+<div>
+    <h4>Конструкция кабеля:</h4>
+    <table class="chars">
+        <tr>
+            <td>Проводник нагревательной части:</td>
+            <td>@Model.ConductorOfTheHeating</td>
+        </tr>
+
+        <tr>
+            <td>Проводник кабеля питания</td>
+            <td>@Model.PowerCable</td>
+        </tr>
+
+        <tr>
+            <td>Проводник заземления</td>
+            <td>@Model.GroundingConductor</td>
+        </tr>
+
+        <tr>
+            <td>Изоляция нагревательного элемента</td>
+            <td>@Model.InsulationOfTheHeatingElement</td>
+        </tr>
+
+        <tr>
+            <td>Защитный экран</td>
+            <td>@Model.ProtectScreen</td>
+        </tr>
+
+        <tr>
+            <td>Внешняя оболочка</td>
+            <td>@Model.OuterSheald</td>
+        </tr>
+
+        <tr>
+            <td>Тип соединения нагревательного кабеля и кабеля питания</td>
+            <td>@Model.TypeOfConnectionOfHeatingElement</td>
+        </tr>
+
+        <tr>
+            <td>Маркировка безмуфтового соединения</td>
+            <td>@Model.MarkingDirectCoupledConnections</td>
+        </tr>
+
+        <tr>
+            <td>Маркировка провода питания</td>
+            <td>@Model.WireMarking</td>
+        </tr>
+
+        <tr>
+            <td>Внешний диаметр</td>
+            <td>@Model.OuterDiameter</td>
+        </tr>
+    </table>
+    <h4>Технические характеристики:</h4>
+    <table class="chars">
+        <tr>
+            <td>Линейная мощность</td>
+            <td>@Model.LinearPower</td>
+        </tr>
+
+        <tr>
+            <td>Минимальный радиус изгиб</td>
+            <td>@Model.MinimumBendingRadius</td>
+        </tr>
+
+        <tr>
+            <td>Допустимая погрешность сопротивления элемента</td>
+            <td>@Model.PermissibleResistanceElement</td>
+        </tr>
+
+        <tr>
+            <td>Номинальное напряжение</td>
+            <td>@Model.RatedVoltage</td>
+        </tr>
+
+        <tr>
+            <td>Максимальное напряжение питания</td>
+            <td>@Model.TheMaximumVoltage</td>
+        </tr>
+
+        <tr>
+            <td>Максимальная рабочая to нагревательной жилы</td>
+            <td>@Model.MaximumTempOfTheOuterShell</td>
+        </tr>
+
+        <tr>
+            <td>Максимальная рабочая to внешней оболочки</td>
+            <td>@Model.MaximumOperatingTempOfHeatingConductor</td>
+        </tr>
+    </table>
+</div>
+

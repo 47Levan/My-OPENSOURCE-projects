@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Доставка";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<html>
+<head>
+    <link href="~/Content/MethodsOfDelivery.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="MethodsContainer" class="cf">
+        <div id="mod7">
+            <div class="moduletable">
+                <div xmlns:v="http://rdf.data-vocabulary.org/#">
+                    <ul class="breadcrumb">
+                        <li class="active"><span class="divider icon-location"></span></li>
+                        <li>
+                            <span typeof="v:Breadcrumb">
+                                <a href="/" class="pathway" rel="v:url" property="v:title">
+                                    Главная
+                                </a>
+                            </span>
+                        </li>
+                        <li class="active"><span>Оплата и доставка</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="system-message-container">
+        </div>
+        <div class="item-page form">
+            <h1>
+                Оплата и доставка
+            </h1>
+            <p>&nbsp;</p>
+            <h4>Способы оплаты товара</h4>
+            <ul>
+                <li>Наличный расчет.</li>
+                <li>Расчет банковской картой через банковский терминал в нашем офисе.</li>
+                <li>Безналичный расчет.</li>
+                <li>
+                    Оплата частями:
+                    <ul>
+                        <li>– услуга бесплатна;</li>
+                        <li>– необходимо быть держателем карты ПриватБанка («Универсальная», «Универсальная gold», «Platinum», «Infinite», «World Signia/Elit»);</li>
+                        <li>– оплата частями  доступна на 6  платежей;</li>
+                        <li>– если на вашей карте недостаточно собственных средств на дату погашения платежа, он будет погашен за счет кредитных, комиссия карты составит 4%.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <h4>Способы доставки</h4>
+            <img src="http://rdmarket.com.ua/images/misc/fast-delivery.gif">
+            <ul>
+                <li>
+                    <span style="color: #f00">Бесплатная доставка товара по г. Киеву</span>
+                    при заказе от 1000 грн. При заказе до 1000 грн. стоимость доставки – 30 грн.
+                </li>
+                <li>Доставка товара за пределы г. Киева выполняется на платной основе (10 грн/км от черты города).</li>
+                <li>Новая почта.</li>
+                <li>
+                    <div class="contentspoiler">
+                        <div class="spoiler_label spl" onclick="sh('spoilerID')">
+                            <p id="spoilerID_show_label" class="show_label_img" style="display: inline; visibility: visible;">Почтоматы Приватбанка</p>
+                            <p id="spoilerID_hide_label" class="hide_label_img" style="display: none; visibility: hidden;">Почтоматы Приватбанка</p>
+                        </div>
+                        <div class="spoiler_inner spi" id="spoilerID" name="spoilerID" style="display: none; visibility: hidden;">
+                            <div>
+                                <script type="text/javascript">
+                                    document.write("<iframe src='//post-search.privatbank.ua/?layout=widget&lang=ru&couriers=Новая почта&color=75af26&domain=" + window.location.host + "' width='550' height='400'></iframe>");
+                                </script>
+                                <iframe src="//post-search.privatbank.ua/?layout=widget&amp;lang=ru&amp;couriers=Новая почта&amp;color=75af26&amp;domain=rdmarket.com.ua" width="550" height="400"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Самовывоз из центрального офиса ООО «Разумный Дом» по адресу: г. Киев, ул. Сырецкая, 31<br>
+                    <!--<span style="color:#f00;">УВАЖАЕМЫЕ ПОКУПАТЕЛИ, ПРИ САМОВЫВОЗЕ ТОВАРА ИЗ НАШЕГО ОФИСА, ВАС ЖДЕТ ПРИЯТНЫЙ ПОДАРОК</span>-->
+                </li>
+            </ul>
+
+            <div class="clear"></div>
+        </div>
+
+        <div id="mod-seo">
+            <p>                    </p>
+        </div>
+    </div>
+</body>
+</html>

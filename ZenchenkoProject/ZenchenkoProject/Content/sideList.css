@@ -1,0 +1,60 @@
+﻿#sideList {
+    width: 300px;
+    margin-top: 40px;
+    margin-left: 50px;
+    float: left;
+    height: auto;
+}
+
+    #sideList ul {
+        display: block;
+        border: solid 1px gray;
+        list-style-type: none;
+        width: 250px;
+        padding: 0px;
+    }
+
+        #sideList ul:last-child {
+            margin-top: -15px;
+        }
+
+        #sideList ul li:first-child {
+            background-color: red;
+            color: white;
+            font: bold 19px arial;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+    #sideList  li {
+        list-style: none;
+        border: solid 1px gray;
+        height: 75px;
+        width: 100%;
+        font: bold 15px arial;
+        text-transform: uppercase;
+    }
+
+        #sideList  li:hover {
+            background-color: rgb(59,59,59);
+            color: white;
+        }
+
+            #sideList li:hover a {
+                color: white;
+            }
+
+    #sideList a {
+        color: rgb(59,59,59);
+        cursor: pointer;
+    }
+
+        #sideList a:hover {
+            text-decoration: none;
+        }
+
+        #sideList a div {
+            height: 100%;
+            width: 100%;
+            padding: 18px 20px;
+        }

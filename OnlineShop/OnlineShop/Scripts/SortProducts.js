@@ -13,5 +13,4 @@
             alert("SortProducts doesn't work");
         }
     })
-    //$(this).serialize() + '&sortChoice=' + $('#sortList').val()
 })

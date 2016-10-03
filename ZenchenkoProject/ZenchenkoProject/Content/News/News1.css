@@ -1,0 +1,44 @@
+﻿
+
+
+
+.item-page {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+    .item-page div img {
+        float: right;
+        margin: 5px 20px 15px 10px;
+        width: 300px;
+    }
+
+    .item-page p img {
+        float: left;
+        margin: 5px 20px 15px 10px;
+        width: 300px;
+    }
+
+    .item-page span img {
+        float: right;
+        margin: 5px 20px 15px 10px;
+        width: 300px;
+    }
+
+    .item-page .font-b {
+        font-weight: bold;
+    }
+
+    .item-page table {
+        font-size: 14px;
+        width: 600px;
+    }
+
+        .item-page table td {
+            border: solid 1px rgb(200,200,200);
+            padding: 10px;
+            width: 100px;
+        }
+    .item-page .list-square {
+        list-style-type: square;
+    }

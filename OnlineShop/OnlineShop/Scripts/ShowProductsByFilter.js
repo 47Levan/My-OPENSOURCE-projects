@@ -1,9 +1,9 @@
-﻿$('.subMenuItem').click(function (event) {
+﻿$(".subMenuItem").click(function (event) {
         $.ajax({
             url: "/ShowProducts/startShowProductsByFilter",
             type: "GET",
             data: {
-                subCategory: $(this).closest('li').find('.subMenuItem').val(),
+                subCategory: $(this).closest('li').find("button").val(),
             },
             success: function (partialView) {
                 $('#showProduct').empty();

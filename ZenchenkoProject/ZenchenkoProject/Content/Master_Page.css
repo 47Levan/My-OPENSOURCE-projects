@@ -1,0 +1,152 @@
+﻿.navbar.navbar-static-top {
+    height: 150px;
+}
+
+    .navbar.navbar-static-top > div:nth-child(1) {
+        height: 120px;
+        width: 100%;
+    }
+
+        .navbar.navbar-static-top > div:nth-child(1) > div {
+            display: inline-block;
+            margin-left: 50px;
+            height: 100%;
+            padding: 10px 10px;
+            vertical-align: top;
+        }
+
+            .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(2) {
+                text-align: center;
+                width: 360px;
+            }
+
+                .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(2) div {
+                    height: auto;
+                    width: 100%;
+                    margin-top: 30px;
+                }
+
+                .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(2) h6 {
+                    font: bold 20px arial;
+                    color: rgb(59, 59, 71);
+                    display: inline;
+                    margin-left: 20px;
+                }
+
+                    .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(2) h6 > span {
+                        font: normal 10px arial;
+                        display: inline;
+                    }
+
+                .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(2) p {
+                    font: normal 12px arial;
+                    color: rgb(169,39,43);
+                    text-decoration: underline;
+                    margin-top: 10px;
+                    cursor: pointer;
+                }
+
+            .navbar.navbar-static-top > div:nth-child(1) > div:nth-child(3) > input {
+                margin-top: 40px;
+                border: solid 1px rgb(230, 230, 230);
+                height: 40px;
+                width: 190px;
+            }
+
+        .navbar.navbar-static-top > div:nth-child(1) div:nth-child(n+4) {
+            margin-top: 30px;
+        }
+
+            .navbar.navbar-static-top > div:nth-child(1) div:nth-child(n+4) p {
+                display: inline;
+            }
+
+        .navbar.navbar-static-top > div:nth-child(1) div:nth-child(n+4) img {
+            display: inline;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+            .navbar.navbar-static-top > div:nth-child(1) div:nth-child(n+4) img:hover {
+                width: 50px;
+                height: 50px;
+            }
+
+.nav.navbar-nav {
+    height: 70px;
+    width: 100%;
+    background-color: rgb(169,39,43);
+}
+
+    .nav.navbar-nav > li:first-of-type {
+        margin-left: 390px;
+    }
+
+    .nav.navbar-nav a:first-of-type {
+        color: white;
+        font: bold 25px arial;
+    }
+
+    .nav.navbar-nav > li > a:hover,
+    .nav.navbar-nav > li > a:focus {
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+.container.body-content {
+    height: auto;
+}
+
+footer {
+    background-color: rgb(59,59,59);
+    height: 200px;
+    text-align: center;
+    bottom: 0px;
+}
+
+    footer a {
+        color: white;
+    }
+
+        footer a:hover {
+            color: white;
+        }
+
+    footer div {
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+        footer div:nth-child(2n+1) {
+            padding: 60px 60px;
+            height: 100%;
+        }
+
+        footer div:nth-child(1) {
+            float: left;
+        }
+
+        footer div:nth-child(3) {
+            float: right;
+        }
+
+    footer li {
+        list-style-type: none;
+        margin-top: 10px;
+    }
+
+    footer img {
+        margin-top: 70px;
+        width: 50px;
+    }
+
+    footer p {
+        color: white;
+    }
+
+    footer a,
+    footer p {
+        font: normal 16px Arial, sans-serif;
+    }

@@ -21,8 +21,9 @@
                     {
 
                         <li>
-                            <div type="button" value="@subcat.Id" class="subMenuItem">
-                                <span class="tooltip" data-tooltip="I'm small tooltip. Don't kill me!">Hover me!</span>
+                            <div class="subMenuItem">
+                                <button style="display:none" value="@subcat.Id"></button>
+                                <span class="tooltip" data-tooltip="@subcat.Id">Hover me!</span>
                                 <img src="@subcat.PictureRef"/>
                             </div>
 

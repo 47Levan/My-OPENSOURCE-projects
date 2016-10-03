@@ -1,0 +1,85 @@
+﻿#MainPageContainer {
+    margin-left: 350px;
+    margin-top: 100px;
+}
+
+    #MainPageContainer .owl-carousel {
+        margin-top: 30px;
+    }
+
+    #MainPageContainer h4 {
+        font: bold 25px arial;
+        color: rgb(59, 59, 71);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+.owl-carousel img {
+    width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    font: normal 30px arial;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+    left: -45px;
+    top: 105px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+    right: -45px;
+    top: 105px;
+}
+
+.owl-theme .owl-controls .owl-page span {
+    display: none;
+}
+
+.owl-carousel.products {
+    height: 300px;
+}
+
+    .owl-carousel.products a {
+        color: black;
+        text-decoration: none;
+    }
+
+        .owl-carousel.products a > div {
+            border: solid 1px #d9d9d9;
+            width: 80%;
+        }
+
+        .owl-carousel.products a:hover > div > div:nth-child(1) {
+            border: solid 1px rgb(227, 29, 36);
+        }
+
+        .owl-carousel.products a:hover > div > div:nth-child(n+2){
+            height: 100%;
+            background-color: red;
+            color: white;
+        }
+
+        .owl-carousel.products a > div > div:nth-child(3) {
+            border: solid 1px #d9d9d9;
+            text-align: center;
+            height: 40px;
+        }
+
+        .owl-carousel.products a:hover > div > div:nth-child(3) {
+            height: 100%;
+            height: 40px;
+        }
+
+        .owl-carousel.products a > div > div:nth-child(3) {
+            color: rgb(227, 29, 36);
+            font: bold 20px arial;
+            background-color: rgb(243, 243, 243);
+        }
+
+            .owl-carousel.products a > div > div:nth-child(3) p {
+                margin-top: 8px;
+            }

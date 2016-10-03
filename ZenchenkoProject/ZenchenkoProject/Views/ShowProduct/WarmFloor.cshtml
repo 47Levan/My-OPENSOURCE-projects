@@ -1,0 +1,259 @@
+﻿@model ZenchenkoProject.Models.Entities.WarmFloor
+
+@{
+    ViewBag.Title = "WarmFloor";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<html>
+<head>
+    <link href="~/Content/ShowOneProduct.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="ProductContainer">
+        <h3>@Model.Article</h3>
+        <img src="@Model.PictureRef" />
+        <table>
+            <tr>
+                <td>Мощность:</td>
+                <td>@Model.Power</td>
+            </tr>
+            <tr>
+                <td>Площадь обогрева:</td>
+                <td>@Model.Power</td>
+            </tr>
+            <tr>
+                <td>Гарантия:</td>
+                <td>@Model.Power</td>
+            </tr>
+            <tr>
+                <td>Страна производитель:</td>
+                <td>@Model.Power</td>
+            </tr>
+        </table>
+        <div>
+            <div>
+                <p>Купить в 1 клик</p>
+                @if (@Model.IsInStock)
+                {
+                    <p>Наличие:<span>есть</span></p>
+                }
+                else
+                {
+                    <p>Наличие:<span>нет</span></p>
+                }
+            </div>
+            <div>
+                <p>@Model.Price</p>
+                <p>Купить</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-tabs">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#">Описание</a>
+            </li>
+            <li>
+                <a href="#">Характеристики</a>
+            </li>
+            <li>
+                <a href="#">Ассортимент</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="tabContainer">
+        </div>
+    </div>
+    <script type="text/javascript">
+        function DescContent() {
+            $(".nav.nav-tabs li").removeClass("active");
+            $(".nav.nav-tabs li:first-child").addClass("active");
+            document.getElementById("tabContainer").innerHTML = "<p>@Model.Description<p>";
+            $("#tabContainer").css({ "padding-left": "20px" });
+            $("#tabContainer").css({ "padding-top": "20px" });
+        }
+        $(document).ready(function () {
+            DescContent();
+            $('.nav-tabs a').on('click', function () {
+                if ($(this).text() == "Характеристики") {
+                    $.post("/ShowProduct/ShowCharacteristics", { WarmFloorId: @Model.Id }, function(partialView) {
+                        $(".nav.nav-tabs li").removeClass("active");
+                        $(".nav.nav-tabs li:nth-child(2)").addClass("active");
+                        $('#tabContainer').empty();
+                        $('#tabContainer').html(partialView);
+                    });
+                }else if(($(this).text() == "Описание")) {
+                    DescContent();
+                }else if (($(this).text()=="Ассортимент")) {
+                    $('#tabContainer').empty();
+                    var strAssort="";
+                    strAssort += "<table class=\"tablichka\" style=\"width: 90%;\" border=\"0\" cellspacing=\"4\" align=\"center\">";
+                    strAssort += "<tbody>";
+                    strAssort += "<tr>";
+                    strAssort += "<td rowspan=\"3\" align=\"center\" width=\"110px\"><strong>Марка <br> кабеля <\/strong><\/td>";
+                    strAssort += "<td rowspan=\"2\" colspan=\"2\" align=\"center\"><strong>Мощность, Вт при<\/strong><\/td>";
+                    strAssort += "<td rowspan=\"3\" align=\"center\"><strong>Длина*, <br> м<\/strong><\/td>";
+                    strAssort += "<td rowspan=\"3\" align=\"center\"><strong> Сопротив-<br> ление, Ом<\/strong><\/td>";
+                    strAssort += "<td colspan=\"3\" align=\"center\"><strong>Площадь обогрева, м² <\/strong><\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td rowspan=\"2\" align=\"center\"><strong>170 Вт\/м² <\/strong><\/td>";
+                    strAssort += "<td rowspan=\"2\" align=\"center\"><strong>136 Вт\/м² <\/strong><\/td>";
+                    strAssort += "<td rowspan=\"2\" align=\"center\"><strong>112 Вт\/м² <\/strong><\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td align=\"center\"><strong>230В<\/strong><\/td>";
+                    strAssort += "<td align=\"center\"><strong>220В<\/strong><\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 200\/17<\/td>";
+                    strAssort += "<td align=\"center\">200<\/td>";
+                    strAssort += "<td align=\"center\">183<\/td>";
+                    strAssort += "<td align=\"center\">11,8<\/td>";
+                    strAssort += "<td align=\"center\">264,5<\/td>";
+                    strAssort += "<td align=\"center\">1,2<\/td>";
+                    strAssort += "<td align=\"center\">1,5<\/td>";
+                    strAssort += "<td align=\"center\">1,8<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 300\/17<\/td>";
+                    strAssort += "<td align=\"center\">300<\/td>";
+                    strAssort += "<td align=\"center\">275<\/td>";
+                    strAssort += "<td align=\"center\">17,6<\/td>";
+                    strAssort += "<td align=\"center\">176,3<\/td>";
+                    strAssort += "<td align=\"center\">1,8<\/td>";
+                    strAssort += "<td align=\"center\">2,2<\/td>";
+                    strAssort += "<td align=\"center\">2,6<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 400\/17<\/td>";
+                    strAssort += "<td align=\"center\">400<\/td>";
+                    strAssort += "<td align=\"center\">367<\/td>";
+                    strAssort += "<td align=\"center\">23,5<\/td>";
+                    strAssort += "<td align=\"center\">132,5<\/td>";
+                    strAssort += "<td align=\"center\">2,4<\/td>";
+                    strAssort += "<td align=\"center\">2,9<\/td>";
+                    strAssort += "<td align=\"center\">3,5<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 500\/17<\/td>";
+                    strAssort += "<td align=\"center\">500<\/td>";
+                    strAssort += "<td align=\"center\">458<\/td>";
+                    strAssort += "<td align=\"center\">29,3<\/td>";
+                    strAssort += "<td align=\"center\">105,8<\/td>";
+                    strAssort += "<td align=\"center\">2,9<\/td>";
+                    strAssort += "<td align=\"center\">3,7<\/td>";
+                    strAssort += "<td align=\"center\">4,4<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 600\/17<\/td>";
+                    strAssort += "<td align=\"center\">600<\/td>";
+                    strAssort += "<td align=\"center\">550<\/td>";
+                    strAssort += "<td align=\"center\">35,2<\/td>";
+                    strAssort += "<td align=\"center\">88,5<\/td>";
+                    strAssort += "<td align=\"center\">3,5<\/td>";
+                    strAssort += "<td align=\"center\">4,4<\/td>";
+                    strAssort += "<td align=\"center\">5,3<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 700\/17<\/td>";
+                    strAssort += "<td align=\"center\">700<\/td>";
+                    strAssort += "<td align=\"center\">640<\/td>";
+                    strAssort += "<td align=\"center\">41,0<\/td>";
+                    strAssort += "<td align=\"center\">75,9<\/td>";
+                    strAssort += "<td align=\"center\">4,1<\/td>";
+                    strAssort += "<td align=\"center\">5,1<\/td>";
+                    strAssort += "<td align=\"center\">6,2<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 840\/17<\/td>";
+                    strAssort += "<td align=\"center\">840<\/td>";
+                    strAssort += "<td align=\"center\">776<\/td>";
+                    strAssort += "<td align=\"center\">49,7<\/td>";
+                    strAssort += "<td align=\"center\">60,7<\/td>";
+                    strAssort += "<td align=\"center\">5,0<\/td>";
+                    strAssort += "<td align=\"center\">6,2<\/td>";
+                    strAssort += "<td align=\"center\">7,5<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 1000\/17<\/td>";
+                    strAssort += "<td align=\"center\">1000<\/td>";
+                    strAssort += "<td align=\"center\">910<\/td>";
+                    strAssort += "<td align=\"center\">58,3<\/td>";
+                    strAssort += "<td align=\"center\">53,4<\/td>";
+                    strAssort += "<td align=\"center\">5,8<\/td>";
+                    strAssort += "<td align=\"center\">7,3<\/td>";
+                    strAssort += "<td align=\"center\">8,7<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 1250\/17<\/td>";
+                    strAssort += "<td align=\"center\">1250<\/td>";
+                    strAssort += "<td align=\"center\">1130<\/td>";
+                    strAssort += "<td align=\"center\">72,4<\/td>";
+                    strAssort += "<td align=\"center\">43,0<\/td>";
+                    strAssort += "<td align=\"center\">7,2<\/td>";
+                    strAssort += "<td align=\"center\">9,1<\/td>";
+                    strAssort += "<td align=\"center\">10,9<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 1370\/17<\/td>";
+                    strAssort += "<td align=\"center\">1370<\/td>";
+                    strAssort += "<td align=\"center\">1261<\/td>";
+                    strAssort += "<td align=\"center\">80,8<\/td>";
+                    strAssort += "<td align=\"center\">38,5<\/td>";
+                    strAssort += "<td align=\"center\">8,1<\/td>";
+                    strAssort += "<td align=\"center\">10,1<\/td>";
+                    strAssort += "<td align=\"center\">12,1<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 1700\/17<\/td>";
+                    strAssort += "<td align=\"center\">1700<\/td>";
+                    strAssort += "<td align=\"center\">1560<\/td>";
+                    strAssort += "<td align=\"center\">100,0<\/td>";
+                    strAssort += "<td align=\"center\">31,1<\/td>";
+                    strAssort += "<td align=\"center\">10,0<\/td>";
+                    strAssort += "<td align=\"center\">12,5<\/td>";
+                    strAssort += "<td align=\"center\">15,0<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 2100\/17<\/td>";
+                    strAssort += "<td align=\"center\">2100<\/td>";
+                    strAssort += "<td align=\"center\">1930<\/td>";
+                    strAssort += "<td align=\"center\">123,7<\/td>";
+                    strAssort += "<td align=\"center\">25,4<\/td>";
+                    strAssort += "<td align=\"center\">12,4<\/td>";
+                    strAssort += "<td align=\"center\">15,5<\/td>";
+                    strAssort += "<td align=\"center\">18,6<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 2600\/17<\/td>";
+                    strAssort += "<td align=\"center\">2600<\/td>";
+                    strAssort += "<td align=\"center\">2411<\/td>";
+                    strAssort += "<td align=\"center\">154,5<\/td>";
+                    strAssort += "<td align=\"center\">20,1<\/td>";
+                    strAssort += "<td align=\"center\">15,5<\/td>";
+                    strAssort += "<td align=\"center\">19,3<\/td>";
+                    strAssort += "<td align=\"center\">23,2<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<tr>";
+                    strAssort += "<td>TXLP\/2R 3300\/17<\/td>";
+                    strAssort += "<td align=\"center\">3300<\/td>";
+                    strAssort += "<td align=\"center\">3027<\/td>";
+                    strAssort += "<td align=\"center\">194,0<\/td>";
+                    strAssort += "<td align=\"center\">16,1<\/td>";
+                    strAssort += "<td align=\"center\">19,4<\/td>";
+                    strAssort += "<td align=\"center\">24,3<\/td>";
+                    strAssort += "<td align=\"center\">29,1<\/td>";
+                    strAssort += "<\/tr>";
+                    strAssort += "<\/tbody>";
+                    strAssort += "<\/table>";
+                    strAssort += "<p>* Указана длина греющей части кабеля, дополнительно 2,25 м" +
+                        "«холодного» медного кабеля питания сечением 2 х 1,0 мм</p>";
+                    document.getElementById("tabContainer").innerHTML = strAssort;
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

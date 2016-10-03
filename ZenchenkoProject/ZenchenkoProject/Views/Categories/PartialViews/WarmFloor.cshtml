@@ -1,0 +1,63 @@
+﻿@using PagedList.Mvc
+@using ZenchenkoProject.Models.Entities;
+@model PagedList.IPagedList<WarmFloor>
+<ul>
+    @foreach (var item in Model)
+            {
+        <li>
+            <a href="@Url.Action("WarmFloor", "ShowProduct", new
+                         {
+                             WarmFloorId = item.Id
+                         })">
+                <div>
+                    <h3>@item.Article</h3>
+                    <img src="@item.PictureRef" />
+                    <table>
+                        <tr>
+                            <td>Мощность:</td>
+                            <td>@item.Power</td>
+                        </tr>
+                        <tr>
+                            <td>Площадь обогрева:</td>
+                            <td>@item.Power</td>
+                        </tr>
+                        <tr>
+                            <td>Гарантия:</td>
+                            <td>@item.Power</td>
+                        </tr>
+                        <tr>
+                            <td>Страна производитель:</td>
+                            <td>@item.Power</td>
+                        </tr>
+                    </table>
+                    <div>
+                        <p>@item.Price</p>
+                        <p>Купить</p>
+                        @if (@item.IsInStock)
+                        {
+                            <p>Наличие:<span>есть</span></p>
+                        }
+                        else
+                        {
+                            <p>Наличие:<span>нет</span></p>
+                        }
+                    </div>
+                </div>
+            </a>
+
+        </li>
+    }
+</ul>
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("WarmFloor", "Categories", new
+       {
+           pageNumber = page,
+           @id = "Page_Changer"
+       }), new PagedListRenderOptions
+       {
+           LinkToNextPageFormat = ">",
+           LinkToPreviousPageFormat = "<",
+           DisplayLinkToNextPage = PagedListDisplayMode.Always,
+           DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+       })
+</div>

@@ -1,0 +1,86 @@
+﻿@using ZenchenkoProject.Models
+@using ZenchenkoProject.Models.Entities
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="http://faviconka.ru/ico/faviconka_ru_1232.png" type="image/x-icon"/>
+    @Scripts.Render("~/bundle/BasicScripts")
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/Master_Page.css" />
+</head>
+<body>
+<div class="navbar navbar-static-top">
+    <div>
+        <div>
+            <img src="http://rdmarket.com.ua/images/logo.png"/>
+        </div>
+        <div>
+            <div>
+                <h6>
+                    <span>(044)</span> 501 40 40
+                </h6>
+                <h6>
+                    <span>(067)</span> 403 86 32
+                </h6>
+            </div>
+
+            <p>
+                ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК
+            </p>
+        </div>
+        <div>
+            <input type="search"/>
+        </div>
+        <div>
+            <p>Корзина</p>
+            <img src="http://ixmaster.net/wp-content/uploads/2012/12/kak-perevesti-v-wp-e-commerce-price-na-cena.jpg"/>
+        </div>
+        <div>
+            <p>Вход</p>
+            <img src="http://www.clker.com/cliparts/1/P/1/Y/B/P/red-key-hi.png"/>
+        </div>
+    </div>
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Главная","Index","Home")</li>
+        <li>@Html.ActionLink("Новости", "News", "Home")</li>
+        <li><a href="#">Акции</a></li>
+        <li>@Html.ActionLink("Оплата и доставка", "MethodsOfDelivery", "Home")</li>
+        <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+    </ul>
+</div>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+<footer>
+    <div>
+        <ul>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Карта сайта</a></li>
+        </ul> 
+    </div>
+    <div>
+        <img src="https://cdn0.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/256/social_facebook_box_blue.png"/>
+        <p>© 2016 Интернет-магазин "Разумный Дом"</p>
+            <p>Все права защищены.</p>
+    </div>
+    <div>
+        <ul>
+            <li><p>Наши контакты</p></li>
+            <li><p>(044) 501 40 40</p></li>
+            <li><p>(067) 403 86 32</p></li>
+        </ul> 
+    </div>
+    <div>
+        
+    </div>
+</footer>
+</body>
+</html>

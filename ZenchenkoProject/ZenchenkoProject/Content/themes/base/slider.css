@@ -1,0 +1,212 @@
+#WarmFloorsFilters {
+    float: left;
+    margin-top: 30px;
+}
+
+    #WarmFloorsFilters p {
+        font: normal 12px arial;
+    }
+
+    #WarmFloorsFilters h4 {
+        height: 35px;
+        font: bold 20px arial;
+        border-bottom: solid 1px rgb(200,200,200);
+    }
+
+    #WarmFloorsFilters div:nth-of-type(1) input {
+        display: inline;
+        width: 70px;
+    }
+
+    #WarmFloorsFilters div:nth-of-type(1) p {
+        display: inline;
+    }
+
+#warmFloorSlider {
+    margin-top: 20px;
+}
+
+
+.ui-slider {
+    position: relative;
+    height: 5px;
+}
+    /* Ползунок */
+    .ui-slider .ui-slider-handle {
+        position: absolute;
+        z-index: 2;
+        width: 10px; 
+        height: 10px; 
+        background-color: red;
+        border-radius: 100px;
+        cursor: pointer;
+        -ms-touch-action: none;
+
+    }
+
+    .ui-slider .ui-slider-range {
+        position: absolute;
+        font-size: .7em;
+        display: block;
+        border: 0;
+        background-position: 0 0;
+        z-index:1;
+
+    }
+.ui-slider-horizontal {
+    height: 2px;
+    background-color:rgb(184, 184, 184);
+}
+    .ui-slider-horizontal .ui-slider-handle {
+        top: -4px;
+        margin-left: -5px;
+    }
+
+    .ui-slider-horizontal .ui-slider-range {
+        top: 0;
+        height:100%;
+    }
+
+    .ui-slider-horizontal .ui-slider-range-min {
+        left: 0;
+    }
+
+    .ui-slider-horizontal .ui-slider-range-max {
+        right: 0;  
+    }
+.ui-widget-content {
+    
+}
+.ui-widget-header {
+    background-color: red;
+}
+
+
+#ProductContainer {
+    margin-left: 170px;
+    margin-top: 50px;
+    width: 900px;
+    text-align: center;
+}
+
+    #ProductContainer > ul li {
+        list-style-type: none;
+        border: solid 1px rgb(230, 230, 230);
+        margin-bottom: 30px;
+    }
+
+    #ProductContainer li table {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 80px;
+    }
+
+        #ProductContainer li table td {
+            padding: 10px 10px;
+            border: solid 1px rgb(230, 230, 230);
+        }
+
+            #ProductContainer li table td:first-child {
+                text-align: right;
+                border-left: 0;
+            }
+
+            #ProductContainer li table td:last-child {
+                border-right: 0;
+                text-align: left;
+                width: 200px;
+            }
+
+        #ProductContainer li table tr:first-child td {
+            border-top: 0;
+        }
+
+        #ProductContainer li table tr:last-child td {
+            border-bottom: 0;
+        }
+
+    #ProductContainer li img {
+        width: 160px;
+    }
+
+    #ProductContainer li > a {
+        color: black;
+    }
+
+        #ProductContainer li > a:hover {
+            text-decoration: none;
+        }
+
+        #ProductContainer li > a > div > div {
+            vertical-align: top;
+            float: right;
+            padding: 50px 50px;
+        }
+
+        #ProductContainer li > a > div > div {
+            vertical-align: top;
+            float: right;
+            padding: 50px 50px;
+        }
+
+        #ProductContainer li > a > div > div {
+            vertical-align: top;
+            float: right;
+            padding: 50px 50px;
+        }
+
+            #ProductContainer li > a > div > div > p:first-child {
+                background-color: rgb(243, 243, 243);
+                width: 130px;
+                height: 30px;
+                color: red;
+                font: bold 25px arial;
+                vertical-align: middle;
+            }
+
+            #ProductContainer li > a > div > div > p:nth-child(2) {
+                background-color: red;
+                width: 130px;
+                height: 30px;
+                color: white;
+                font: bold 25px arial;
+                vertical-align: middle;
+            }
+
+    #ProductContainer span {
+        font-weight: bold;
+    }
+
+    #ProductContainer > div {
+        width: 100%;
+        text-align: left;
+        margin-left: 40px;
+    }
+
+#mod-seo p,
+#mod-seo h2,
+#mod-seo li {
+    text-align: justify;
+}
+
+#mod-seo th,
+#mod-seo td {
+    text-align: left;
+}
+
+#mod-seo table {
+    width: 80%;
+}
+
+    #mod-seo table tbody td:nth-child(2) {
+        width: 230px;
+    }
+
+    #mod-seo table tbody td:nth-child(3),
+    #mod-seo table tbody td:nth-child(4) {
+        margin-right: 100px;
+    }
+
+#mod-seo a {
+    line-height: 20.8px;
+}

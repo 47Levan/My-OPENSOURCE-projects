@@ -1,0 +1,140 @@
+﻿#ProductContainer {
+    margin-top: 50px;
+}
+
+    #ProductContainer img {
+        width: 160px;
+    }
+
+    #ProductContainer table {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 80px;
+    }
+
+        #ProductContainer table td {
+            padding: 10px 10px;
+            border: solid 1px rgb(230, 230, 230);
+        }
+
+            #ProductContainer table td:first-child {
+                text-align: right;
+                border-left: 0;
+            }
+
+            #ProductContainer table td:last-child {
+                border-right: 0;
+                text-align: left;
+                width: 200px;
+            }
+
+        #ProductContainer table tr:first-child td {
+            border-top: 0;
+        }
+
+        #ProductContainer table tr:last-child td {
+            border-bottom: 0;
+        }
+
+    #ProductContainer > div {
+        display: block;
+        margin-left: 285px;
+    }
+
+        #ProductContainer > div > div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+            #ProductContainer > div > div:first-child {
+                margin-top: 50px;
+            }
+
+                #ProductContainer > div > div:first-child > p:first-child,
+                #ProductContainer > div > div:last-child > p:first-child,
+                #ProductContainer > div > div:last-child > p:last-child {
+                    height: 40px;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding-top: 8px;
+                    font: bold 23px arial;
+                }
+
+                #ProductContainer > div > div:first-child > p:first-child {
+                    background-color: rgb(248, 157, 13);
+                    width: 200px;
+                    color: white;
+                }
+
+            #ProductContainer > div > div:last-child > p:first-child {
+                background-color: rgb(243, 243, 243);
+                width: 130px;
+                color: red;
+            }
+
+            #ProductContainer > div > div:last-child > p:last-child {
+                background-color: red;
+                width: 130px;
+                color: white;
+            }
+
+    #ProductContainer span {
+        font-weight: bold;
+    }
+
+.nav.nav-tabs a {
+    color: black;
+    font: bold 13px arial;
+}
+
+.nav.nav-tabs > li > a:hover {
+    background-color: transparent;
+    border: solid 1px transparent;
+    color: black;
+}
+
+.nav.nav-tabs .active a,
+.nav.nav-tabs .active a:hover {
+    color: black;
+    border: solid 1px rgb(230, 230, 230);
+}
+
+
+.tab-content {
+    min-height: 400px;
+    border: solid 1px rgb(230, 230, 230);
+    margin-bottom: 60px;
+}
+
+.chars {
+    margin-bottom: 40px;
+}
+
+    .chars td {
+        padding: 10px 30px;
+        border: solid 1px rgb(230, 230, 230);
+    }
+
+    .chars tr:first-child td {
+        border-top: 0;
+    }
+
+    .chars tr:last-child td {
+        border-bottom: 0;
+    }
+
+    .chars td:last-child {
+        border-right: 0;
+    }
+
+    .chars td:first-child {
+        border-left: 0;
+    }
+
+.tablichka {
+    margin-bottom: 20px;
+}
+
+    .tablichka td {
+        border: solid 1px rgb(230, 230, 230);
+    }

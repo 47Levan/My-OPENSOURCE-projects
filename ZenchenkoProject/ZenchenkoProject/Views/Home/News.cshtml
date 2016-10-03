@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+@using PagedList.Mvc
+@using ZenchenkoProject.Models.Entities
+@model PagedList.IPagedList<News>
+<html>
+<head>
+    <title>News</title>
+    <link href="~/Content/News.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/GreyPagedList.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="newsContainer">
+        <ul>
+            @foreach (News news in Model)
+            {
+                <li>
+                    <a href="@Url.Action("GetNews", "Home", 
+                            new {pageLink = @news.FullPageLink})">
+                        @news.Title
+                    </a>
+                    <div>
+                        <div>
+                            <a href="@Url.Action("GetNews", "Home", 
+                                    new {pageLink = @news.FullPageLink})">
+                                <img style="width: 200px; height: auto" src="@Url.Content(@news.PreviewPicture)" />
+                            </a>
+                        </div>
+                        <div>
+                            <a style="text-decoration: none; color: black"
+                            href="@Url.Action("GetNews", "Home",
+                                 new { pageLink = @news.FullPageLink })">
+                            <p>@news.ShortDiscription</p>
+                            <p> @news.DateAdded </p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+    </div>
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("News", "Home", new
+   {
+       pageNumber = page,
+   }), new PagedListRenderOptions()
+   {
+       LinkToNextPageFormat = ">",
+       LinkToPreviousPageFormat = "<",
+       DisplayLinkToNextPage = PagedListDisplayMode.Always,
+       DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+   })
+    </div>
+
+</body>
+</html>

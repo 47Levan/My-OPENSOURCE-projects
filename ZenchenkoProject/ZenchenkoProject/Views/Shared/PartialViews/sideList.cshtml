@@ -1,0 +1,45 @@
+﻿<link type="text/css" rel="stylesheet" href="~/Content/sideList.css" />
+@using ZenchenkoProject.Models
+@using ZenchenkoProject.Models.Entities
+@using ZenchenkoProject.Models.Repositories
+@using ZenchenkoProject.Models.Repositories.Interfaces
+@{
+    CategoriesRepository catRepo = new CategoriesRepository();
+    ServiceRepository servRepo = new ServiceRepository();
+    List<Category> Categories = new List<Category>();
+    List<Service> Services = new List<Service>();
+    Categories = catRepo.GetAll();
+    Services = servRepo.GetAll();
+}
+<div id="sideList">
+    <ul>
+        <li>Каталог продукции</li>
+        @foreach (Category cat in Categories)
+        {
+            <li>
+                <a href="@Url.Action(@cat.ActionMethod, @cat.Controller)">
+                    <div>
+                        <p>
+                            @cat.Name
+                        </p>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+    <ul>
+        <li>Услуги</li>
+        @foreach (Service service in Services)
+        {
+            <li>
+                <a>
+                    <div>
+                        <p>
+                            @service.Name
+                        </p>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
